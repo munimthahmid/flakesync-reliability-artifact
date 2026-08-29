@@ -1,0 +1,384 @@
+{
+  "schema_version": "reliability-aware-async-repair-contract-v1",
+  "status": "specified-not-implemented-or-evaluated",
+  "scope": {
+    "localization_input": "A reproduced async failure plus a FlakeSync-style critical point, barrier point, expected completion multiplicity, and witnessed failure-inducing schedule.",
+    "changes_localization": false,
+    "changes_source_repair_and_validation": true,
+    "claim_boundary": "This document specifies a candidate-generation and acceptance contract. It is not evidence that a new repair technique already exists or outperforms FlakeSync."
+  },
+  "verdict_lattice": {
+    "pass": "Every applicable property has positive evidence under the frozen validation scenarios and no prohibited structural fact is present.",
+    "fail": "At least one direct contract violation or dynamically witnessed failure exists.",
+    "unknown": "No failure has been established, but at least one required property lacks a valid or supported probe.",
+    "overall": {
+      "reliable": "all applicable properties pass",
+      "unreliable": "one or more properties fail",
+      "unresolved": "no property fails and one or more properties are unknown"
+    }
+  },
+  "properties": [
+    {
+      "id": "P1",
+      "name": "artifact integrity and buildability",
+      "requirement": "Generation is transactional: all intended edits are emitted, the clean source is restored, the diff reapplies to the pinned revision, and the affected module compiles.",
+      "static_checks": [
+        "parse every emitted diff and require at least one real hunk",
+        "reject absolute or unresolved diff targets in the distributable patch",
+        "reject partial multi-file output, leaked backup files, and dirty restoration",
+        "AST-parse changed Java files before publishing the candidate"
+      ],
+      "dynamic_checks": [
+        "git-apply check on a clean pinned revision",
+        "affected-module compilation using the recorded environment",
+        "project formatting and mandatory quality gates where available"
+      ],
+      "failure_oracle": "Any internal exception, missing file, dirty workspace, apply failure, compilation failure, or required quality-gate failure rejects the candidate; a zero Maven exit alone is insufficient."
+    },
+    {
+      "id": "P2",
+      "name": "ordinary behavior preservation",
+      "requirement": "The original target oracle and relevant ordinary behavior remain visible without perturbation.",
+      "static_checks": [
+        "retain the defining assertion or replace it only with a demonstrably equivalent stronger oracle",
+        "flag production-code test hooks and unrelated API changes",
+        "record changed files, methods, public APIs, and assertion edits"
+      ],
+      "dynamic_checks": [
+        "ten fresh ordinary target executions",
+        "target class or nearest relevant sibling selection",
+        "affected module tests and project quality gates where feasible"
+      ],
+      "failure_oracle": "Any target non-pass, hidden worker exception, deleted or weakened oracle, or differential ordinary regression rejects the candidate."
+    },
+    {
+      "id": "P3",
+      "name": "causal effectiveness",
+      "requirement": "The repair prevents the exact reproduced failure because it enforces the required causal completion, not merely because a later rerun happened to pass.",
+      "static_checks": [
+        "map the awaited condition to the critical event and original assertion",
+        "reject synchronization on an event that can occur before the asserted state is safe",
+        "record the critical, barrier, threshold, delay, and source revision in the candidate manifest"
+      ],
+      "dynamic_checks": [
+        "matched unpatched and patched executions under the same recorded perturbation",
+        "durable witnesses that the delay, critical update, barrier wait, and target test executed",
+        "hold-out perturbations around the same causal interval when available"
+      ],
+      "failure_oracle": "The unpatched control must reproduce the defining failure with witnessed perturbation and the patched execution must pass with the same witnessed perturbation; otherwise effectiveness is failed or unknown, never assumed."
+    },
+    {
+      "id": "P4",
+      "name": "bounded progress",
+      "requirement": "The waiter has a semantic deadline and a diagnostic failure path when a producer fails, never starts, never publishes, or publishes only part of the expected completion set.",
+      "static_checks": [
+        "reject unbounded while loops and deadline-free awaits",
+        "require a monotonic deadline or a bounded concurrency API",
+        "require a timeout message naming the awaited event and observed state"
+      ],
+      "dynamic_checks": [
+        "suppress publication immediately before the synchronization event",
+        "throw from the producer immediately before publication",
+        "omit producer start where the harness supports it",
+        "withhold one of multiple required completions"
+      ],
+      "failure_oracle": "The repair must terminate through its own bounded diagnostic before the outer harness deadline. An outer process timeout is a repair failure, not acceptable timeout handling."
+    },
+    {
+      "id": "P5",
+      "name": "memory and multi-writer safety",
+      "requirement": "Cross-thread publication has a Java happens-before edge and multi-writer updates cannot be lost, duplicated, or counted before causal completion.",
+      "static_checks": [
+        "reject plain shared fields used for cross-thread publication",
+        "reject volatile compound updates such as counter++",
+        "require Future, CompletableFuture, CountDownLatch, Phaser, join, lock/condition, or an equivalent documented primitive",
+        "verify that expected multiplicity and exactly-once completion are well defined"
+      ],
+      "dynamic_checks": [
+        "deterministic post-read/pre-write rendezvous for counter-like updates",
+        "two or more natural writers where the subject exposes them",
+        "partial, duplicate, and reordered writer completion scenarios"
+      ],
+      "failure_oracle": "Any confirmed lost update, premature release, duplicate satisfaction, visibility violation, or unsound multiplicity rejects the candidate. Absence of a second writer is unknown rather than a pass."
+    },
+    {
+      "id": "P6",
+      "name": "invocation isolation and noninterference",
+      "requirement": "Synchronization state belongs to one operation or test invocation and cannot be observed or satisfied by an earlier, neighboring, or parallel invocation.",
+      "static_checks": [
+        "reject process-wide mutable synchronization state",
+        "require local or uniquely keyed per-invocation state",
+        "construct the synchronization object before workers can publish",
+        "require cleanup on every normal and exceptional exit"
+      ],
+      "dynamic_checks": [
+        "fresh-JVM target execution",
+        "sequential repeated execution in a reused JVM",
+        "neighboring test or target-class execution",
+        "same-test and peer-test parallel execution with confirmed execution witnesses",
+        "early publication before the barrier begins waiting"
+      ],
+      "failure_oracle": "A differential neighboring, reused-JVM, or parallel non-pass, a stale/early signal satisfying the wrong invocation, or direct global-state leakage rejects the candidate. Unsupported or unconfirmed execution remains unknown."
+    },
+    {
+      "id": "P7",
+      "name": "cancellation, interruption, and cleanup",
+      "requirement": "An active waiter responds to cancellation, preserves the interrupted status or propagates InterruptedException, and releases temporary resources and hooks.",
+      "static_checks": [
+        "require an explicit interruption path",
+        "require re-interruption when InterruptedException is converted to an assertion failure",
+        "require finally or teardown cleanup for listeners, tasks, and scoped state"
+      ],
+      "dynamic_checks": [
+        "suppress the completion publication without terminating the producer",
+        "directly interrupt the thread inside the generated wait",
+        "cancel outstanding futures or shut down the executor where supported"
+      ],
+      "failure_oracle": "Both intervention witnesses must be present; the waiter must terminate within its semantic deadline, preserve cancellation semantics, and leave no live worker or hook."
+    },
+    {
+      "id": "P8",
+      "name": "behavioral fidelity and oracle preservation",
+      "requirement": "The repair preserves the test's intended assertion and propagates causal worker failures instead of making the test green by weakening behavior.",
+      "static_checks": [
+        "diff assertions and expected exceptions",
+        "flag catch-and-ignore blocks, removed checks, widened tolerances, and disabled tests",
+        "record test-only changes to production code and public APIs"
+      ],
+      "dynamic_checks": [
+        "inject a worker exception and require it to reach the test outcome",
+        "run unchanged neighboring assertions",
+        "compare failure type and diagnostics with the unpatched defining failure"
+      ],
+      "failure_oracle": "Assertion suppression, exception swallowing, unjustified tolerance widening, or success after a witnessed causal worker failure rejects the candidate."
+    },
+    {
+      "id": "P9",
+      "name": "repeatability under positive and counter-scenarios",
+      "requirement": "The preceding properties hold for the declared number of independent executions and targeted counter-scenarios.",
+      "static_checks": [
+        "freeze commands, seeds, resources, bounds, stopping rules, and evidence requirements before execution",
+        "hash every candidate and validation input"
+      ],
+      "dynamic_checks": [
+        "paper-style 100-run confirmation when claiming reproduction of the paper oracle",
+        "ten ordinary source-patch runs",
+        "five matched recorded-delay pairs when the first pair does not already fail",
+        "deterministic targeted counter-scenarios with durable intervention witnesses"
+      ],
+      "failure_oracle": "Stop at the first non-pass for an all-runs-pass claim. A successful rerun never erases an earlier preserved counterexample."
+    }
+  ],
+  "candidate_generation": {
+    "ordered_strategy": [
+      {
+        "rank": 1,
+        "strategy": "reuse an existing causal completion abstraction",
+        "examples": [
+          "Future.get with a semantic timeout and exception propagation",
+          "CompletableFuture completion or allOf",
+          "CountDownLatch await with a justified count and timeout",
+          "Thread.join with a timeout and postcondition",
+          "existing callback, listener, condition, or domain state transition"
+        ]
+      },
+      {
+        "rank": 2,
+        "strategy": "introduce an invocation-local bounded synchronization object",
+        "requirements": [
+          "created before any producer can publish",
+          "passed through an existing scoped object or a minimal typed interface",
+          "one completion per causal producer",
+          "semantic deadline, interrupt propagation, exception propagation, and finally cleanup",
+          "no static mutable state and no generic production test hook"
+        ]
+      },
+      {
+        "rank": 3,
+        "strategy": "bounded polling of a domain predicate",
+        "requirements": [
+          "predicate directly implies the assertion's safety",
+          "monotonic deadline based on project or domain semantics",
+          "sleep or blocking wait rather than Thread.yield spinning",
+          "original assertion retained after the poll"
+        ]
+      },
+      {
+        "rank": 4,
+        "strategy": "abstain",
+        "requirements": [
+          "used when no invocation-local causal observable or defensible deadline exists",
+          "emit a diagnostic explaining the unsatisfied contract instead of an unsafe patch"
+        ]
+      }
+    ],
+    "timeout_selection_priority": [
+      "existing domain or API timeout",
+      "project configuration already governing the asynchronous operation",
+      "test framework or test annotation deadline",
+      "explicit developer-supplied bound",
+      "otherwise abstain rather than synthesize an arbitrary sleep multiplier"
+    ],
+    "transaction": [
+      "parse and bind the exact source revision and localization tuple",
+      "generate edits in a disposable workspace",
+      "AST-parse all changed Java files",
+      "produce one content-addressed multi-file diff",
+      "restore the clean workspace",
+      "reapply the diff to a fresh clean workspace",
+      "compile before admitting the candidate to dynamic validation",
+      "publish success only after all preceding checks pass"
+    ]
+  },
+  "counter_scenarios": [
+    {
+      "id": "C1",
+      "name": "recorded failure schedule",
+      "targets": ["causal effectiveness"],
+      "intervention": "Apply the exact recorded delay to matched unpatched and patched executions.",
+      "required_witnesses": ["target executed", "delay injected", "critical update reached", "barrier reached"],
+      "expected_reliable_outcome": "Unpatched fails with the defining oracle; patched passes."
+    },
+    {
+      "id": "C2",
+      "name": "producer exception before publication",
+      "targets": ["bounded progress", "behavioral fidelity"],
+      "intervention": "Throw from the producer immediately before the completion publication.",
+      "required_witnesses": ["throw site reached", "publication suppressed"],
+      "expected_reliable_outcome": "Bounded diagnostic failure that exposes the worker exception."
+    },
+    {
+      "id": "C3",
+      "name": "missing or never-started producer",
+      "targets": ["bounded progress"],
+      "intervention": "Prevent producer start or suppress every completion event without killing the test process.",
+      "required_witnesses": ["producer intervention active", "waiter entered"],
+      "expected_reliable_outcome": "The repair's own deadline fires before the outer harness bound."
+    },
+    {
+      "id": "C4",
+      "name": "early signal",
+      "targets": ["invocation isolation", "causal effectiveness"],
+      "intervention": "Deliver the completion after the causal event but before the barrier starts waiting.",
+      "required_witnesses": ["completion published", "barrier entered later"],
+      "expected_reliable_outcome": "The invocation-local synchronization retains the event; no reset erases it."
+    },
+    {
+      "id": "C5",
+      "name": "partial multiple completion",
+      "targets": ["bounded progress", "memory and multi-writer safety"],
+      "intervention": "Allow fewer than the declared number of causal producers to complete.",
+      "required_witnesses": ["expected multiplicity", "observed completions"],
+      "expected_reliable_outcome": "Bounded diagnostic reports the missing completion; no premature assertion."
+    },
+    {
+      "id": "C6",
+      "name": "two-writer collision",
+      "targets": ["memory and multi-writer safety"],
+      "intervention": "Rendezvous two natural writers after reading shared state and before publication/update.",
+      "required_witnesses": ["two distinct writers", "rendezvous completed"],
+      "expected_reliable_outcome": "No completion is lost and release occurs only after the declared causal set."
+    },
+    {
+      "id": "C7",
+      "name": "waiter interruption",
+      "targets": ["cancellation, interruption, and cleanup"],
+      "intervention": "Hold completion and interrupt the thread while it is inside the repair wait.",
+      "required_witnesses": ["publication suppressed", "waiter located", "interrupt delivered"],
+      "expected_reliable_outcome": "Bounded exit with propagated or preserved interruption and cleanup."
+    },
+    {
+      "id": "C8",
+      "name": "sequential reused-JVM invocation",
+      "targets": ["invocation isolation", "repeatability"],
+      "intervention": "Run target and a compatible peer sequentially in one test JVM in both orders.",
+      "required_witnesses": ["both test identities executed", "same JVM confirmed"],
+      "expected_reliable_outcome": "Neither invocation consumes stale completion state from the other."
+    },
+    {
+      "id": "C9",
+      "name": "neighboring test class or suite",
+      "targets": ["noninterference", "ordinary behavior preservation"],
+      "intervention": "Run the target class or nearest affected suite with matched unpatched control.",
+      "required_witnesses": ["target and neighboring selections executed"],
+      "expected_reliable_outcome": "No differential failure, hang, or changed assertion."
+    },
+    {
+      "id": "C10",
+      "name": "parallel same-test and peer-test invocation",
+      "targets": ["invocation isolation", "memory safety", "repeatability"],
+      "intervention": "Execute two invocation identities concurrently with explicit start and completion witnesses.",
+      "required_witnesses": ["both invocations executed", "overlap confirmed"],
+      "expected_reliable_outcome": "Each invocation is satisfied only by its own causal completion and both remain bounded."
+    }
+  ],
+  "evaluation": {
+    "development_and_test_split": {
+      "development_evidence": "The current 20-artifact exposure cohort may be used to derive the contract and detectors.",
+      "held_out_requirement": "Freeze a separate case roster before implementing or tuning the new generator; do not substitute cases after observing outcomes.",
+      "reason": "Evaluating only on the cases that motivated the contract would overstate generalization."
+    },
+    "arms": [
+      "unpatched pinned source",
+      "raw FlakeSync source repair",
+      "simple fixed bounded-synchronization baseline",
+      "independent developer fix where a strict comparator exists",
+      "reliability-aware candidate or explicit abstention"
+    ],
+    "controlled_inputs": [
+      "same pinned source revision and module",
+      "same target test and defining assertion",
+      "same critical point, barrier point, threshold, delay, and resource envelope",
+      "same validation commands, bounds, witnesses, and stopping rules"
+    ],
+    "primary_outcomes": [
+      "complete nine-property contract pass per case",
+      "causal repair among cases with valid matched controls",
+      "bounded diagnostic outcome under every supported negative-progress scenario",
+      "repair abstention instead of unsafe patch generation"
+    ],
+    "secondary_outcomes": [
+      "apply and compile yield",
+      "ordinary target and neighboring-suite preservation",
+      "parallel and reused-JVM isolation",
+      "runtime overhead",
+      "patch size, changed files, public API surface, and production intrusion",
+      "developer-pattern agreement"
+    ],
+    "reporting_units": [
+      "case instance",
+      "project",
+      "independent repair design or normalized template"
+    ],
+    "statistics": {
+      "current_cohort": "Report exact descriptive numerators and eligible denominators. Do not use independent-case binomial confidence intervals because cases are clustered by project and template.",
+      "future_comparison": "Use paired case-level outcomes between repair arms, report project/design clusters, and preregister any inferential model after the held-out roster is known.",
+      "missingness": "Report not reached, unsupported, inconclusive intervention, pass, and fail separately."
+    },
+    "stopping_and_bounds": {
+      "all_runs_pass_claim": "Stop at the first non-pass and retain it as the terminal counterexample.",
+      "outer_bound": "Use the frozen calibrated process bound as a harness backstop; the repair's semantic timeout must expire first.",
+      "adaptive_extension": "Increase a cap only when durable evidence shows forward progress, the preregistered intervention has not already produced a decisive witness, and the original bounded outcome remains preserved.",
+      "no_extension_after_counterexample": "Do not extend a cap after the required intervention witnesses are present and the frozen timeout outcome has occurred."
+    }
+  },
+  "expected_prevention_map": {
+    "partial_or_malformed_generation": ["P1"],
+    "causal_mismatch": ["P3", "P8", "P9"],
+    "unbounded_wait_or_deadlock": ["P4", "P7"],
+    "missed_publication_or_visibility": ["P5", "P6"],
+    "non_atomic_counter_update": ["P5"],
+    "stale_or_cross_test_state": ["P6", "P9"],
+    "ignored_interruption": ["P7"],
+    "assertion_suppression_or_worker_failure_masking": ["P2", "P8"],
+    "neighbor_or_parallel_interference": ["P6", "P9"]
+  },
+  "non_guarantees": [
+    "Finite testing cannot prove correctness under every Java schedule.",
+    "The contract cannot repair an incorrect critical/barrier localization without additional localization evidence.",
+    "A dynamically calibrated deadline is not automatically a semantically correct deadline.",
+    "Static detectors do not replace whole-program race or liveness verification.",
+    "Passing the declared scenarios does not prove absence of regressions outside the exercised module and environment.",
+    "No safe invocation-local observable may be accessible without an unacceptable production redesign; the correct result is then abstention."
+  ]
+}

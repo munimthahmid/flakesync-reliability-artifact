@@ -1,0 +1,20 @@
+--- <PRIVATE_STUDY_ROOT>/runs/root_reactor_patch_replay_v1_b_workspaces/FS058/logback-classic/src/test/java/ch/qos/logback/classic/net/SMTPAppender_GreenTest.java.orig	2026-08-29 01:57:45.006702663 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/root_reactor_patch_replay_v1_b_workspaces/FS058/logback-classic/src/test/java/ch/qos/logback/classic/net/SMTPAppender_GreenTest.java	2026-08-29 01:57:45.076702605 +0000
+@@ -129,6 +129,9 @@
+     int expectedEmailCount = 1;
+     // wait for the server to receive the messages
+     waitForServerToReceiveEmails(expectedEmailCount);
++    while (ch.qos.logback.core.net.SMTPAppenderBase.getExecutedStatus() < 1) {
++        Thread.yield();
++    }
+     MimeMessage[] mma = greenMailServer.getReceivedMessages();
+     assertNotNull(mma);
+     assertEquals(expectedEmailCount, mma.length);
+@@ -280,6 +283,7 @@
+ 
+   @Test
+   public void testCustomBufferSize() throws Exception {
++    ch.qos.logback.core.net.SMTPAppenderBase.resetExecutions();
+     configure(ClassicTestConstants.JORAN_INPUT_PREFIX
+             + "smtp/customBufferSize.xml");
+ 

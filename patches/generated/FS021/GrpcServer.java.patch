@@ -1,0 +1,29 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS021/common/src/main/java/org/apache/uniffle/common/rpc/GrpcServer.java.orig	2026-08-26 00:14:53.043053064 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS021/common/src/main/java/org/apache/uniffle/common/rpc/GrpcServer.java	2026-08-26 00:14:53.060053049 +0000
+@@ -47,6 +47,11 @@
+ 
+ public class GrpcServer implements ServerInterface {
+ 
++
++  private static volatile int numExecutions;
++
++  public static void resetExecutions() { numExecutions = 0; }
++  public static int getExecutedStatus() { return numExecutions; }
+   private static final Logger LOG = LoggerFactory.getLogger(GrpcServer.class);
+ 
+   private static volatile boolean poolExecutorHasExecuted;
+@@ -159,6 +164,7 @@
+         BlockingQueue<Runnable> workQueue,
+         ThreadFactory threadFactory,
+         GRPCMetrics grpcMetrics) {
++      numExecutions++;
+       super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory);
+       this.grpcMetrics = grpcMetrics;
+     }
+@@ -223,4 +229,4 @@
+   public int getPort() {
+     return listenPort;
+   }
+-}
++}
+\ No newline at end of file

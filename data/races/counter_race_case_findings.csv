@@ -1,0 +1,3 @@
+CaseId,Threshold,Status,PatchedControlOutcome,StressedOutcome,TwoWriterPairConfirmed,NonAtomicLostUpdateWitness,GeneratedWaitStackWitness,Classification,Ledger
+FS004,62,complete,pass,pass,0,0,0,inconclusive-no-two-writer-pair,<PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_counter_race/validations/FS004/validation.json
+FS056,10,complete,pass,pass,1,1,0,lost-update-witness-without-test-failure,<PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_counter_race/validations/FS056/validation.json

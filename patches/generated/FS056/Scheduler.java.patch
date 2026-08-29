@@ -1,0 +1,29 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS056/src/main/java/com/github/kagkarlsson/scheduler/Scheduler.java.orig	2026-08-26 00:17:37.879923624 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS056/src/main/java/com/github/kagkarlsson/scheduler/Scheduler.java	2026-08-26 00:17:37.890923616 +0000
+@@ -35,6 +35,11 @@
+ 
+ public class Scheduler implements SchedulerClient {
+ 
++
++	private static volatile int numExecutions;
++
++	public static void resetExecutions() { numExecutions = 0; }
++	public static int getExecutedStatus() { return numExecutions; }
+ 	private static final Logger LOG = LoggerFactory.getLogger(Scheduler.class);
+ 	private static final String THREAD_PREFIX = "db-scheduler";
+ 	public static final Duration SHUTDOWN_WAIT = Duration.ofMinutes(30);
+@@ -361,6 +366,7 @@
+ 		@Override
+ 		public void run() {
+ 			while (!schedulerState.isShuttingDown()) {
++				numExecutions++;
+ 				try {
+ 					toRun.run();
+ 				} catch (Throwable e) {
+@@ -507,4 +513,4 @@
+ 			}
+ 		}
+ 	}
+-}
++}
+\ No newline at end of file

@@ -1,0 +1,25 @@
+--- <PRIVATE_STUDY_ROOT>/runs/root_reactor_patch_replay_v1_b_workspaces/FS018/dubbo-common/src/main/java/org/apache/dubbo/common/extension/ExtensionLoader.java.orig	2026-08-29 01:55:45.369802117 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/root_reactor_patch_replay_v1_b_workspaces/FS018/dubbo-common/src/main/java/org/apache/dubbo/common/extension/ExtensionLoader.java	2026-08-29 01:55:45.428802068 +0000
+@@ -56,8 +56,13 @@
+  * @see org.apache.dubbo.common.extension.Adaptive
+  * @see org.apache.dubbo.common.extension.Activate
+  */
+-public class ExtensionLoader<T> {
++public class ExtensionLoader<T> {
+ 
++
++    private static volatile int numExecutions;
++
++    public static void resetExecutions() { numExecutions = 0; }
++    public static int getExecutedStatus() { return numExecutions; }
+     private static final Logger logger = LoggerFactory.getLogger(ExtensionLoader.class);
+ 
+     private static final String SERVICES_DIRECTORY = "META-INF/services/";
+@@ -304,6 +309,7 @@
+     @SuppressWarnings("unchecked")
+     public T getExtension(String name) {
+         if (name == null || name.length() == 0)
++            numExecutions++;
+             throw new IllegalArgumentException("Extension name == null");
+         if ("true".equals(name)) {
+             return getDefaultExtension();

@@ -1,0 +1,20 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS056/src/test/java/com/github/kagkarlsson/scheduler/compatibility/CompatibilityTest.java.orig	2026-08-26 00:17:37.904923606 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS056/src/test/java/com/github/kagkarlsson/scheduler/compatibility/CompatibilityTest.java	2026-08-26 00:17:37.912923600 +0000
+@@ -72,6 +72,7 @@
+ 
+ 	@Test
+ 	public void test_compatibility() {
++		com.github.kagkarlsson.scheduler.Scheduler.resetExecutions();
+ 		scheduler.start();
+ 
+ 		scheduler.schedule(oneTime.instance("id1"), Instant.now());
+@@ -82,6 +83,9 @@
+ 		scheduler.schedule(recurring.instance("id4"), Instant.now());
+ 
+ 		sleep(Duration.ofSeconds(10));
++while (com.github.kagkarlsson.scheduler.Scheduler.getExecutedStatus() < 10) {
++    Thread.yield();
++}
+ 
+ 		scheduler.stop();
+ 		assertThat(statsRegistry.unexpectedErrors.get(), is(0));

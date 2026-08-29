@@ -1,0 +1,85 @@
+{
+  "actual_resources": {
+    "image_id": "sha256:b15fb247b2604fd8597d8be7fb2adddb573dccff75b8add5ce3526833ae3ead2",
+    "memory": 8589934592,
+    "memory_swap": 17179869184,
+    "nano_cpus": 4000000000,
+    "pids_limit": null,
+    "user": "java8-flakesync"
+  },
+  "barrier_agent_location": "com.alibaba.wasp.executor.TestExecutorService#82",
+  "case": {
+    "barrier": "com.alibaba.wasp.executor.TestExecutorService#82",
+    "case_id": "WASP",
+    "critical": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+    "exact_archived_tuple": false,
+    "identity": [
+      "alibaba/wasp",
+      "b2593d8",
+      ".",
+      "com.alibaba.wasp.executor.TestExecutorService#testExecutorService"
+    ],
+    "search_analysis_sha256": "d4375a4e97bc5cdee576f69bb92180e8249f627e6a3d5d4b561a889b79652138",
+    "search_classification": "partial_reproduction_final_critical_point_diverged selected from wasp-official-01; exact archived tuple observed in 0/10 replicates",
+    "selected_search_run": "wasp-official-01",
+    "threshold": "1",
+    "unpatched_delay_failure_evidence": {
+      "delay_ms": "100",
+      "observed_failure_found": "1",
+      "source": "results/wasp-official-01-analysis.json",
+      "source_sha256": "c2723041e4d816f63627ced05a2ab8512b8a181f8e4dca1126632357787ad156"
+    },
+    "unpatched_delay_failure_reproduced": true
+  },
+  "clone_checkout_exit_code": 0,
+  "clone_checkout_timed_out": false,
+  "clone_checkout_timeout_seconds": 900,
+  "completed_runs": 100,
+  "confirmation_cohort_sha256": "52234cb4456afbcf4843490324e402330d1e4602356c41efeb5f8e6db33856b2",
+  "container": "flakesync-faithful-confirm-wasp-100",
+  "container_id": "2d736a8e93baf15e6ef7f2d2f171e3ea845b6d9940c2a6e5b34d6ee1f249244f",
+  "critical_agent_location": "com.alibaba.wasp.executor.ExecutorService$TrackingThreadPoolExecutor#310",
+  "critical_selection_rule": "The released barrier_point_search.sh selects the last semicolon-delimited critical interval and passes its upper endpoint to the barrier agent.",
+  "delay_ms": "100",
+  "files_in_manifest": 312,
+  "finished_at": "2026-08-29T02:45:42.361818+00:00",
+  "first_failure_run": null,
+  "image_id": "sha256:b15fb247b2604fd8597d8be7fb2adddb573dccff75b8add5ce3526833ae3ead2",
+  "paper_success_confirmed": true,
+  "paper_success_control": "The hash-bound official search analysis records that the unpatched target failed under the selected injected delay before this repaired 100-run phase.",
+  "passing_runs": 100,
+  "per_run_timeout_seconds": 180,
+  "prepare_exit_code": 0,
+  "prepare_timed_out": false,
+  "prepare_timeout_seconds": 3600,
+  "resource_checks": {
+    "artifact_user": true,
+    "default_sixteen_gib_memory_swap": true,
+    "eight_gib_memory": true,
+    "four_cpus": true,
+    "no_explicit_docker_pid_limit": true,
+    "pinned_image": true
+  },
+  "resources": {
+    "cpus": 4,
+    "memory_bytes": 8589934592,
+    "user": "java8-flakesync"
+  },
+  "runner_sha256": "668678c332a6e6feca873a77b9318f55bf9c238fb039a1f7f3e83f3851383215",
+  "schema_version": "repair-confirmation-100-v1",
+  "started_at": "2026-08-29T02:34:33.944028+00:00",
+  "status": "confirmed_100_of_100",
+  "stopping_rule": "Stop at the first non-pass; one failure disproves 100/100 confirmation.",
+  "subject_baseline_checks": {
+    "current_confirmation_cohort_hash": true,
+    "exactly_one_case_baseline": true,
+    "frozen_schema": true,
+    "identity_matches": true,
+    "initial_image_subject_state_matches": true,
+    "pinned_image": true,
+    "post_clone_state_matches_declared_rule": true
+  },
+  "target_runs": 100,
+  "threshold": "1",
+  "tool_provenance_exit_code": 0
+}

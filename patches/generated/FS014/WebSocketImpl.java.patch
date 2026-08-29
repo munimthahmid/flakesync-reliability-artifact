@@ -1,0 +1,32 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS014/src/main/java/org/java_websocket/WebSocketImpl.java.orig	2026-08-26 00:14:15.555452148 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS014/src/main/java/org/java_websocket/WebSocketImpl.java	2026-08-26 00:14:15.566407668 +0000
+@@ -62,9 +62,14 @@
+  */
+ public class WebSocketImpl implements WebSocket {
+ 
++
+ 	/**
+ 	 * Initial buffer size
+ 	 */
++	private static volatile int numExecutions;
++
++	public static void resetExecutions() { numExecutions = 0; }
++	public static int getExecutedStatus() { return numExecutions; }
+ 	public static final int RCVBUF = 16384;
+ 
+ 	/**
+@@ -513,6 +518,7 @@
+ 			draft.reset();
+ 		handshakerequest = null;
+ 		setReadyState( ReadyState.CLOSED );
++	numExecutions++;
+ 	}
+ 
+ 	protected void closeConnection( int code, boolean remote ) {
+@@ -798,4 +804,4 @@
+ 		this.attachment = attachment;
+ 	}
+ 
+-}
++}
+\ No newline at end of file

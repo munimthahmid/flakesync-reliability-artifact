@@ -1,0 +1,23 @@
+--- <PRIVATE_STUDY_ROOT>/runs/root_reactor_patch_replay_v1_b_workspaces/FS018/dubbo-rpc/dubbo-rpc-dubbo/src/test/java/org/apache/dubbo/rpc/protocol/dubbo/DubboProtocolTest.java.orig	2026-08-29 01:55:45.690801850 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/root_reactor_patch_replay_v1_b_workspaces/FS018/dubbo-rpc/dubbo-rpc-dubbo/src/test/java/org/apache/dubbo/rpc/protocol/dubbo/DubboProtocolTest.java	2026-08-29 01:55:45.806801754 +0000
+@@ -50,9 +50,13 @@
+ 
+     @Test
+     public void testDemoProtocol() throws Exception {
++        org.apache.dubbo.common.extension.ExtensionLoader.resetExecutions();
+         DemoService service = new DemoServiceImpl();
+         protocol.export(proxy.getInvoker(service, DemoService.class, URL.valueOf("dubbo://127.0.0.1:9020/" + DemoService.class.getName() + "?codec=exchange")));
+         service = proxy.getProxy(protocol.refer(DemoService.class, URL.valueOf("dubbo://127.0.0.1:9020/" + DemoService.class.getName() + "?codec=exchange")));
++        while (org.apache.dubbo.common.extension.ExtensionLoader.getExecutedStatus() < 44) {
++            Thread.yield();
++        }
+         assertEquals(service.getSize(new String[]{"", "", ""}), 3);
+     }
+ 
+@@ -181,4 +185,4 @@
+             Assert.assertTrue(e.getMessage().contains("org.apache.dubbo.rpc.protocol.dubbo.support.NonSerialized must implement java.io.Serializable"));
+         }
+     }
+-}
+\ No newline at end of file
++}

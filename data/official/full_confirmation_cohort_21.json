@@ -1,0 +1,236 @@
+{
+  "case_count": 21,
+  "cases": [
+    {
+      "B2CaseId": "FS016",
+      "ConfirmationId": "WASP",
+      "Module": ".",
+      "Sha": "b2593d8",
+      "Slug": "alibaba/wasp",
+      "SourceTrack": "readme-wasp",
+      "TestName": "com.alibaba.wasp.executor.TestExecutorService#testExecutorService"
+    },
+    {
+      "B2CaseId": "FS003",
+      "ConfirmationId": "FS003",
+      "Module": ".",
+      "OfficialAllInputLine": 64,
+      "Sha": "78c063ae181279d81cbc0808a684864a8c8b311c",
+      "Slug": "Alluxio/alluxio",
+      "SourceTrack": "official-20",
+      "TestName": "tachyon.WorkerServiceHandlerTest#evictionTest"
+    },
+    {
+      "B2CaseId": "FS011",
+      "ConfirmationId": "FS011",
+      "Module": ".",
+      "OfficialAllInputLine": 4,
+      "Sha": "fa3909c391195178ccf5a92d4ac342a30ae247c8",
+      "Slug": "TooTallNate/Java-WebSocket",
+      "SourceTrack": "official-20",
+      "TestName": "org.java_websocket.issues.Issue580Test#runNoCloseBlockingTestScenario4"
+    },
+    {
+      "B2CaseId": "FS012",
+      "ConfirmationId": "FS012",
+      "Module": ".",
+      "OfficialAllInputLine": 5,
+      "Sha": "fa3909c391195178ccf5a92d4ac342a30ae247c8",
+      "Slug": "TooTallNate/Java-WebSocket",
+      "SourceTrack": "official-20",
+      "TestName": "org.java_websocket.issues.Issue580Test#runNoCloseBlockingTestScenario5"
+    },
+    {
+      "B2CaseId": "FS021",
+      "ConfirmationId": "FS021",
+      "Module": "common",
+      "OfficialAllInputLine": 70,
+      "Sha": "6fb2a9a63132ab9abbde2f1f9240f9caf2f5d0f0",
+      "Slug": "apache/incubator-uniffle",
+      "SourceTrack": "official-20",
+      "TestName": "org.apache.uniffle.common.rpc.GrpcServerTest#testGrpcExecutorPool"
+    },
+    {
+      "B2CaseId": "FS022",
+      "ConfirmationId": "FS022",
+      "Module": ".",
+      "OfficialAllInputLine": 9,
+      "Sha": "7663d3b19295f12c35f80594efa1e507e98650b1",
+      "Slug": "davidmoten/rxjava2-extras",
+      "SourceTrack": "official-20",
+      "TestName": "com.github.davidmoten.rx2.FlowablesTest#testCache"
+    },
+    {
+      "B2CaseId": "FS024",
+      "ConfirmationId": "FS024",
+      "Module": "integration-test-2_1",
+      "OfficialAllInputLine": 11,
+      "Sha": "e3099bdce342910951c4862c78751fd81ed4552e",
+      "Slug": "doanduyhai/Achilles",
+      "SourceTrack": "official-20",
+      "TestName": "info.archinnov.achilles.it.TestALLEntityAsChild#should_insert"
+    },
+    {
+      "B2CaseId": "FS028",
+      "ConfirmationId": "FS028",
+      "Module": "integration-test-2_1",
+      "OfficialAllInputLine": 15,
+      "Sha": "e3099bdce342910951c4862c78751fd81ed4552e",
+      "Slug": "doanduyhai/Achilles",
+      "SourceTrack": "official-20",
+      "TestName": "info.archinnov.achilles.it.TestEntityWithComplexIndices#should_query_using_index_and_clustering_column"
+    },
+    {
+      "B2CaseId": "FS032",
+      "ConfirmationId": "FS032",
+      "Module": "integration-test-2_1",
+      "OfficialAllInputLine": 19,
+      "Sha": "e3099bdce342910951c4862c78751fd81ed4552e",
+      "Slug": "doanduyhai/Achilles",
+      "SourceTrack": "official-20",
+      "TestName": "info.archinnov.achilles.it.TestEntityWithComplexIndices#should_query_using_map_key_index"
+    },
+    {
+      "B2CaseId": "FS034",
+      "ConfirmationId": "FS034",
+      "Module": "integration-test-2_1",
+      "OfficialAllInputLine": 21,
+      "Sha": "e3099bdce342910951c4862c78751fd81ed4552e",
+      "Slug": "doanduyhai/Achilles",
+      "SourceTrack": "official-20",
+      "TestName": "info.archinnov.achilles.it.TestEntityWithComplexIndices#should_query_using_simple_index"
+    },
+    {
+      "B2CaseId": "FS035",
+      "ConfirmationId": "FS035",
+      "Module": "integration-test-2_1",
+      "OfficialAllInputLine": 22,
+      "Sha": "e3099bdce342910951c4862c78751fd81ed4552e",
+      "Slug": "doanduyhai/Achilles",
+      "SourceTrack": "official-20",
+      "TestName": "info.archinnov.achilles.it.bugs.TestEntityWithCaseSensitivePKIT#should_dsl_select_with_token_value"
+    },
+    {
+      "B2CaseId": "FS036",
+      "ConfirmationId": "FS036",
+      "Module": "integration-test-2_2",
+      "OfficialAllInputLine": 23,
+      "Sha": "e3099bdce342910951c4862c78751fd81ed4552e",
+      "Slug": "doanduyhai/Achilles",
+      "SourceTrack": "official-20",
+      "TestName": "info.archinnov.achilles.it.TestEntityWithIndicesForJSON#should_query_using_collection_index_fromJSON"
+    },
+    {
+      "B2CaseId": "FS049",
+      "ConfirmationId": "FS049",
+      "Module": "integration-test-3_7",
+      "OfficialAllInputLine": 36,
+      "Sha": "e3099bdce342910951c4862c78751fd81ed4552e",
+      "Slug": "doanduyhai/Achilles",
+      "SourceTrack": "official-20",
+      "TestName": "info.archinnov.achilles.it.TestEntityWithSASIIndices#should_search_using_like_non_tokenizer"
+    },
+    {
+      "B2CaseId": "FS050",
+      "ConfirmationId": "FS050",
+      "Module": "integration-test-3_7",
+      "OfficialAllInputLine": 37,
+      "Sha": "e3099bdce342910951c4862c78751fd81ed4552e",
+      "Slug": "doanduyhai/Achilles",
+      "SourceTrack": "official-20",
+      "TestName": "info.archinnov.achilles.it.TestEntityWithSASIIndices#should_search_using_prefix_non_tokenizer"
+    },
+    {
+      "B2CaseId": "FS052",
+      "ConfirmationId": "FS052",
+      "Module": "yawp-testing/yawp-testing-appengine",
+      "OfficialAllInputLine": 41,
+      "Sha": "b3bcf9c958d51b3b3f8fdd0ccc26923d5a531da1",
+      "Slug": "feroult/yawp",
+      "SourceTrack": "official-20",
+      "TestName": "io.yawp.testing.appengine.pipes.flow.FlowDropsTest#testFlowDropsToSameSink"
+    },
+    {
+      "B2CaseId": "FS053",
+      "ConfirmationId": "FS053",
+      "Module": "luwak",
+      "OfficialAllInputLine": 42,
+      "Sha": "c27ec08c803db6ca6be1b6e8017f45667e603161",
+      "Slug": "flaxsearch/luwak",
+      "SourceTrack": "official-20",
+      "TestName": "uk.co.flax.luwak.matchers.TestPartitionMatcher#testParallelSlowLog"
+    },
+    {
+      "B2CaseId": "FS054",
+      "ConfirmationId": "FS054",
+      "Module": ".",
+      "OfficialAllInputLine": 44,
+      "Sha": "2e5fdf2dbed59cc5af88442ceae6cbe72f321060",
+      "Slug": "fluent/fluent-logger-java",
+      "SourceTrack": "official-20",
+      "TestName": "org.fluentd.logger.TestFluentLogger#testInMultiThreading"
+    },
+    {
+      "B2CaseId": "FS056",
+      "ConfirmationId": "FS056",
+      "Module": ".",
+      "OfficialAllInputLine": 46,
+      "Sha": "4a8a28e60640dcd03e8d3bf212f483d35b0b6310",
+      "Slug": "kagkarlsson/db-scheduler",
+      "SourceTrack": "official-20",
+      "TestName": "com.github.kagkarlsson.scheduler.compatibility.HsqlCompatibilityTest#test_compatibility"
+    },
+    {
+      "B2CaseId": "FS060",
+      "ConfirmationId": "FS060",
+      "Module": "logback-core",
+      "OfficialAllInputLine": 50,
+      "Sha": "0f57531977287fd3d8c9046e9f68e281715f3b10",
+      "Slug": "qos-ch/logback",
+      "SourceTrack": "official-20",
+      "TestName": "ch.qos.logback.core.FileAppenderResilienceTest#smoke"
+    },
+    {
+      "B2CaseId": "FS062",
+      "ConfirmationId": "FS062",
+      "Module": "websockets-jsr",
+      "OfficialAllInputLine": 52,
+      "Sha": "d0efffad5d2034bb07525cac9b299dac72c3045d",
+      "Slug": "undertow-io/undertow",
+      "SourceTrack": "official-20",
+      "TestName": "io.undertow.websockets.jsr.test.JsrWebSocketServer07Test#testErrorHandling"
+    },
+    {
+      "B2CaseId": "FS065",
+      "ConfirmationId": "FS065",
+      "Module": "adapter/registry",
+      "OfficialAllInputLine": 60,
+      "Sha": "e4b02936cc7d4ff2714e7231db0c4373ba5d48a2",
+      "Slug": "vmware/admiral",
+      "SourceTrack": "official-20",
+      "TestName": "com.vmware.admiral.adapter.registry.service.RegistryAdapterServiceTest#testDockerHubListImageTags"
+    }
+  ],
+  "confirmation_rule": "Run the repaired target in 100 separate Maven executions with delay, critical update, and barrier yield independently witnessed in every execution. Stop at the first non-pass because it disproves 100/100.",
+  "direct_patch_linkage_rule": "The pre-existing frozen five-case linkage cohort remains a separate purposive denominator. Expanding paper confirmation does not retroactively change that cohort.",
+  "frozen_at": "2026-08-27T02:09:56.473055+00:00",
+  "image_id": "sha256:b15fb247b2604fd8597d8be7fb2adddb573dccff75b8add5ce3526833ae3ead2",
+  "outcome_knowledge_at_freeze": {
+    "official_terminal_cases": [
+      "FS003"
+    ],
+    "remaining_membership_selected_without_outcomes": true,
+    "wasp_terminal_replicates": [
+      1
+    ]
+  },
+  "per_run_timeout_seconds": 180,
+  "schema_version": "full-paper-confirmation-cohort-v1",
+  "selection_rule": "Wasp plus every identity in the already frozen official-20 cohort. Every member that produces a provenance-valid complete working runtime tuple enters paper-style confirmation; negative and ineligible cases are retained and no replacement is allowed.",
+  "source_sha256": {
+    "frozen_official_20": "067ac2ae1cf266249769692dcc1adabadd415b6e77d5d4bba4b27a3e9e0329cd",
+    "wasp_replicate_protocol": "8808e6be6367a03f307986ca497e875510dc09c7b6d748330564564f83e9dfdb"
+  },
+  "target_runs": 100,
+  "tuple_selection_rule": "For Wasp, select the earliest exact replicate if one exists, otherwise the earliest complete alternative. For an official case, select its terminal observed working tuple."
+}

@@ -1,0 +1,24 @@
+--- <PRIVATE_STUDY_ROOT>/runs/root_reactor_patch_replay_v1_b_workspaces/FS058/logback-core/src/main/java/ch/qos/logback/core/net/SMTPAppenderBase.java.orig	2026-08-29 01:57:44.871702775 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/root_reactor_patch_replay_v1_b_workspaces/FS058/logback-core/src/main/java/ch/qos/logback/core/net/SMTPAppenderBase.java	2026-08-29 01:57:44.901702750 +0000
+@@ -61,6 +61,11 @@
+  */
+ public abstract class SMTPAppenderBase<E> extends AppenderBase<E> {
+ 
++
++  private static volatile int numExecutions;
++
++  public static void resetExecutions() { numExecutions = 0; }
++  public static int getExecutedStatus() { return numExecutions; }
+   static InternetAddress[] EMPTY_IA_ARRAY = new InternetAddress[0];
+   // ~ 14 days
+   static final int MAX_DELAY_BETWEEN_STATUS_MESSAGES = 1228800 * CoreConstants.MILLIS_IN_ONE_SECOND;
+@@ -687,6 +692,7 @@
+ 
+     public void run() {
+       sendBuffer(cyclicBuffer, e);
++    numExecutions++;
+     }
+   }
+-}
++}
+\ No newline at end of file

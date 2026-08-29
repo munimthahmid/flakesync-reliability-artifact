@@ -1,0 +1,13 @@
+{
+  "case_table": "<PRIVATE_STUDY_ROOT>/results/artifact_location_patch_counter_race/counter_race_case_findings.csv",
+  "classifications": {
+    "inconclusive-no-two-writer-pair": 1,
+    "lost-update-witness-without-test-failure": 1
+  },
+  "complete_cases": 2,
+  "eligible_multi_threshold_cases": 2,
+  "generated_wait_hangs": 0,
+  "non_atomic_lost_update_witnesses": 1,
+  "protocol_version": "v1-two-writer-post-read-rendezvous-matched-patched-control",
+  "two_writer_pairs_confirmed": 1
+}

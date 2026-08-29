@@ -1,0 +1,171 @@
+{
+  "checks": {
+    "confirmation_case_object": true,
+    "confirmation_completed_100": true,
+    "confirmation_delay_witness_100": true,
+    "confirmation_identity_exact": true,
+    "confirmation_instrumentation_confirmed_100": true,
+    "confirmation_maven_exit_zero_100": true,
+    "confirmation_no_failure": true,
+    "confirmation_outcome_rows_100": true,
+    "confirmation_paper_success": true,
+    "confirmation_pass_100": true,
+    "confirmation_passing_100": true,
+    "confirmation_run_order_exact": true,
+    "confirmation_status_exact": true,
+    "confirmation_surefire_pass_100": true,
+    "confirmation_target_100": true,
+    "confirmation_tuple_exact": true,
+    "confirmation_update_witness_100": true,
+    "confirmation_yield_witness_100": true,
+    "dynamic_case_object": true,
+    "dynamic_compile_object": true,
+    "dynamic_compile_pass": true,
+    "dynamic_identity_exact": true,
+    "dynamic_ordinary_gate_failed": true,
+    "dynamic_ordinary_gate_object": true,
+    "dynamic_ordinary_single_run": true,
+    "dynamic_ordinary_timeout": true,
+    "dynamic_signal_object": true,
+    "dynamic_status_complete": true,
+    "dynamic_tuple_exact": true,
+    "dynamic_unbounded_wait_witness": true,
+    "generator_input_barrier_exact": true,
+    "generator_input_critical_exact": true,
+    "generator_input_hash_matches_metadata": true,
+    "generator_input_single_row": true,
+    "generator_input_test_exact": true,
+    "generator_input_threshold_exact": true,
+    "generator_single_critical_interval": true,
+    "runtime_classification_exact": true,
+    "runtime_exact_tuple_flag": true,
+    "runtime_identity_exact": true,
+    "runtime_instrumentation_confirmed": true,
+    "runtime_repair_generated": true,
+    "runtime_tuple_exact": true,
+    "source_actual_flakesync_patch_goal": true,
+    "source_archive_match_exact": true,
+    "source_case_object": true,
+    "source_delay_exact": true,
+    "source_identity_exact": true,
+    "source_metadata_two_patches": true,
+    "source_patch_emitted": true,
+    "source_patch_goal_exit_zero": true,
+    "source_patch_goal_not_timeout": true,
+    "source_patch_goal_object": true,
+    "source_patch_hash_matches_metadata_TomcatServletMetricsFilter.java.patch": true,
+    "source_patch_hash_matches_metadata_TomcatServletMetricsFilterTest.java.patch": true,
+    "source_patch_names_exact": true,
+    "source_patch_normalized_e2e_match_TomcatServletMetricsFilter.java.patch": true,
+    "source_patch_normalized_e2e_match_TomcatServletMetricsFilterTest.java.patch": true,
+    "source_provenance_object": true,
+    "source_seeded_input_object": true,
+    "source_tuple_exact": true
+  },
+  "claim_scope": {
+    "link_is_shared_exact_identity_and_generator_tuple": true,
+    "paper_result_and_additional_reliability_result_are_separate": true,
+    "runtime_and_source_repairs_are_distinct_mechanisms": true
+  },
+  "evidence": [
+    {
+      "path": "../flakesync-faithful-reproduction/results/speed-repair-fs057-01-analysis.json",
+      "sha256": "3f9cde0111f333e6391dcefdf157bfd43e81290156dcaaf78802024b690eacfd"
+    },
+    {
+      "path": "../flakesync-faithful-reproduction/runs/speed-repair-confirmations/fs057-100/summary.json",
+      "sha256": "a34c81f0320f6f64a357bfe93c95495fe733d167b26efa7738b4fff9d3363f48"
+    },
+    {
+      "path": "../flakesync-faithful-reproduction/runs/speed-repair-confirmations/fs057-100/outcomes.csv",
+      "sha256": "33b8eac0a3e0a1d4a2575b26462e6f59075a2744ab193408f8585bcc26ed96d3"
+    },
+    {
+      "path": "runs/artifact_location_patch_generation/cases/FS057/metadata.json",
+      "sha256": "923c5aaf77fd1d8e3037bfc7e29d9c8e63eb21b12fb496e688c30bac1c9d5e61"
+    },
+    {
+      "path": "runs/artifact_location_patch_generation/cases/FS057/inputs/nl.nlighten.prometheus.tomcat.TomcatServletMetricsFilterTest.testServletRequestMetrics-BarrierPoints.csv",
+      "sha256": "4563ce7e07a36822db31af6c7efd6faae873dacf0e7a2a2b63bb94b418ab43f2"
+    },
+    {
+      "path": "runs/artifact_location_patch_generation/validations/FS057/validation.json",
+      "sha256": "926d3f358e62973dd9ad01b231cbcdecf80ed4be059f19fa346e6516fa3f637e"
+    },
+    {
+      "path": "runs/artifact_location_patch_generation/cases/FS057/patches/TomcatServletMetricsFilter.java.patch",
+      "sha256": "62d27cee2082a4488acc7335fdb5131295a56bc0f58b260b69cbcc26829deec5"
+    },
+    {
+      "path": "runs/artifact_location_patch_generation/cases/FS057/patches/TomcatServletMetricsFilterTest.java.patch",
+      "sha256": "fd9f543889f92e63fd9ceca6c3b0f272fb711ae9b6d4e5767ad93eb39029ae1c"
+    },
+    {
+      "path": "runs/cases/FS057/artifacts/flakesync/patch/TomcatServletMetricsFilter.java.patch",
+      "sha256": "bb4d46f23c88e849d7b4707dcbcec98efcf3657cf6adc7ebeb8ce5ec948652a4"
+    },
+    {
+      "path": "runs/cases/FS057/artifacts/flakesync/patch/TomcatServletMetricsFilterTest.java.patch",
+      "sha256": "13099c9250de61c8af2dd5e162e5edf574141af01535b66b303d8996e244a6c3"
+    }
+  ],
+  "identity": {
+    "module": "client",
+    "sha": "bc6a2d2",
+    "slug": "nlighten/tomcat_exporter",
+    "test": "nl.nlighten.prometheus.tomcat.TomcatServletMetricsFilterTest#testServletRequestMetrics"
+  },
+  "runtime_repair": {
+    "completed_runs": 100,
+    "confirmation_counts": {
+      "delay_witness": 100,
+      "instrumentation_confirmed": 100,
+      "maven_exit_zero": 100,
+      "pass": 100,
+      "surefire_pass": 100,
+      "update_witness": 100,
+      "yield_witness": 100
+    },
+    "paper_success_confirmed": true,
+    "passing_runs": 100
+  },
+  "schema_version": "fs057-exact-runtime-source-linkage-v1",
+  "source_patch": {
+    "compile_pass": true,
+    "complete_operational_reliable": false,
+    "dynamic_unbounded_wait_witness": true,
+    "generator_input": {
+      "#Test-Name": "nl.nlighten.prometheus.tomcat.TomcatServletMetricsFilterTest#testServletRequestMetrics",
+      "Barrier-Point": "nl.nlighten.prometheus.tomcat.TomcatServletMetricsFilterTest#30",
+      "Boundary-Point": "nl/nlighten/prometheus/tomcat/TomcatServletMetricsFilter#118-nl/nlighten/prometheus/tomcat/TomcatServletMetricsFilter#118[100]",
+      "Threshold": "1"
+    },
+    "matched_recorded_delay_evaluable": false,
+    "ordinary_gate": {
+      "executed": 1,
+      "outcome": "timeout",
+      "passed": false
+    },
+    "patches": [
+      {
+        "e2e_sha256": "bb4d46f23c88e849d7b4707dcbcec98efcf3657cf6adc7ebeb8ce5ec948652a4",
+        "name": "TomcatServletMetricsFilter.java.patch",
+        "normalized_sha256": "d7a758af8cd0fdea8f60adc575c1423ebe072821b5cc9789e695308a95d56f60",
+        "source_sha256": "62d27cee2082a4488acc7335fdb5131295a56bc0f58b260b69cbcc26829deec5"
+      },
+      {
+        "e2e_sha256": "13099c9250de61c8af2dd5e162e5edf574141af01535b66b303d8996e244a6c3",
+        "name": "TomcatServletMetricsFilterTest.java.patch",
+        "normalized_sha256": "69077c0151e373e51cae9f65aa8c8a44fc446881090cdcfa8ccc1645db23a744",
+        "source_sha256": "fd9f543889f92e63fd9ceca6c3b0f272fb711ae9b6d4e5767ad93eb39029ae1c"
+      }
+    ]
+  },
+  "status": "linked_exact_tuple_to_emitted_source_patch",
+  "tuple": {
+    "barrier": "nl.nlighten.prometheus.tomcat.TomcatServletMetricsFilterTest#30",
+    "critical": "nl/nlighten/prometheus/tomcat/TomcatServletMetricsFilter#118~nl/nlighten/prometheus/tomcat/TomcatServletMetricsFilter#118[100]",
+    "delay_ms": "100",
+    "threshold": "1"
+  }
+}

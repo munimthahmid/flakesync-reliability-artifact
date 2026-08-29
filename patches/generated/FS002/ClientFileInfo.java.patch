@@ -1,0 +1,30 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS002/src/main/java/tachyon/thrift/ClientFileInfo.java.orig	2026-08-26 00:13:18.899134055 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS002/src/main/java/tachyon/thrift/ClientFileInfo.java	2026-08-26 00:13:18.916134041 +0000
+@@ -21,6 +21,11 @@
+ import org.slf4j.LoggerFactory;
+ 
+ public class ClientFileInfo implements org.apache.thrift.TBase<ClientFileInfo, ClientFileInfo._Fields>, java.io.Serializable, Cloneable {
++
++  private static volatile int numExecutions;
++
++  public static void resetExecutions() { numExecutions = 0; }
++  public static int getExecutedStatus() { return numExecutions; }
+   private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("ClientFileInfo");
+ 
+   private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.I32, (short)1);
+@@ -1271,6 +1276,7 @@
+                 long _elem6; // required
+                 _elem6 = iprot.readI64();
+                 this.blockIds.add(_elem6);
++              numExecutions++;
+               }
+               iprot.readListEnd();
+             }
+@@ -1464,5 +1470,4 @@
+     }
+   }
+ 
+-}
+-
++}
+\ No newline at end of file

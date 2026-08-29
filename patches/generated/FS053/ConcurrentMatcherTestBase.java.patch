@@ -1,0 +1,20 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS053/luwak/src/test/java/uk/co/flax/luwak/matchers/ConcurrentMatcherTestBase.java.orig	2026-08-26 00:17:31.529928295 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS053/luwak/src/test/java/uk/co/flax/luwak/matchers/ConcurrentMatcherTestBase.java	2026-08-26 00:17:31.540928287 +0000
+@@ -94,6 +94,7 @@
+ 
+     @Test
+     public void testParallelSlowLog() throws IOException, UpdateException {
++        uk.co.flax.luwak.matchers.PartitionMatcher.resetExecutions();
+ 
+         ExecutorService executor = Executors.newCachedThreadPool();
+ 
+@@ -110,6 +111,9 @@
+             assertThat(matches.getSlowLog().toString())
+                 .contains("1 [")
+                 .contains("3 [")
++                while (uk.co.flax.luwak.matchers.PartitionMatcher.getExecutedStatus() < 1) {
++                    Thread.yield();
++                }
+                 .doesNotContain("2 [");
+ 
+             monitor.setSlowLogLimit(1);

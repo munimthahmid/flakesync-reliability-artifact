@@ -1,0 +1,37 @@
+diff --git src/test/java/tachyon/client/TachyonFSTest.java src/test/java/tachyon/client/TachyonFSTest.java
+--- src/test/java/tachyon/client/TachyonFSTest.java
++++ src/test/java/tachyon/client/TachyonFSTest.java
+@@ -17,6 +17,7 @@
+ import tachyon.TestUtils;
+ import tachyon.UnderFileSystem;
+ import tachyon.client.table.RawTable;
++import tachyon.conf.WorkerConf;
+ import tachyon.thrift.ClientWorkerInfo;
+ 
+ /**
+@@ -25,16 +26,13 @@
+ public class TachyonFSTest {
+   private final int WORKER_CAPACITY_BYTES = 20000;
+   private final int USER_QUOTA_UNIT_BYTES = 1000;
+-  private final int WORKER_TO_MASTER_HEARTBEAT_INTERVAL_MS = 3;
+-  private final int SLEEP_MS = WORKER_TO_MASTER_HEARTBEAT_INTERVAL_MS * 2 + 2;
++  private final int SLEEP_MS = WorkerConf.get().TO_MASTER_HEARTBEAT_INTERVAL_MS * 2 + 10;
+   private LocalTachyonCluster mLocalTachyonCluster = null;
+   private TachyonFS mTfs = null;
+ 
+   @Before
+   public final void before() throws IOException {
+     System.setProperty("tachyon.user.quota.unit.bytes", USER_QUOTA_UNIT_BYTES + "");
+-    System.setProperty("tachyon.worker.to.master.heartbeat.interval.ms",
+-        WORKER_TO_MASTER_HEARTBEAT_INTERVAL_MS + "");
+     mLocalTachyonCluster = new LocalTachyonCluster(WORKER_CAPACITY_BYTES);
+     mLocalTachyonCluster.start();
+     mTfs = mLocalTachyonCluster.getClient();
+@@ -44,7 +42,6 @@
+   public final void after() throws Exception {
+     mLocalTachyonCluster.stop();
+     System.clearProperty("tachyon.user.quota.unit.bytes");
+-    System.clearProperty("tachyon.worker.to.master.heartbeat.interval.ms");
+   }
+ 
+   @Test

@@ -1,0 +1,29 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS053/luwak/src/main/java/uk/co/flax/luwak/matchers/PartitionMatcher.java.orig	2026-08-26 00:17:31.498928318 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS053/luwak/src/main/java/uk/co/flax/luwak/matchers/PartitionMatcher.java	2026-08-26 00:17:31.511928308 +0000
+@@ -47,6 +47,11 @@
+  */
+ public class PartitionMatcher<T extends QueryMatch> extends CandidateMatcher<T> {
+ 
++
++    private static volatile int numExecutions;
++
++    public static void resetExecutions() { numExecutions = 0; }
++    public static int getExecutedStatus() { return numExecutions; }
+     private final ExecutorService executor;
+ 
+     private final MatcherFactory<T> matcherFactory;
+@@ -129,6 +134,7 @@
+         @Override
+         public Matches<T> call() {
+             for (MatchTask task : tasks) {
++                numExecutions++;
+                 try {
+                     matcher.matchQuery(task.queryId, task.matchQuery, task.metadata);
+                 } catch (IOException e) {
+@@ -187,4 +193,4 @@
+         int threads = Runtime.getRuntime().availableProcessors();
+         return new PartitionMatcherFactory<>(executor, matcherFactory, threads);
+     }
+-}
++}
+\ No newline at end of file

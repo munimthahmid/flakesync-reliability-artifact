@@ -1,0 +1,20 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS004/src/test/java/tachyon/client/TachyonFSTest.java.orig	2026-08-26 00:13:38.168117395 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS004/src/test/java/tachyon/client/TachyonFSTest.java	2026-08-26 00:13:38.184117381 +0000
+@@ -93,6 +93,7 @@
+ 
+   @Test
+   public void deleteFileTest() throws IOException {
++    tachyon.thrift.MasterService.resetExecutions();
+     List<ClientWorkerInfo> workers = mTfs.getWorkersInfo();
+     Assert.assertEquals(1, workers.size());
+     Assert.assertEquals(WORKER_CAPACITY_BYTES, workers.get(0).getCapacityBytes());
+@@ -117,6 +118,9 @@
+       Assert.assertFalse(mTfs.exist("/file" + k));
+ 
+       CommonUtils.sleepMs(null, SLEEP_MS);
++      while (tachyon.thrift.MasterService.getExecutedStatus() < 62) {
++          Thread.yield();
++      }
+       workers = mTfs.getWorkersInfo();
+       Assert.assertEquals(1, workers.size());
+       Assert.assertEquals(WORKER_CAPACITY_BYTES, workers.get(0).getCapacityBytes());

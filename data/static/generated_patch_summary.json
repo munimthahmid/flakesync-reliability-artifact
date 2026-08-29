@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "protocol_version": "static-patch-cohort-v1",
+  "protocol": "evidence/static_patch_cohort_v1_protocol.json",
+  "protocol_sha256": "89f2d961a14bf4719244e1d6ba2e1b03e98df7d78742e3da25c47593fc9df019",
+  "analyzer": "scripts/analyze_static_patch_cohort_v1.py",
+  "analyzer_sha256": "eb3fec7cfff15776f7b6a43d462cd655b1b5ab7681905f91da38e97cdcfe4b33",
+  "scope": {
+    "kind": "descriptive static cohort census",
+    "non_rate": true,
+    "rate_estimate": false,
+    "purpose": "Describe structural hazards in 18 already emitted patch cases while keeping archived-location generation and root-reactor replay provenance separate.",
+    "not_claimed": [
+      "official full-workflow reproduction",
+      "paper success-rate estimate",
+      "dynamic failure witness",
+      "random-sample prevalence estimate"
+    ]
+  },
+  "cohort": {
+    "cases": 18,
+    "archived_location_cases": 14,
+    "root_reactor_replay_cases": 4,
+    "patch_files": 36,
+    "selected_case_ids": [
+      "FS001",
+      "FS002",
+      "FS003",
+      "FS004",
+      "FS005",
+      "FS006",
+      "FS007",
+      "FS014",
+      "FS016",
+      "FS020",
+      "FS021",
+      "FS053",
+      "FS056",
+      "FS057",
+      "FS018",
+      "FS019",
+      "FS058",
+      "FS059"
+    ]
+  },
+  "tracks": {
+    "Track B: archived-location patch generation": {
+      "track_version": "archived-input-v2-pinned-flakesync-patch-goal|d2620120e9559c8db786165bea690f10874664d78c665f411fb36be13c840b28",
+      "cases": 14,
+      "patch_files": 28,
+      "case_detector_counts": {
+        "shared_static_mutable_counter": 14,
+        "non_atomic_compound_increment": 14,
+        "unbounded_condition_wait": 14,
+        "busy_spin_yield": 14,
+        "missing_interrupt_path": 14,
+        "entry_reset_without_exit_cleanup": 14,
+        "entry_reset_can_erase_early_signal": 14,
+        "production_code_test_hook": 14,
+        "generic_helper_collision_surface": 14,
+        "absolute_diff_header": 14,
+        "unbraced_control_flow_capture": 0
+      },
+      "case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS020",
+        "FS021",
+        "FS053",
+        "FS056",
+        "FS057"
+      ]
+    },
+    "experimental root-reactor patch-goal replay": {
+      "track_version": "root-reactor-patch-goal-replay-v1",
+      "cases": 4,
+      "patch_files": 8,
+      "case_detector_counts": {
+        "shared_static_mutable_counter": 4,
+        "non_atomic_compound_increment": 4,
+        "unbounded_condition_wait": 4,
+        "busy_spin_yield": 4,
+        "missing_interrupt_path": 4,
+        "entry_reset_without_exit_cleanup": 4,
+        "entry_reset_can_erase_early_signal": 4,
+        "production_code_test_hook": 4,
+        "generic_helper_collision_surface": 4,
+        "absolute_diff_header": 4,
+        "unbraced_control_flow_capture": 2
+      },
+      "case_ids": [
+        "FS018",
+        "FS019",
+        "FS058",
+        "FS059"
+      ]
+    }
+  },
+  "verification": {
+    "all_case_ledgers_verified": true,
+    "all_patch_hashes_verified": true,
+    "all_unified_diffs_verified": true,
+    "all_input_hashes_verified": true,
+    "verified_cases": 18,
+    "verified_patch_files": 36
+  },
+  "inputs": {
+    "archived_outcomes": "runs/artifact_location_patch_generation/case_outcomes.csv",
+    "archived_outcomes_sha256": "3c8b1c0f8fdb8a64951874069cc2c5668f246c08c4eaccf0a6b1c634d951d312",
+    "replay_outcomes": {
+      "v1_b": {
+        "path": "runs/root_reactor_patch_replay_v1_b/case_outcomes.csv",
+        "sha256": "6f24dbf0764b5d25754946b2e821929f9773cdc07863d9e0b555839d7d318803"
+      },
+      "v1_c": {
+        "path": "runs/root_reactor_patch_replay_v1_c/case_outcomes.csv",
+        "sha256": "dc5066996df6cb254117b836dff5ad627218b2c99490cc17df4f423563819be5"
+      }
+    },
+    "source_map": "corpus/source_revisions_resolved.csv",
+    "source_map_sha256": "7e23fe64b8ee7dd7d42589186b6fe4e42786dc4db460561d3a9969857a6c1618",
+    "upstream_root_reactor_protocol": "evidence/root_reactor_patch_replay_protocol.json",
+    "upstream_root_reactor_protocol_sha256": "3df7225fe4c86d88f18dbfa3fc2329b8b65939a349456e2600cb57d1c1bf74e8"
+  },
+  "detectors": {
+    "shared_static_mutable_counter": "Added synchronization state is static and mutable, so independent instances or tests share it.",
+    "non_atomic_compound_increment": "A volatile counter is incremented with ++; the read-modify-write operation is not atomic.",
+    "unbounded_condition_wait": "The added condition loop contains no recognizable deadline or timeout.",
+    "busy_spin_yield": "The wait repeatedly calls Thread.yield instead of using a blocking synchronization primitive.",
+    "missing_interrupt_path": "The added wait has no recognizable interruption or cancellation check.",
+    "entry_reset_without_exit_cleanup": "State is reset at test entry but no added finally/teardown cleanup is visible.",
+    "entry_reset_can_erase_early_signal": "The added entry reset can erase a signal delivered during setup or before the test body.",
+    "production_code_test_hook": "The repair adds test-control synchronization code to a main-source file.",
+    "generic_helper_collision_surface": "Generic helper names are injected into subject classes and may collide with existing members.",
+    "absolute_diff_header": "The unified diff embeds an absolute source path, reducing direct patch portability.",
+    "unbraced_control_flow_capture": "An added executable statement is inserted after an unbraced if/for/while and before the original following statement, leaving that original statement outside the control flow."
+  },
+  "detector_properties": {
+    "shared_static_mutable_counter": [
+      "invocation isolation",
+      "concurrency safety"
+    ],
+    "non_atomic_compound_increment": [
+      "concurrency safety"
+    ],
+    "unbounded_condition_wait": [
+      "bounded progress"
+    ],
+    "busy_spin_yield": [
+      "bounded progress",
+      "resource behavior"
+    ],
+    "missing_interrupt_path": [
+      "bounded progress",
+      "cancellation"
+    ],
+    "entry_reset_without_exit_cleanup": [
+      "invocation isolation",
+      "cleanup"
+    ],
+    "entry_reset_can_erase_early_signal": [
+      "causal effectiveness",
+      "invocation isolation"
+    ],
+    "production_code_test_hook": [
+      "behavioral scope"
+    ],
+    "generic_helper_collision_surface": [
+      "applicability",
+      "behavioral scope"
+    ],
+    "absolute_diff_header": [
+      "applicability",
+      "portability"
+    ],
+    "unbraced_control_flow_capture": [
+      "behavioral scope",
+      "causal effectiveness"
+    ]
+  },
+  "case_detector_counts": {
+    "shared_static_mutable_counter": 18,
+    "non_atomic_compound_increment": 18,
+    "unbounded_condition_wait": 18,
+    "busy_spin_yield": 18,
+    "missing_interrupt_path": 18,
+    "entry_reset_without_exit_cleanup": 18,
+    "entry_reset_can_erase_early_signal": 18,
+    "production_code_test_hook": 18,
+    "generic_helper_collision_surface": 18,
+    "absolute_diff_header": 18,
+    "unbraced_control_flow_capture": 2
+  },
+  "patch_detector_counts": {
+    "shared_static_mutable_counter": 18,
+    "non_atomic_compound_increment": 18,
+    "unbounded_condition_wait": 18,
+    "busy_spin_yield": 18,
+    "missing_interrupt_path": 18,
+    "entry_reset_without_exit_cleanup": 18,
+    "entry_reset_can_erase_early_signal": 18,
+    "production_code_test_hook": 18,
+    "generic_helper_collision_surface": 36,
+    "absolute_diff_header": 36,
+    "unbraced_control_flow_capture": 2
+  },
+  "new_detector_cases": [
+    "FS018",
+    "FS019"
+  ],
+  "output_paths": {
+    "inventory": "evidence/static_patch_cohort_v1_inventory.csv",
+    "case_findings": "results/static-patch-cohort-v1/case_findings.csv",
+    "summary": "results/static-patch-cohort-v1/summary.json"
+  },
+  "caveat": "Existing hazards are structural static findings produced by the current analyze_patches.detect implementation. The added control-flow detector is a precise diff-structure witness, not a claim that every positive dynamically fails. All counts are descriptive and track-local."
+}

@@ -1,0 +1,20 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS007/src/test/java/tachyon/client/TachyonFSTest.java.orig	2026-08-26 00:13:56.014102004 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS007/src/test/java/tachyon/client/TachyonFSTest.java	2026-08-26 00:13:56.031101989 +0000
+@@ -388,6 +388,7 @@
+ 
+   @Test
+   public void unlockBlockTest3() throws IOException {
++    tachyon.Worker.resetExecutions();
+     TachyonFile tFile = null;
+     int numOfFiles = 5;
+     int fileSize = WORKER_CAPACITY_BYTES / numOfFiles;
+@@ -408,6 +409,9 @@
+     }
+     fileIds.add(TestUtils.createByteFile(
+         mTfs, "/file_" + numOfFiles, WriteType.CACHE_THROUGH, fileSize));
++    while (tachyon.Worker.getExecutedStatus() < 1) {
++        Thread.yield();
++    }
+ 
+     CommonUtils.sleepMs(null, SLEEP_MS);
+     tFile = mTfs.getFile(fileIds.get(0));

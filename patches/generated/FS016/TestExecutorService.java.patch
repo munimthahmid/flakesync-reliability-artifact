@@ -1,0 +1,27 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS016/src/test/java/com/alibaba/wasp/executor/TestExecutorService.java.orig	2026-08-26 00:14:24.096077905 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS016/src/test/java/com/alibaba/wasp/executor/TestExecutorService.java	2026-08-26 00:14:24.128077877 +0000
+@@ -46,6 +46,7 @@
+ 
+   @Test
+   public void testExecutorService() throws Exception {
++    com.alibaba.wasp.executor.EventHandler.resetExecutions();
+     int maxThreads = 5;
+     int maxTries = 10;
+     int sleepInterval = 10;
+@@ -79,6 +80,9 @@
+     int tries = 0;
+     while (counter.get() < maxThreads && tries < maxTries) {
+       LOG.info("Waiting for all event handlers to start...");
++      while (com.alibaba.wasp.executor.EventHandler.getExecutedStatus() < 1) {
++          Thread.yield();
++      }
+       Thread.sleep(sleepInterval);
+       tries++;
+     }
+@@ -173,4 +177,4 @@
+       counter.incrementAndGet();
+     }
+   }
+-}
+\ No newline at end of file
++}

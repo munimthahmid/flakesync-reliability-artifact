@@ -1,0 +1,26 @@
+diff --git a/src/test/java/org/fluentd/logger/TestFluentLogger.java b/src/test/java/org/fluentd/logger/TestFluentLogger.java
+index b0c2d01..fb65719 100644
+--- a/src/test/java/org/fluentd/logger/TestFluentLogger.java
++++ b/src/test/java/org/fluentd/logger/TestFluentLogger.java
+@@ -27,6 +27,7 @@
+ import static org.junit.Assert.*;
+ 
+ public class TestFluentLogger {
++    private static volatile boolean hasExecuted = false;
+     private Logger _logger = LoggerFactory.getLogger(TestFluentLogger.class);
+ 
+     class FixedThreadManager {
+@@ -439,9 +440,13 @@ public void run() {
+                             logger.flush();
+                     }
+                     logger.flush();
++                    hasExecuted = true;
+                 }
+             });
+         }
++        while (!hasExecuted) { 
++            Thread.yield(); 
++        }
+         Thread.sleep(1000);
+         executorService.shutdown();
+         executorService.awaitTermination(300, TimeUnit.SECONDS);

@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.DS_Store
+
+# The public artifact must remain compact.
+raw/
+local/
+workspaces/
+build_cache/
+logs/
+target/
+*.class
+*.jar
+*.log
+*.tar
+*.tar.gz
+*.zip

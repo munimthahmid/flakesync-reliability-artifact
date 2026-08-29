@@ -1,0 +1,89 @@
+{
+  "aggregate": {
+    "case_count": 3,
+    "exact_confirmed_count": 2,
+    "failed_confirmation_count": 1,
+    "incomplete_confirmation_count": 0
+  },
+  "cases": [
+    {
+      "case_id": "FS014",
+      "completed_runs": 2,
+      "counts": {
+        "Delay": 2,
+        "Instrumentation": 2,
+        "MavenExit0": 1,
+        "Pass": 1,
+        "SurefirePass": 1,
+        "Update": 2,
+        "Yield": 2
+      },
+      "first_failure_run": 2,
+      "outcomes_path": "runs/speed-repair-confirmations/fs014-100/outcomes.csv",
+      "outcomes_sha256": "d7d146a6f4ac26f4eaaa26b3ca1f6938468ec010e1dfc243ee71e12eea943fb3",
+      "paper_success_confirmed": false,
+      "passing_runs": 1,
+      "status": "failed_before_100",
+      "summary_path": "runs/speed-repair-confirmations/fs014-100/summary.json",
+      "summary_sha256": "44c82e8709c543cf787e3e86b8121649724298dd2b14c5a51cc63dc10a2be6be",
+      "target_runs": 100
+    },
+    {
+      "case_id": "FS055",
+      "completed_runs": 100,
+      "counts": {
+        "Delay": 100,
+        "Instrumentation": 100,
+        "MavenExit0": 100,
+        "Pass": 100,
+        "SurefirePass": 100,
+        "Update": 100,
+        "Yield": 100
+      },
+      "first_failure_run": null,
+      "outcomes_path": "runs/speed-repair-confirmations/fs055-100/outcomes.csv",
+      "outcomes_sha256": "453a7bea3c917d328d5aa11e9422314308ef1d9494889d7418b3331113420c7a",
+      "paper_success_confirmed": true,
+      "passing_runs": 100,
+      "status": "confirmed_100_of_100",
+      "summary_path": "runs/speed-repair-confirmations/fs055-100/summary.json",
+      "summary_sha256": "3e7f533651bd80aee3291568f08332eb8fea4b14ca3e8acbfbee8a1f1a9c95c5",
+      "target_runs": 100
+    },
+    {
+      "case_id": "FS057",
+      "completed_runs": 100,
+      "counts": {
+        "Delay": 100,
+        "Instrumentation": 100,
+        "MavenExit0": 100,
+        "Pass": 100,
+        "SurefirePass": 100,
+        "Update": 100,
+        "Yield": 100
+      },
+      "first_failure_run": null,
+      "outcomes_path": "runs/speed-repair-confirmations/fs057-100/outcomes.csv",
+      "outcomes_sha256": "33b8eac0a3e0a1d4a2575b26462e6f59075a2744ab193408f8585bcc26ed96d3",
+      "paper_success_confirmed": true,
+      "passing_runs": 100,
+      "status": "confirmed_100_of_100",
+      "summary_path": "runs/speed-repair-confirmations/fs057-100/summary.json",
+      "summary_sha256": "a34c81f0320f6f64a357bfe93c95495fe733d167b26efa7738b4fff9d3363f48",
+      "target_runs": 100
+    }
+  ],
+  "cohort": {
+    "case_count": 3,
+    "case_ids": [
+      "FS014",
+      "FS055",
+      "FS057"
+    ],
+    "path": "evidence/frozen_speed_confirmation_cohort_3.json",
+    "sha256": "16f2f829f18d830b706982698904c8014e7084da22f8ff7740de1653cdce6129",
+    "target_runs": 100
+  },
+  "schema_version": "speed-confirmation-cohort-final-v1",
+  "verification_status": "pass"
+}

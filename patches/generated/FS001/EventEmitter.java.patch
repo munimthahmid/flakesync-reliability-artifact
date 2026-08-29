@@ -1,0 +1,29 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS001/system/platform-core/src/main/java/org/platformlambda/core/system/EventEmitter.java.orig	2026-08-26 00:13:38.815116835 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS001/system/platform-core/src/main/java/org/platformlambda/core/system/EventEmitter.java	2026-08-26 00:13:38.839116815 +0000
+@@ -38,6 +38,11 @@
+ import java.util.concurrent.ConcurrentMap;
+ 
+ public class EventEmitter {
++
++    private static volatile int numExecutions;
++
++    public static void resetExecutions() { numExecutions = 0; }
++    public static int getExecutedStatus() { return numExecutions; }
+     private static final Logger log = LoggerFactory.getLogger(EventEmitter.class);
+ 
+     public static final int ONE_MILLISECOND = 1000000;
+@@ -83,6 +88,7 @@
+         if (multicast != null) {
+             platform.getEventExecutor().submit(() -> {
+                 log.info("Loading multicast config from {}", multicast);
++                numExecutions++;
+                 ConfigReader reader = new ConfigReader();
+                 try {
+                     reader.load(multicast);
+@@ -1038,4 +1044,4 @@
+         });
+     }
+ 
+-}
++}
+\ No newline at end of file

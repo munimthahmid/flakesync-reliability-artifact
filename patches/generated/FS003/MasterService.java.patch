@@ -1,0 +1,29 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS003/src/main/java/tachyon/thrift/MasterService.java.orig	2026-08-26 00:13:28.077126120 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS003/src/main/java/tachyon/thrift/MasterService.java	2026-08-26 00:13:28.132126072 +0000
+@@ -22,6 +22,11 @@
+ 
+ public class MasterService {
+ 
++
++  private static volatile int numExecutions;
++
++  public static void resetExecutions() { numExecutions = 0; }
++  public static int getExecutedStatus() { return numExecutions; }
+   public interface Iface {
+ 
+     public boolean addCheckpoint(long workerId, int fileId, long length, String checkpointPath) throws FileDoesNotExistException, SuspectedFileSizeException, BlockInfoException, org.apache.thrift.TException;
+@@ -7586,6 +7591,7 @@
+           case 2: // USED_BYTES
+             if (field.type == org.apache.thrift.protocol.TType.I64) {
+               this.usedBytes = iprot.readI64();
++              numExecutions++;
+               setUsedBytesIsSet(true);
+             } else { 
+               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
+@@ -36149,4 +36155,4 @@
+ 
+   }
+ 
+-}
++}
+\ No newline at end of file

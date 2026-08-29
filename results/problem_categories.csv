@@ -1,0 +1,7 @@
+Category,StructuralExposure,DynamicOrBuildWitness,Cases,ClaimScope
+generation_safety,18/18 generated diffs have absolute headers; 2/18 have unbraced insertion capture,4/20 did not compile,FS018;FS019;FS021;FS053,generator and emitted-artifact defect
+causal_mismatch,entry reset can erase an early signal in 18/18 generated cases,10/12 evaluable artifacts ineffective; 2/12 effective,FS002;FS003;FS004;FS005;FS006;FS007;FS014;FS020;FS056;FS058,matched recorded-delay replay
+negative_progress,unbounded busy-yield wait in 20/20 artifacts,8/13 eligible signal-loss probes hung; 5/10 fault-specific,FS001;FS005;FS006;FS007;FS054;FS057;FS058;FS059,"bounded, witnessed signal-suppression scenarios"
+cancellation_failure,missing interruption path in 20/20 artifacts,7/7 eligible interruption probes hung,FS002;FS005;FS006;FS007;FS014;FS020;FS054,suppression and direct interrupt both witnessed
+memory_and_multiwriter_safety,non-atomic volatile++ in 18/18 generated cases; one non-volatile submitted flag,1 lost update in 1 confirmed two-writer rendezvous; second eligible case inconclusive,FS056,threshold>1 generated cases only
+state_lifecycle_and_interference,shared static state and missing robust invocation lifecycle in 20/20 artifacts,1/14 reached neighbor probes regressed; FS059 hung in 8/10 fresh patched class runs,FS059,"case-specific differential regression, not cohort prevalence"

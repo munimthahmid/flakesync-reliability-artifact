@@ -1,0 +1,14 @@
+Project,Cases,CaseIds,LocallyEmitted,AuthorSubmitted,Compiled,OrdinaryPassed,MatchedDelayEvaluable,CausalEffective,CausalIneffective,SignalLossHangs,InterruptionFailures,NeighborRegressions
+Accenture/mercury,1,FS001,1,0,1,0,0,0,0,1,0,0
+Alluxio/alluxio,6,FS002;FS003;FS004;FS005;FS006;FS007,6,0,6,6,6,0,6,3,4,0
+TooTallNate/Java-WebSocket,1,FS014,1,0,1,1,1,0,1,0,1,0
+alibaba/wasp,1,FS016,1,0,1,1,0,0,0,0,0,0
+apache/dubbo,2,FS018;FS019,2,0,0,0,0,0,0,0,0,0
+apache/httpcore,1,FS020,1,0,1,1,1,0,1,0,1,0
+apache/incubator-uniffle,1,FS021,1,0,0,0,0,0,0,0,0,0
+elasticjob/elastic-job-lite,1,FS051,0,1,1,1,1,1,0,0,0,0
+flaxsearch/luwak,1,FS053,1,0,0,0,0,0,0,0,0,0
+fluent/fluent-logger-java,1,FS054,0,1,1,1,0,0,0,1,1,0
+kagkarlsson/db-scheduler,1,FS056,1,0,1,1,1,0,1,0,0,0
+nlighten/tomcat_exporter,1,FS057,1,0,1,0,0,0,0,1,0,0
+qos-ch/logback,2,FS058;FS059,2,0,2,2,2,1,1,2,0,1

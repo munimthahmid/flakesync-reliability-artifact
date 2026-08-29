@@ -1,0 +1,85 @@
+{
+  "actual_resources": {
+    "image_id": "sha256:b15fb247b2604fd8597d8be7fb2adddb573dccff75b8add5ce3526833ae3ead2",
+    "memory": 8589934592,
+    "memory_swap": 17179869184,
+    "nano_cpus": 4000000000,
+    "pids_limit": null,
+    "user": "java8-flakesync"
+  },
+  "barrier_agent_location": "org.java_websocket.util.ThreadCheck#61",
+  "case": {
+    "barrier": "org.java_websocket.util.ThreadCheck#61",
+    "case_id": "FS012",
+    "critical": "org/java_websocket/client/WebSocketClient$WebsocketWriteThread#645~org/java_websocket/client/WebSocketClient$WebsocketWriteThread#648[3200];org/java_websocket/client/WebSocketClient$WebsocketWriteThread#661~org/java_websocket/client/WebSocketClient$WebsocketWriteThread#661[3200];",
+    "exact_archived_tuple": false,
+    "identity": [
+      "TooTallNate/Java-WebSocket",
+      "fa3909c391195178ccf5a92d4ac342a30ae247c8",
+      ".",
+      "org.java_websocket.issues.Issue580Test#runNoCloseBlockingTestScenario5"
+    ],
+    "search_analysis_sha256": "92a07d1ac6ae9606ca62c6dc23bb7038ad2dba50e0f1e358347e7cb06f54d4e0",
+    "search_classification": "alternative_working_tuple_found",
+    "selected_search_run": "official-20-fs012-01",
+    "threshold": "1",
+    "unpatched_delay_failure_evidence": {
+      "delay_ms": "3200",
+      "observed_failure_found": "1",
+      "source": "results/official_20_analysis.json",
+      "source_sha256": "92a07d1ac6ae9606ca62c6dc23bb7038ad2dba50e0f1e358347e7cb06f54d4e0"
+    },
+    "unpatched_delay_failure_reproduced": true
+  },
+  "clone_checkout_exit_code": 0,
+  "clone_checkout_timed_out": false,
+  "clone_checkout_timeout_seconds": 900,
+  "completed_runs": 21,
+  "confirmation_cohort_sha256": "52234cb4456afbcf4843490324e402330d1e4602356c41efeb5f8e6db33856b2",
+  "container": "flakesync-faithful-confirm-fs012-100",
+  "container_id": "1a837f481bebee0fc74b52cf3e972e00846cb240a0a09212a126a82cecd7f13d",
+  "critical_agent_location": "org.java_websocket.client.WebSocketClient$WebsocketWriteThread#661",
+  "critical_selection_rule": "The released barrier_point_search.sh selects the last semicolon-delimited critical interval and passes its upper endpoint to the barrier agent.",
+  "delay_ms": "3200",
+  "files_in_manifest": 74,
+  "finished_at": "2026-08-29T03:00:40.533829+00:00",
+  "first_failure_run": 21,
+  "image_id": "sha256:b15fb247b2604fd8597d8be7fb2adddb573dccff75b8add5ce3526833ae3ead2",
+  "paper_success_confirmed": false,
+  "paper_success_control": "The hash-bound official search analysis records that the unpatched target failed under the selected injected delay before this repaired 100-run phase.",
+  "passing_runs": 20,
+  "per_run_timeout_seconds": 180,
+  "prepare_exit_code": 0,
+  "prepare_timed_out": false,
+  "prepare_timeout_seconds": 3600,
+  "resource_checks": {
+    "artifact_user": true,
+    "default_sixteen_gib_memory_swap": true,
+    "eight_gib_memory": true,
+    "four_cpus": true,
+    "no_explicit_docker_pid_limit": true,
+    "pinned_image": true
+  },
+  "resources": {
+    "cpus": 4,
+    "memory_bytes": 8589934592,
+    "user": "java8-flakesync"
+  },
+  "runner_sha256": "668678c332a6e6feca873a77b9318f55bf9c238fb039a1f7f3e83f3851383215",
+  "schema_version": "repair-confirmation-100-v1",
+  "started_at": "2026-08-29T02:53:23.790491+00:00",
+  "status": "failed_before_100",
+  "stopping_rule": "Stop at the first non-pass; one failure disproves 100/100 confirmation.",
+  "subject_baseline_checks": {
+    "current_confirmation_cohort_hash": true,
+    "exactly_one_case_baseline": true,
+    "frozen_schema": true,
+    "identity_matches": true,
+    "initial_image_subject_state_matches": true,
+    "pinned_image": true,
+    "post_clone_state_matches_declared_rule": true
+  },
+  "target_runs": 100,
+  "threshold": "1",
+  "tool_provenance_exit_code": 0
+}

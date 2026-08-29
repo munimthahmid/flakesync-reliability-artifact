@@ -1,0 +1,1031 @@
+{
+  "claim_boundary": {
+    "case_counts_are_descriptive_and_clustered": true,
+    "developer_case_instances_are_not_independent_designs": true,
+    "no_independent_case_confidence_intervals": true,
+    "official_runtime_confirmation_separate_from_source_patch_reliability": true,
+    "paper_67_of_80_not_reestimated": true,
+    "twenty_artifacts_are_eighteen_local_plus_two_author_submissions": true,
+    "unknown_is_not_failure_and_not_pass": true
+  },
+  "clustering": {
+    "developer_independent_designs": 3,
+    "inference_rule": "report case, project, and design units; do not treat rows as independent Bernoulli trials",
+    "largest_project": "Alluxio/alluxio",
+    "largest_project_cases": 6,
+    "local_generated_templates": 1,
+    "twenty_projects": 13
+  },
+  "counter_race": {
+    "classifications": {
+      "inconclusive-no-two-writer-pair": 1,
+      "lost-update-witness-without-test-failure": 1
+    },
+    "eligible_cases": [
+      "FS004",
+      "FS056"
+    ],
+    "lost_update_witnesses": 1,
+    "two_writer_pairs_confirmed": 1
+  },
+  "developer_comparison": {
+    "all_applied_compiled_ordinary_10_of_10": true,
+    "causal_effective_cases": 3,
+    "causal_ineffective_cases": 3,
+    "coverage_67_status": "pass",
+    "designs": [
+      {
+        "AllApplied": true,
+        "AllCompiled": true,
+        "AllOrdinary10Of10": true,
+        "CaseIds": "FS004;FS005;FS006;FS007",
+        "CaseInstances": 4,
+        "CausalEffectiveCases": 3,
+        "CausalIneffectiveCases": 1,
+        "DesignId": "alluxio_4b9c806b_heartbeat_derived_bounded_sleep",
+        "ExactOriginalInstances": 0,
+        "Project": "Alluxio/alluxio",
+        "Relations": "semantic_backport_of_exact_commit_diff"
+      },
+      {
+        "AllApplied": true,
+        "AllCompiled": true,
+        "AllOrdinary10Of10": true,
+        "CaseIds": "FS020",
+        "CaseInstances": 1,
+        "CausalEffectiveCases": 0,
+        "CausalIneffectiveCases": 1,
+        "DesignId": "httpcore_66d43a02_ordered_bounded_join",
+        "ExactOriginalInstances": 1,
+        "Project": "apache/httpcore",
+        "Relations": "exact_commit_diff"
+      },
+      {
+        "AllApplied": true,
+        "AllCompiled": true,
+        "AllOrdinary10Of10": true,
+        "CaseIds": "FS014",
+        "CaseInstances": 1,
+        "CausalEffectiveCases": 0,
+        "CausalIneffectiveCases": 1,
+        "DesignId": "java_websocket_pr1450_bounded_state_poll",
+        "ExactOriginalInstances": 0,
+        "Project": "TooTallNate/Java-WebSocket",
+        "Relations": "semantic_backport"
+      }
+    ],
+    "screened_context_cases": [
+      {
+        "case_id": "FS018",
+        "classification": "independent-related-test-isolation-fix-not-exact-causal-repair",
+        "reason": "The project-authored descendant commit is after the pinned source and touches testDemoProtocol, but its semantic change is an @AfterClass ProtocolUtils.closeAll teardown. It does not touch the within-test ExtensionLoader condition or encode the paper's injected-delay ordering. It is useful isolation-design evidence and a future backport candidate, not yet an exact repair comparator.",
+        "strict_comparator_admitted": false
+      },
+      {
+        "case_id": "FS051",
+        "classification": "flakesync-author-submission-not-independent-developer-fix",
+        "reason": "The commit is authored by Alisha-0321 and implements the same process-wide flag plus Thread.yield repair style. It is a FlakeSync-author artifact and cannot serve as an independent developer comparator.",
+        "strict_comparator_admitted": false
+      },
+      {
+        "case_id": "FS055",
+        "classification": "preexisting-causal-fix-already-present-in-pinned-source",
+        "reason": "The independent project fix adds check-before-wait in ThreadMonitor and a focused regression test, but it predates the paper's pinned source by seven months and the exact check is already present at pinned lines 85-88. Therefore it is good synchronization-design context, not a later repair of FS055's recorded failure.",
+        "strict_comparator_admitted": false
+      },
+      {
+        "case_id": "FS060",
+        "classification": "independent-descendant-causal-observability-redesign",
+        "reason": "The project maintainer's descendant change replaces a probabilistic loss-ratio helper with explicit recovery/failure callbacks and exact event-count invariants. This is strong developer-design evidence, but it occurs 1,025 ancestry-path commits after the pinned source and changes production APIs; no transparent backport or matched adverse validation exists yet.",
+        "strict_comparator_admitted": false
+      },
+      {
+        "case_id": "FS061",
+        "classification": "diagnostic-strengthening-not-repair",
+        "reason": "The descendant commit reaches the target only through its shared helper, retains the existing ping, and adds stream-state assertions to diagnose a future flake. It does not repair the recorded DeflaterSink ordering. Other synchronization candidates inspected for FS061 modify unrelated test methods.",
+        "strict_comparator_admitted": false
+      }
+    ],
+    "strict_case_instances": 6,
+    "strict_independent_designs": 3,
+    "template_detector_positives": 0
+  },
+  "gate_coverage": {
+    "apply": {
+      "denominator": 20,
+      "fail": {
+        "case_ids": [],
+        "count": 0
+      },
+      "pass_": {
+        "case_ids": [
+          "FS001",
+          "FS002",
+          "FS003",
+          "FS004",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS014",
+          "FS016",
+          "FS018",
+          "FS019",
+          "FS020",
+          "FS021",
+          "FS051",
+          "FS053",
+          "FS054",
+          "FS056",
+          "FS057",
+          "FS058",
+          "FS059"
+        ],
+        "count": 20
+      }
+    },
+    "cancellation": {
+      "denominator": 20,
+      "fail_ignored_interrupt": {
+        "case_ids": [
+          "FS002",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS014",
+          "FS020",
+          "FS054"
+        ],
+        "count": 7
+      },
+      "not_evaluable": {
+        "case_ids": [
+          "FS001",
+          "FS003",
+          "FS004",
+          "FS016",
+          "FS018",
+          "FS019",
+          "FS021",
+          "FS051",
+          "FS053",
+          "FS056",
+          "FS057",
+          "FS058",
+          "FS059"
+        ],
+        "count": 13
+      },
+      "pass_bounded": {
+        "case_ids": [],
+        "count": 0
+      }
+    },
+    "compile": {
+      "denominator": 20,
+      "fail": {
+        "case_ids": [
+          "FS018",
+          "FS019",
+          "FS021",
+          "FS053"
+        ],
+        "count": 4
+      },
+      "pass_": {
+        "case_ids": [
+          "FS001",
+          "FS002",
+          "FS003",
+          "FS004",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS014",
+          "FS016",
+          "FS020",
+          "FS051",
+          "FS054",
+          "FS056",
+          "FS057",
+          "FS058",
+          "FS059"
+        ],
+        "count": 16
+      }
+    },
+    "complete_operational_contract": {
+      "denominator": 20,
+      "fail": {
+        "case_ids": [
+          "FS001",
+          "FS002",
+          "FS003",
+          "FS004",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS014",
+          "FS016",
+          "FS018",
+          "FS019",
+          "FS020",
+          "FS021",
+          "FS051",
+          "FS053",
+          "FS054",
+          "FS056",
+          "FS057",
+          "FS058",
+          "FS059"
+        ],
+        "count": 20
+      },
+      "pass_": {
+        "case_ids": [],
+        "count": 0
+      }
+    },
+    "fault_specific_signal_loss": {
+      "denominator": 20,
+      "fail_hang": {
+        "case_ids": [
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS058",
+          "FS059"
+        ],
+        "count": 5
+      },
+      "not_evaluable": {
+        "case_ids": [
+          "FS001",
+          "FS004",
+          "FS016",
+          "FS018",
+          "FS019",
+          "FS021",
+          "FS053",
+          "FS054",
+          "FS056",
+          "FS057"
+        ],
+        "count": 10
+      },
+      "pass_bounded": {
+        "case_ids": [
+          "FS002",
+          "FS003",
+          "FS014",
+          "FS020",
+          "FS051"
+        ],
+        "count": 5
+      }
+    },
+    "matched_recorded_delay": {
+      "denominator": 20,
+      "fail_causal": {
+        "case_ids": [
+          "FS002",
+          "FS003",
+          "FS004",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS014",
+          "FS020",
+          "FS056",
+          "FS058"
+        ],
+        "count": 10
+      },
+      "inconclusive": {
+        "case_ids": [
+          "FS016",
+          "FS054"
+        ],
+        "count": 2
+      },
+      "not_reached": {
+        "case_ids": [
+          "FS001",
+          "FS018",
+          "FS019",
+          "FS021",
+          "FS053",
+          "FS057"
+        ],
+        "count": 6
+      },
+      "pass_causal": {
+        "case_ids": [
+          "FS051",
+          "FS059"
+        ],
+        "count": 2
+      }
+    },
+    "neighbor": {
+      "denominator": 20,
+      "fail_regression": {
+        "case_ids": [
+          "FS059"
+        ],
+        "count": 1
+      },
+      "not_reached": {
+        "case_ids": [
+          "FS001",
+          "FS018",
+          "FS019",
+          "FS021",
+          "FS053",
+          "FS057"
+        ],
+        "count": 6
+      },
+      "pass_": {
+        "case_ids": [
+          "FS002",
+          "FS003",
+          "FS004",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS014",
+          "FS016",
+          "FS020",
+          "FS051",
+          "FS054",
+          "FS056",
+          "FS058"
+        ],
+        "count": 13
+      }
+    },
+    "ordinary": {
+      "denominator": 20,
+      "fail": {
+        "case_ids": [
+          "FS001",
+          "FS057"
+        ],
+        "count": 2
+      },
+      "not_reached": {
+        "case_ids": [
+          "FS018",
+          "FS019",
+          "FS021",
+          "FS053"
+        ],
+        "count": 4
+      },
+      "pass_": {
+        "case_ids": [
+          "FS002",
+          "FS003",
+          "FS004",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS014",
+          "FS016",
+          "FS020",
+          "FS051",
+          "FS054",
+          "FS056",
+          "FS058",
+          "FS059"
+        ],
+        "count": 14
+      }
+    },
+    "parallel": {
+      "denominator": 20,
+      "inconclusive_execution_not_confirmed": {
+        "case_ids": [
+          "FS002",
+          "FS003",
+          "FS004",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS058",
+          "FS059"
+        ],
+        "count": 8
+      },
+      "not_reached": {
+        "case_ids": [
+          "FS001",
+          "FS018",
+          "FS019",
+          "FS021",
+          "FS053",
+          "FS057"
+        ],
+        "count": 6
+      },
+      "pass_": {
+        "case_ids": [
+          "FS014"
+        ],
+        "count": 1
+      },
+      "unavailable_no_peer": {
+        "case_ids": [
+          "FS016",
+          "FS020",
+          "FS051",
+          "FS054",
+          "FS056"
+        ],
+        "count": 5
+      }
+    },
+    "reused_jvm": {
+      "denominator": 20,
+      "not_reached": {
+        "case_ids": [
+          "FS001",
+          "FS018",
+          "FS019",
+          "FS021",
+          "FS053",
+          "FS057"
+        ],
+        "count": 6
+      },
+      "pass_": {
+        "case_ids": [
+          "FS002",
+          "FS003",
+          "FS004",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS014",
+          "FS058",
+          "FS059"
+        ],
+        "count": 9
+      },
+      "unavailable_no_peer": {
+        "case_ids": [
+          "FS016",
+          "FS020",
+          "FS051",
+          "FS054",
+          "FS056"
+        ],
+        "count": 5
+      }
+    },
+    "signal_loss": {
+      "denominator": 20,
+      "fail_hang": {
+        "case_ids": [
+          "FS001",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS054",
+          "FS057",
+          "FS058",
+          "FS059"
+        ],
+        "count": 8
+      },
+      "not_evaluable": {
+        "case_ids": [
+          "FS004",
+          "FS016",
+          "FS018",
+          "FS019",
+          "FS021",
+          "FS053",
+          "FS056"
+        ],
+        "count": 7
+      },
+      "pass_bounded": {
+        "case_ids": [
+          "FS002",
+          "FS003",
+          "FS014",
+          "FS020",
+          "FS051"
+        ],
+        "count": 5
+      }
+    },
+    "two_writer_counter": {
+      "denominator": 20,
+      "fail_lost_update": {
+        "case_ids": [
+          "FS056"
+        ],
+        "count": 1
+      },
+      "inconclusive_no_pair": {
+        "case_ids": [
+          "FS004"
+        ],
+        "count": 1
+      },
+      "not_applicable_or_not_probed": {
+        "case_ids": [
+          "FS001",
+          "FS002",
+          "FS003",
+          "FS005",
+          "FS006",
+          "FS007",
+          "FS014",
+          "FS016",
+          "FS018",
+          "FS019",
+          "FS020",
+          "FS021",
+          "FS051",
+          "FS053",
+          "FS054",
+          "FS057",
+          "FS058",
+          "FS059"
+        ],
+        "count": 18
+      }
+    }
+  },
+  "headline_18_local_metrics": {
+    "applied": "18/18",
+    "causal_effective": "1/11",
+    "causal_ineffective": "10/11",
+    "compiled": "14/18",
+    "complete_operational_contract": "0/18",
+    "fault_specific_signal_loss_hang": "5/9",
+    "interruption_failure": "6/6",
+    "matched_delay_evaluable": "11/18",
+    "neighbor_regression": "1/12 reached; 1/18 cohort-wide",
+    "ordinary_pass": "12/18",
+    "signal_loss_hang": "7/11"
+  },
+  "headline_20_artifact_metrics": {
+    "applied": "20/20",
+    "causal_effective": "2/12",
+    "causal_ineffective": "10/12",
+    "compiled": "16/20",
+    "complete_operational_contract": "0/20",
+    "fault_specific_signal_loss_hang": "5/10",
+    "interruption_failure": "7/7",
+    "matched_delay_evaluable": "12/20",
+    "neighbor_regression": "1/14 reached; 1/20 cohort-wide",
+    "ordinary_pass": "14/20",
+    "signal_loss_hang": "8/13"
+  },
+  "inputs": {
+    "artifact_location_audit": {
+      "bytes": 3077,
+      "path": "data/corpus/artifact_locations_audit.json",
+      "sha256": "0a168cab09935defa8d8f654b8bc24709a29a887c9e8bc0bf7331dfc053b3c83"
+    },
+    "b2_generator_outcomes": {
+      "bytes": 19749,
+      "path": "data/generation/case_outcomes_67.csv",
+      "sha256": "7c42afeae6bdf6af3af2335de0705d7b9cdda03151dd63c9c3f062b2c6a381e1"
+    },
+    "counter_race_cases": {
+      "bytes": 498,
+      "path": "data/races/counter_race_case_findings.csv",
+      "sha256": "5f42611c0c34b6d0bf736aeb74fc2216db4a8ff86231d5783e6a57f1f8aa8c6b"
+    },
+    "counter_race_summary": {
+      "bytes": 490,
+      "path": "data/races/counter_race_summary.json",
+      "sha256": "f9d5bb3caaa27e4dc293c32c90ec215e881c1620664b34fe78f1a07a6d15e280"
+    },
+    "developer_cases": {
+      "bytes": 26115,
+      "path": "data/developer/case_matrix.csv",
+      "sha256": "c7eafaafe71339b3e0a51bf56e6d22bdc1d186fbbdf12baf4532058e5946845c"
+    },
+    "developer_coverage_67": {
+      "bytes": 29459,
+      "path": "data/developer/coverage_67.json",
+      "sha256": "df678c64e0164516d8a68b840f8611d80f8b420db98b108c687be51caea97e1c"
+    },
+    "developer_screening": {
+      "bytes": 5120,
+      "path": "data/developer/screening_decisions.json",
+      "sha256": "7f644b8a38a2580a8f4d565fc8b5ed4481f3cc288c3bf40d35bd0f4dd393efd6"
+    },
+    "developer_summary": {
+      "bytes": 27133,
+      "path": "data/developer/comparison_summary.json",
+      "sha256": "08af0201f76d945879eb415a615349fce32c2137d732d3587192544051789cc0"
+    },
+    "exact_confirmation_3": {
+      "bytes": 2856,
+      "path": "data/official/exact_confirmation_3.json",
+      "sha256": "4294fdbd1a709a1a0c7d4b64693c5b07917533bee7e84fb452ea96f1446f857c"
+    },
+    "fs011_confirmation": {
+      "bytes": 3750,
+      "path": "data/official/fs011_confirmation_100.json",
+      "sha256": "839426a8fb09dcc4b9e2ac31f931170419374f5606f5a77252f2b5c21792557c"
+    },
+    "fs012_confirmation": {
+      "bytes": 3753,
+      "path": "data/official/fs012_confirmation_100.json",
+      "sha256": "1cc26c04ff1a93afa35cbdf744719a4576a6a925b3edfd33ab7ccb27fc77550d"
+    },
+    "fs057_linkage": {
+      "bytes": 7345,
+      "path": "data/linkage/fs057_runtime_source.json",
+      "sha256": "6e7d0b0bb3eaa3416eee3d0e4983b241944a39051ec7773af7fcb2b8e31b916b"
+    },
+    "fs059_crossover": {
+      "bytes": 2265,
+      "path": "data/special/fs059_worker_crossover.json",
+      "sha256": "da5b23c5b28018ac2a1318b27f9fdda600126d16e1e370e1350196d05adc2a4e"
+    },
+    "fs059_frequency": {
+      "bytes": 2604,
+      "path": "data/special/fs059_neighbor_frequency.json",
+      "sha256": "fbb9b00bc1f1675f89a60ad2f2393555ded49dfa82ad1f2d19b86ed2412d3da5"
+    },
+    "full_confirmation_cohort_21": {
+      "bytes": 9234,
+      "path": "data/official/full_confirmation_cohort_21.json",
+      "sha256": "52234cb4456afbcf4843490324e402330d1e4602356c41efeb5f8e6db33856b2"
+    },
+    "full_confirmation_progress": {
+      "bytes": 1121,
+      "path": "data/official/full_confirmation_progress.json",
+      "sha256": "04d7b67ebd163ea7b64803aa14587e43ed39d4fcc23ed64e5928badf4a6c53c4"
+    },
+    "reliability_aware_contract": {
+      "bytes": 21354,
+      "path": "contract/reliability_contract.json",
+      "sha256": "8ebcbc88aed6e437dee72806b5bcaaf7a5ef092483433c90c779aa5dde77f286"
+    },
+    "repair_20_cases": {
+      "bytes": 36700,
+      "path": "data/reliability/repair_case_findings.csv",
+      "sha256": "978f1c96b84cf44bb8861a8625da643a54dc235bbc9fc5a592175951a397b70e"
+    },
+    "repair_20_summary": {
+      "bytes": 18809,
+      "path": "data/reliability/repair_cohort_summary.json",
+      "sha256": "5d4bc7c1e187fa97ed6ccbcf15a4f94cd1d56c64fb1d316fb6737f913f275bbf"
+    },
+    "static_18_summary": {
+      "bytes": 8173,
+      "path": "data/static/generated_patch_summary.json",
+      "sha256": "9653dd1fb29b51897f3b1b996c1e126468cf4b5ba40618a3816fa75be2f73ef2"
+    },
+    "wasp_confirmation": {
+      "bytes": 3853,
+      "path": "data/official/wasp_confirmation_100.json",
+      "sha256": "562dee2c1ee90e46eea36941bbe336a46f67f5b572c1d4b19e5a005924d7c3a9"
+    },
+    "wasp_replicates": {
+      "bytes": 9394,
+      "path": "data/official/wasp_replicates.json",
+      "sha256": "8a786a1a386f4dbc4e4acb018a86287ff18283669f83ae9f56b08654aee09df3"
+    }
+  },
+  "official_runtime_reproduction": {
+    "alternative_tuples": {
+      "FS011": "0/1; alternative tuple",
+      "FS012": "20/21; alternative tuple; failure on run 21",
+      "WASP_FS016": "100/100; alternative tuple; archive tuple 0/10"
+    },
+    "completed_speed_confirmation_cohort": {
+      "cases": 3,
+      "confirmed_100_of_100": [
+        "FS055",
+        "FS057"
+      ],
+      "failed_before_100": {
+        "FS014": "1/2; assertion failure on run 2"
+      }
+    },
+    "exact_runtime_to_source_linkage": {
+      "cases": [
+        "FS057"
+      ],
+      "checks_passed": 61,
+      "checks_total": 61
+    },
+    "unfinished_full_confirmation_roster": {
+      "declared_cases": 21,
+      "status": "waiting_for_official_20",
+      "terminal_case_dispositions": 0
+    }
+  },
+  "outputs": {
+    "case_matrix": "results/case_reliability_matrix.csv",
+    "cohort_flow": "results/cohort_flow.csv",
+    "developer_designs": "results/developer_designs.csv",
+    "gate_coverage": "results/gate_coverage.csv",
+    "problem_categories": "results/problem_categories.csv",
+    "project_clusters": "results/project_clusters.csv",
+    "summary": "results/summary.json"
+  },
+  "reliability_contract": {
+    "candidate_strategy_order": [
+      "reuse an existing causal completion abstraction",
+      "introduce an invocation-local bounded synchronization object",
+      "bounded polling of a domain predicate",
+      "abstain"
+    ],
+    "counter_scenarios": [
+      {
+        "id": "C1",
+        "name": "recorded failure schedule"
+      },
+      {
+        "id": "C2",
+        "name": "producer exception before publication"
+      },
+      {
+        "id": "C3",
+        "name": "missing or never-started producer"
+      },
+      {
+        "id": "C4",
+        "name": "early signal"
+      },
+      {
+        "id": "C5",
+        "name": "partial multiple completion"
+      },
+      {
+        "id": "C6",
+        "name": "two-writer collision"
+      },
+      {
+        "id": "C7",
+        "name": "waiter interruption"
+      },
+      {
+        "id": "C8",
+        "name": "sequential reused-JVM invocation"
+      },
+      {
+        "id": "C9",
+        "name": "neighboring test class or suite"
+      },
+      {
+        "id": "C10",
+        "name": "parallel same-test and peer-test invocation"
+      }
+    ],
+    "held_out_required": true,
+    "implemented_or_evaluated": false,
+    "non_guarantees": [
+      "Finite testing cannot prove correctness under every Java schedule.",
+      "The contract cannot repair an incorrect critical/barrier localization without additional localization evidence.",
+      "A dynamically calibrated deadline is not automatically a semantically correct deadline.",
+      "Static detectors do not replace whole-program race or liveness verification.",
+      "Passing the declared scenarios does not prove absence of regressions outside the exercised module and environment.",
+      "No safe invocation-local observable may be accessible without an unacceptable production redesign; the correct result is then abstention."
+    ],
+    "properties": [
+      "artifact_integrity_and_buildability",
+      "ordinary_behavior_preservation",
+      "causal_effectiveness",
+      "bounded_progress",
+      "memory_and_multiwriter_safety",
+      "invocation_isolation_and_noninterference",
+      "cancellation_interruption_and_cleanup",
+      "behavioral_fidelity_and_oracle_preservation",
+      "repeatability_under_declared_positive_and_counter_scenarios"
+    ],
+    "property_definitions": [
+      {
+        "id": "P1",
+        "name": "artifact integrity and buildability"
+      },
+      {
+        "id": "P2",
+        "name": "ordinary behavior preservation"
+      },
+      {
+        "id": "P3",
+        "name": "causal effectiveness"
+      },
+      {
+        "id": "P4",
+        "name": "bounded progress"
+      },
+      {
+        "id": "P5",
+        "name": "memory and multi-writer safety"
+      },
+      {
+        "id": "P6",
+        "name": "invocation isolation and noninterference"
+      },
+      {
+        "id": "P7",
+        "name": "cancellation, interruption, and cleanup"
+      },
+      {
+        "id": "P8",
+        "name": "behavioral fidelity and oracle preservation"
+      },
+      {
+        "id": "P9",
+        "name": "repeatability under positive and counter-scenarios"
+      }
+    ],
+    "source_status": "specified-not-implemented-or-evaluated",
+    "verdict_logic": {
+      "fail": "at least one direct contract violation or witnessed failure",
+      "pass": "all applicable properties pass under declared checks",
+      "unknown": "no established failure but one or more required checks lack valid evidence"
+    }
+  },
+  "schema_version": "flakesync-research-questions-analysis-v3",
+  "specificity_analysis": {
+    "broader_repair_validation": {
+      "claim": "Ordinary passing behavior is insufficient evidence of causal repair for either generated or developer-written fixes.",
+      "classification": "general validation and schedule-overfitting problem",
+      "evidence": "10/12 evaluable FlakeSync-generated or author artifacts and 3/6 strict developer-fix instances were ineffective under matched recorded-delay controls; all six developer instances nevertheless applied, compiled, and passed 10/10 ordinary executions."
+    },
+    "flakesync_author_family_extension": {
+      "claim": "The liveness and lifecycle problem is not confined to volatile++ within the FlakeSync repair family.",
+      "classification": "FlakeSync-family design problem beyond one counter syntax",
+      "evidence": "Both author-submitted pinned repairs replace the integer counter with a shared static boolean but retain an unbounded yield wait, missing interruption, and missing per-invocation lifecycle; FS054 dynamically hung under witnessed signal suppression and interruption."
+    },
+    "inference_limit": "The developer evidence represents six case instances but only three independent designs in three projects. It supports a cross-provenance mechanism observation, not a prevalence estimate for developer fixes, all async repairs, or all automated program repair systems.",
+    "released_generator_template": {
+      "claim": "The repeated counter/yield/lifecycle hazards are attributable to the observed FlakeSync template, not evidence that every async-test repair must have those structures.",
+      "classification": "FlakeSync released-template problem",
+      "evidence": "18/18 locally emitted cases instantiate shared static mutable counters, non-atomic volatile increments, unbounded Thread.yield waits, no interruption path, entry-only reset, and production test hooks; the six strict developer-fix case instances, representing three independent designs, trigger none of these normalized template detectors"
+    }
+  },
+  "static_patterns": {
+    "author_submitted": {
+      "case_count": 2,
+      "case_detector_counts": {
+        "busy_spin_yield": 2,
+        "missing_interrupt_path": 2,
+        "non_atomic_compound_update": 0,
+        "plain_nonvolatile_shared_state": 1,
+        "production_code_test_hook": 0,
+        "reset_at_entry_without_exit_cleanup": 0,
+        "shared_state_without_per_invocation_reset": 2,
+        "shared_static_mutable_state": 2,
+        "unbounded_condition_wait": 2
+      },
+      "detector_source": "scripts/analyze_patches.py",
+      "detector_source_sha256": "1de2dedb22b967998204f6e4d65d86d65664966ea5704412b7f8909309f01e8f",
+      "detectors": {
+        "busy_spin_yield": "The submitted repair repeatedly yields instead of using blocking synchronization.",
+        "missing_interrupt_path": "The submitted condition wait has no interruption or cancellation path.",
+        "non_atomic_compound_update": "The submitted repair updates shared state with a non-atomic compound operation.",
+        "plain_nonvolatile_shared_state": "The added cross-thread static state is neither volatile nor an atomic type.",
+        "production_code_test_hook": "The submitted repair adds synchronization state to a main-source file.",
+        "reset_at_entry_without_exit_cleanup": "The submitted repair resets shared state at entry but adds no finally/teardown cleanup.",
+        "shared_state_without_per_invocation_reset": "The submitted repair adds static state without a visible per-invocation reset.",
+        "shared_static_mutable_state": "The submitted repair adds non-final static synchronization state shared across invocations.",
+        "unbounded_condition_wait": "The submitted repair adds a condition loop without a deadline or bounded await."
+      },
+      "patch_files": 2
+    },
+    "generated_cases": {
+      "absolute_diff_header": 18,
+      "busy_spin_yield": 18,
+      "entry_reset_can_erase_early_signal": 18,
+      "entry_reset_without_exit_cleanup": 18,
+      "generic_helper_collision_surface": 18,
+      "missing_interrupt_path": 18,
+      "non_atomic_compound_increment": 18,
+      "production_code_test_hook": 18,
+      "shared_static_mutable_counter": 18,
+      "unbounded_condition_wait": 18,
+      "unbraced_control_flow_capture": 2
+    },
+    "harmonized_twenty": {
+      "busy_yield_wait": {
+        "author_submitted": 2,
+        "count": 20,
+        "local_generated": 18
+      },
+      "missing_interruption_path": {
+        "author_submitted": 2,
+        "count": 20,
+        "local_generated": 18
+      },
+      "missing_robust_per_invocation_lifecycle": {
+        "author_no_per_invocation_reset": 2,
+        "count": 20,
+        "local_entry_reset_without_exit_cleanup": 18
+      },
+      "scope": "structural family mapping, not identical detector syntax",
+      "shared_static_state": {
+        "author_submitted": 2,
+        "count": 20,
+        "local_generated": 18
+      },
+      "unbounded_condition_wait": {
+        "author_submitted": 2,
+        "count": 20,
+        "local_generated": 18
+      }
+    }
+  },
+  "status": "pass",
+  "units": {
+    "b2_patch_goal": {
+      "attempted_cases": 67,
+      "genuine_blank_threshold_cases": [
+        "FS015"
+      ],
+      "outcomes": {
+        "no-usable-patch-emitted": 43,
+        "no-usable-patch-with-workspace-restoration-defect": 2,
+        "patch-goal-nonzero": 8,
+        "usable-patch-emitted": 14
+      },
+      "usable_patch_cases": 14,
+      "usable_patch_projects": 9
+    },
+    "combined_artifact_cohort": {
+      "author_submissions": 2,
+      "case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS018",
+        "FS019",
+        "FS020",
+        "FS021",
+        "FS051",
+        "FS053",
+        "FS054",
+        "FS056",
+        "FS057",
+        "FS058",
+        "FS059"
+      ],
+      "cases": 20,
+      "local_emissions": 18,
+      "projects": 13
+    },
+    "developer_comparison": {
+      "case_ids": [
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS020"
+      ],
+      "case_instances": 6,
+      "independent_designs": 3,
+      "projects": 3
+    },
+    "local_source_patch_cohort": {
+      "case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS018",
+        "FS019",
+        "FS020",
+        "FS021",
+        "FS053",
+        "FS056",
+        "FS057",
+        "FS058",
+        "FS059"
+      ],
+      "cases": 18,
+      "normalized_generator_templates": 1,
+      "projects": 11
+    },
+    "paper_population": {
+      "reported_repairs": 67,
+      "tests": 80
+    }
+  }
+}

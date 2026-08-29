@@ -1,0 +1,29 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS016/src/main/java/com/alibaba/wasp/executor/EventHandler.java.orig	2026-08-26 00:14:23.985078000 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS016/src/main/java/com/alibaba/wasp/executor/EventHandler.java	2026-08-26 00:14:24.033077959 +0000
+@@ -54,6 +54,11 @@
+  * @see ExecutorService
+  */
+ public abstract class EventHandler implements Runnable, Comparable<Runnable> {
++
++  private static volatile int numExecutions;
++
++  public static void resetExecutions() { numExecutions = 0; }
++  public static int getExecutedStatus() { return numExecutions; }
+   private static final Log LOG = LogFactory.getLog(EventHandler.class);
+ 
+   // type of event this object represents
+@@ -192,6 +197,7 @@
+   public void run() {
+     Span chunk = Trace.startSpan(Thread.currentThread().getName(), parent,
+         Sampler.ALWAYS);
++    numExecutions++;
+     try {
+       if (getListener() != null)
+         getListener().beforeProcess(this);
+@@ -291,4 +297,4 @@
+   public String getInformativeName() {
+     return this.getClass().toString();
+   }
+-}
++}
+\ No newline at end of file

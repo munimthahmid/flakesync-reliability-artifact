@@ -1,0 +1,20 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS020/httpcore/src/test/java/org/apache/http/pool/TestConnPool.java.orig	2026-08-26 00:14:40.981297635 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS020/httpcore/src/test/java/org/apache/http/pool/TestConnPool.java	2026-08-26 00:14:41.003331144 +0000
+@@ -560,6 +560,7 @@
+ 
+     @Test
+     public void testLeaseTimeout() throws Exception {
++        org.apache.http.pool.AbstractConnPool.resetExecutions();
+         HttpConnectionFactory connFactory = Mockito.mock(HttpConnectionFactory.class);
+ 
+         HttpConnection conn1 = Mockito.mock(HttpConnection.class);
+@@ -575,6 +576,9 @@
+         t2.start();
+ 
+         t1.join(GRACE_PERIOD);
++        while (org.apache.http.pool.AbstractConnPool.getExecutedStatus() < 1) {
++            Thread.yield();
++        }
+         Assert.assertTrue(future1.isDone());
+         LocalPoolEntry entry1 = t1.getEntry();
+         Assert.assertNotNull(entry1);

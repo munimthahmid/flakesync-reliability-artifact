@@ -1,0 +1,977 @@
+{
+  "coverage": {
+    "all_dynamic_ledgers_terminal": true,
+    "candidate_case_row_counts": {
+      "C0030": 4,
+      "C0042": 1,
+      "C0060": 1
+    },
+    "candidate_count": 3,
+    "case_count": 6,
+    "case_ids": [
+      "FS004",
+      "FS005",
+      "FS006",
+      "FS007",
+      "FS014",
+      "FS020"
+    ],
+    "design_case_row_counts": {
+      "alluxio_4b9c806b_heartbeat_derived_bounded_sleep": 4,
+      "httpcore_66d43a02_ordered_bounded_join": 1,
+      "java_websocket_pr1450_bounded_state_poll": 1
+    },
+    "design_count": 3,
+    "design_ids": [
+      "alluxio_4b9c806b_heartbeat_derived_bounded_sleep",
+      "httpcore_66d43a02_ordered_bounded_join",
+      "java_websocket_pr1450_bounded_state_poll"
+    ],
+    "dynamic_terminal_ledgers": 6,
+    "dynamic_terminal_required": 6,
+    "matrix_rows": 6,
+    "strict_candidate_case_rows": 6
+  },
+  "denominators": {
+    "candidate_case_rows": 6,
+    "dynamic_outcomes": {
+      "AdverseAvailable": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "AdverseComparison": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "AdverseControlFailed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "AdverseControlInjectionConfirmed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "AdverseControlPassed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "AdverseFailed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "AdverseInjectionConfirmed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "AdversePassed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "AdversePlanned": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CancellationClassification": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CancellationClassificationRaw": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CancellationInterruptInjectionConfirmed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CancellationOutcome": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CancellationSignalSuppressionConfirmed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CancellationSpecificCausalityEstablished": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CausalEffectivenessEstablished": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CausalIneffectivenessWitness": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "Compiled": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CrossTestParallelComparison": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CrossTestParallelControlOutcome": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CrossTestParallelOutcome": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CrossTestParallelRegressionWitness": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CrossTestPeer": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CrossTestReusedJvmComparison": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CrossTestReusedJvmControlOutcome": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CrossTestReusedJvmOutcome": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "CrossTestReusedJvmRegressionWitness": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "DynamicInterruptionFailureWitness": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "DynamicLedgerTerminal": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "DynamicStatus": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "DynamicUnboundedWaitWitness": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "FaultControlInjectionConfirmed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "FaultControlOutcome": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "FaultSpecificCausalityEstablished": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "NeighborComparison": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "NeighborControlOutcome": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "NeighborOutcome": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "NeighborRegressionWitness": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "OrdinaryFailed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "OrdinaryPassed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "OrdinaryPlanned": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "PatchApplied": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "PatchFiles": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "PatchTrack": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "PatchedFaultInjectionConfirmed": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "PatchedFaultOutcome": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "SignalFaultClassification": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      }
+    },
+    "exact_vs_backport": 6,
+    "relations": 6,
+    "static_detector_flags": {
+      "absolute_diff_header": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "busy_spin_yield": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "entry_reset_can_erase_early_signal": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "entry_reset_without_exit_cleanup": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "generic_helper_collision_surface": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "missing_interrupt_path": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "non_atomic_compound_increment": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "production_code_test_hook": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "shared_static_mutable_counter": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      },
+      "unbounded_condition_wait": {
+        "case_rows": 6,
+        "unique_cases": 6,
+        "unique_designs": 3
+      }
+    },
+    "unique_candidates": 3,
+    "unique_cases": 6,
+    "unique_designs": 3
+  },
+  "deterministic_join": true,
+  "distributions": {
+    "dynamic_ledger_status": {
+      "counts": {
+        "complete": 6
+      },
+      "denominator": 6
+    },
+    "dynamic_outcomes": {
+      "AdverseAvailable": {
+        "counts": {
+          "1": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "AdverseComparison": {
+        "counts": {
+          "patch-effective-under-reproduced-recorded-delay": 3,
+          "patch-not-effective-under-reproduced-recorded-delay": 3
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "AdverseControlFailed": {
+        "counts": {
+          "5": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "AdverseControlInjectionConfirmed": {
+        "counts": {
+          "5": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "AdverseControlPassed": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "AdverseFailed": {
+        "counts": {
+          "0": 3,
+          "1": 3
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "AdverseInjectionConfirmed": {
+        "counts": {
+          "1": 3,
+          "5": 3
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "AdversePassed": {
+        "counts": {
+          "0": 3,
+          "5": 3
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "AdversePlanned": {
+        "counts": {
+          "5": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CancellationClassification": {
+        "counts": {
+          "unavailable-signal-fault-configuration-unavailable": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CancellationClassificationRaw": {
+        "counts": {
+          "unavailable-signal-fault-configuration-unavailable": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CancellationInterruptInjectionConfirmed": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CancellationOutcome": {
+        "counts": {
+          "": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 0
+      },
+      "CancellationSignalSuppressionConfirmed": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CancellationSpecificCausalityEstablished": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CausalEffectivenessEstablished": {
+        "counts": {
+          "0": 3,
+          "1": 3
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CausalIneffectivenessWitness": {
+        "counts": {
+          "0": 3,
+          "1": 3
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "Compiled": {
+        "counts": {
+          "1": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CrossTestParallelComparison": {
+        "counts": {
+          "inconclusive-control-not-confirmed-executed": 4,
+          "unavailable-no-peer": 2
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CrossTestParallelControlOutcome": {
+        "counts": {
+          "": 2,
+          "not-confirmed-executed": 4
+        },
+        "denominator": 6,
+        "nonblank_denominator": 4
+      },
+      "CrossTestParallelOutcome": {
+        "counts": {
+          "": 2,
+          "not-confirmed-executed": 4
+        },
+        "denominator": 6,
+        "nonblank_denominator": 4
+      },
+      "CrossTestParallelRegressionWitness": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CrossTestPeer": {
+        "counts": {
+          "": 2,
+          "FS004": 3,
+          "FS005": 1
+        },
+        "denominator": 6,
+        "nonblank_denominator": 4
+      },
+      "CrossTestReusedJvmComparison": {
+        "counts": {
+          "patched-pass": 4,
+          "unavailable-no-peer": 2
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "CrossTestReusedJvmControlOutcome": {
+        "counts": {
+          "": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 0
+      },
+      "CrossTestReusedJvmOutcome": {
+        "counts": {
+          "": 2,
+          "pass": 4
+        },
+        "denominator": 6,
+        "nonblank_denominator": 4
+      },
+      "CrossTestReusedJvmRegressionWitness": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "DynamicInterruptionFailureWitness": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "DynamicLedgerTerminal": {
+        "counts": {
+          "true": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "DynamicStatus": {
+        "counts": {
+          "complete": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "DynamicUnboundedWaitWitness": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "FaultControlInjectionConfirmed": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "FaultControlOutcome": {
+        "counts": {
+          "": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 0
+      },
+      "FaultSpecificCausalityEstablished": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "NeighborComparison": {
+        "counts": {
+          "patched-pass": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "NeighborControlOutcome": {
+        "counts": {
+          "": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 0
+      },
+      "NeighborOutcome": {
+        "counts": {
+          "pass": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "NeighborRegressionWitness": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "OrdinaryFailed": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "OrdinaryPassed": {
+        "counts": {
+          "10": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "OrdinaryPlanned": {
+        "counts": {
+          "10": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "PatchApplied": {
+        "counts": {
+          "1": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "PatchFiles": {
+        "counts": {
+          "1": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "PatchTrack": {
+        "counts": {
+          "archived": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "PatchedFaultInjectionConfirmed": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "PatchedFaultOutcome": {
+        "counts": {
+          "": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 0
+      },
+      "SignalFaultClassification": {
+        "counts": {
+          "unavailable-expected-one-generated-signal-found-0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      }
+    },
+    "exact_vs_backport": {
+      "counts": {
+        "exact_original_patch": 1,
+        "semantic_backport": 1,
+        "semantic_backport_of_exact_commit_diff": 4
+      },
+      "denominator": 6
+    },
+    "relations": {
+      "counts": {
+        "exact_commit_diff": 1,
+        "semantic_backport": 1,
+        "semantic_backport_of_exact_commit_diff": 4
+      },
+      "denominator": 6
+    },
+    "static_detector_flags": {
+      "absolute_diff_header": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "busy_spin_yield": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "entry_reset_can_erase_early_signal": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "entry_reset_without_exit_cleanup": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "generic_helper_collision_surface": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "missing_interrupt_path": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "non_atomic_compound_increment": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "production_code_test_hook": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "shared_static_mutable_counter": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      },
+      "unbounded_condition_wait": {
+        "counts": {
+          "0": 6
+        },
+        "denominator": 6,
+        "nonblank_denominator": 6
+      }
+    }
+  },
+  "input_hashes": {
+    "developer_dynamic_case_table": {
+      "bytes": 4425,
+      "path": "results/developer_comparator_comparison/patch_dynamic_case_findings.csv",
+      "sha256": "20495b26074bc7a57ee15ddc1241974ec5ca55c13faf5fe452311c58527779ef"
+    },
+    "developer_static_case_table": {
+      "bytes": 1454,
+      "path": "results/developer_comparator_static/patch_static_case_findings.csv",
+      "sha256": "42eb75c77a8d235568f1a323441b724a9ac42cfd23a5ef6d640dd3ea024254b0"
+    },
+    "dynamic_ledger_FS004": {
+      "bytes": 49310,
+      "path": "runs/developer_comparator_validation_input/validations/FS004/validation.json",
+      "sha256": "8253d05e8c4b8b36ced902882856e248b40cfd8ff1841669a3742e91e9459f10"
+    },
+    "dynamic_ledger_FS005": {
+      "bytes": 58357,
+      "path": "runs/developer_comparator_validation_input/validations/FS005/validation.json",
+      "sha256": "63548241fc10b981b3a4f915fe2af5f25d83da8a1fdfd72258366caceddc4e04"
+    },
+    "dynamic_ledger_FS006": {
+      "bytes": 58432,
+      "path": "runs/developer_comparator_validation_input/validations/FS006/validation.json",
+      "sha256": "9a50a5fc579eac0a40e2bf5e108039620841842632c406869d081aeb0e2d5308"
+    },
+    "dynamic_ledger_FS007": {
+      "bytes": 58369,
+      "path": "runs/developer_comparator_validation_input/validations/FS007/validation.json",
+      "sha256": "af4eda895edd149f8ddd78e785673eb338a6e0fb27a4e4ff90b66643a461f4cd"
+    },
+    "dynamic_ledger_FS014": {
+      "bytes": 42544,
+      "path": "runs/developer_comparator_validation_input/validations/FS014/validation.json",
+      "sha256": "9210dd7dd30b4aa4eb0e2532d5a93132e20f28e7c5c7c7d09c01959116075a6e"
+    },
+    "dynamic_ledger_FS020": {
+      "bytes": 43047,
+      "path": "runs/developer_comparator_validation_input/validations/FS020/validation.json",
+      "sha256": "38f104c2d98fd25d046ff1b5756b1821dbb4fc19c54f0199319ea5f652562e60"
+    },
+    "metadata_FS004": {
+      "bytes": 3179,
+      "path": "runs/developer_comparator_validation_input/cases/FS004/metadata.json",
+      "sha256": "81bd2931d306c45cdea7bed23af91b7561d4305f3cc1ae77a449e1aa4148af87"
+    },
+    "metadata_FS005": {
+      "bytes": 3243,
+      "path": "runs/developer_comparator_validation_input/cases/FS005/metadata.json",
+      "sha256": "ab77bff9ad17b596dccb9e6406a1442606619f75377774b12447064de61637b9"
+    },
+    "metadata_FS006": {
+      "bytes": 3247,
+      "path": "runs/developer_comparator_validation_input/cases/FS006/metadata.json",
+      "sha256": "f314da4af60bec773572c9bac4260c4509814cf70ab883693a04ab8d150639df"
+    },
+    "metadata_FS007": {
+      "bytes": 3245,
+      "path": "runs/developer_comparator_validation_input/cases/FS007/metadata.json",
+      "sha256": "a906477e7a8f9cba34d3baf02fa9b4eb41f8ec925ad66c2273c535ad59aa65cc"
+    },
+    "metadata_FS014": {
+      "bytes": 2695,
+      "path": "runs/developer_comparator_validation_input/cases/FS014/metadata.json",
+      "sha256": "fc768a4211e758525109b38edca1d37186a1d96dd6c1bff7c27bed6689b9f731"
+    },
+    "metadata_FS020": {
+      "bytes": 3018,
+      "path": "runs/developer_comparator_validation_input/cases/FS020/metadata.json",
+      "sha256": "f41c3d1917f6721f983c5c1506036644f6a59155bc95b369c009f7d2fcf732a5"
+    },
+    "patch_FS004": {
+      "bytes": 1581,
+      "path": "runs/developer_comparator_validation_input/cases/FS004/patches/TachyonFSTest.java.patch",
+      "sha256": "4edc23d8c93dbf0d24f24db4e27729213278e9fabf127f919b5820fbbac628b4"
+    },
+    "patch_FS005": {
+      "bytes": 1581,
+      "path": "runs/developer_comparator_validation_input/cases/FS005/patches/TachyonFSTest.java.patch",
+      "sha256": "4edc23d8c93dbf0d24f24db4e27729213278e9fabf127f919b5820fbbac628b4"
+    },
+    "patch_FS006": {
+      "bytes": 1581,
+      "path": "runs/developer_comparator_validation_input/cases/FS006/patches/TachyonFSTest.java.patch",
+      "sha256": "4edc23d8c93dbf0d24f24db4e27729213278e9fabf127f919b5820fbbac628b4"
+    },
+    "patch_FS007": {
+      "bytes": 1581,
+      "path": "runs/developer_comparator_validation_input/cases/FS007/patches/TachyonFSTest.java.patch",
+      "sha256": "4edc23d8c93dbf0d24f24db4e27729213278e9fabf127f919b5820fbbac628b4"
+    },
+    "patch_FS014": {
+      "bytes": 761,
+      "path": "runs/developer_comparator_validation_input/cases/FS014/patches/Issue677Test.java.patch",
+      "sha256": "187257c2eb7251d66f582dea32460c76f83c0a601c98356bf9e78ff8435a72b7"
+    },
+    "patch_FS020": {
+      "bytes": 2380,
+      "path": "runs/developer_comparator_validation_input/cases/FS020/patches/TestConnPool.java.patch",
+      "sha256": "593fe0a6a7d1947bc943b2905584a49c7a2abb4868444039f2f23116dfc75fd9"
+    },
+    "strict_candidate_case_table": {
+      "bytes": 7567,
+      "path": "runs/developer_comparator_inventory/raw_developer_fix_search/strict_developer_comparator_table.csv",
+      "sha256": "949c87057e3232b3f80cb6fae974c9e73e8b49063b27f676f6c9a85fd4993ca3"
+    },
+    "validation_input_manifest": {
+      "bytes": 54925,
+      "path": "runs/developer_comparator_validation_input/manifest.json",
+      "sha256": "4a1fb9b0103a99c644526a2dde1c1459fe9804c99aa2c22d605e8fb0c70116bd"
+    }
+  },
+  "input_paths": {
+    "case_metadata": {
+      "FS004": "runs/developer_comparator_validation_input/cases/FS004/metadata.json",
+      "FS005": "runs/developer_comparator_validation_input/cases/FS005/metadata.json",
+      "FS006": "runs/developer_comparator_validation_input/cases/FS006/metadata.json",
+      "FS007": "runs/developer_comparator_validation_input/cases/FS007/metadata.json",
+      "FS014": "runs/developer_comparator_validation_input/cases/FS014/metadata.json",
+      "FS020": "runs/developer_comparator_validation_input/cases/FS020/metadata.json"
+    },
+    "developer_dynamic_case_table": "results/developer_comparator_comparison/patch_dynamic_case_findings.csv",
+    "developer_static_case_table": "results/developer_comparator_static/patch_static_case_findings.csv",
+    "dynamic_ledger_directory": "runs/developer_comparator_validation_input/validations",
+    "strict_candidate_case_table": "runs/developer_comparator_inventory/raw_developer_fix_search/strict_developer_comparator_table.csv",
+    "validation_input_manifest": "runs/developer_comparator_validation_input/manifest.json"
+  },
+  "join": {
+    "all_identity_consistent": true,
+    "discrepancy_rows": 0,
+    "identity_consistent_rows": 6
+  },
+  "maven_or_docker_used": false,
+  "network_used": false,
+  "output_paths": {
+    "matrix_csv": "results/developer_comparator_comparison/developer_comparator_case_matrix.csv",
+    "named_summary_json": "results/developer_comparator_comparison/developer_comparator_case_matrix_summary.json",
+    "summary_json": "results/developer_comparator_comparison/summary.json"
+  },
+  "rows": [
+    {
+      "CandidateId": "C0030",
+      "CaseId": "FS004",
+      "DesignId": "alluxio_4b9c806b_heartbeat_derived_bounded_sleep",
+      "DynamicLedgerStatus": "complete",
+      "DynamicLedgerTerminal": "true",
+      "ExactVsBackport": "semantic_backport_of_exact_commit_diff",
+      "Relation": "semantic_backport_of_exact_commit_diff"
+    },
+    {
+      "CandidateId": "C0030",
+      "CaseId": "FS005",
+      "DesignId": "alluxio_4b9c806b_heartbeat_derived_bounded_sleep",
+      "DynamicLedgerStatus": "complete",
+      "DynamicLedgerTerminal": "true",
+      "ExactVsBackport": "semantic_backport_of_exact_commit_diff",
+      "Relation": "semantic_backport_of_exact_commit_diff"
+    },
+    {
+      "CandidateId": "C0030",
+      "CaseId": "FS006",
+      "DesignId": "alluxio_4b9c806b_heartbeat_derived_bounded_sleep",
+      "DynamicLedgerStatus": "complete",
+      "DynamicLedgerTerminal": "true",
+      "ExactVsBackport": "semantic_backport_of_exact_commit_diff",
+      "Relation": "semantic_backport_of_exact_commit_diff"
+    },
+    {
+      "CandidateId": "C0030",
+      "CaseId": "FS007",
+      "DesignId": "alluxio_4b9c806b_heartbeat_derived_bounded_sleep",
+      "DynamicLedgerStatus": "complete",
+      "DynamicLedgerTerminal": "true",
+      "ExactVsBackport": "semantic_backport_of_exact_commit_diff",
+      "Relation": "semantic_backport_of_exact_commit_diff"
+    },
+    {
+      "CandidateId": "C0042",
+      "CaseId": "FS014",
+      "DesignId": "java_websocket_pr1450_bounded_state_poll",
+      "DynamicLedgerStatus": "complete",
+      "DynamicLedgerTerminal": "true",
+      "ExactVsBackport": "semantic_backport",
+      "Relation": "semantic_backport"
+    },
+    {
+      "CandidateId": "C0060",
+      "CaseId": "FS020",
+      "DesignId": "httpcore_66d43a02_ordered_bounded_join",
+      "DynamicLedgerStatus": "complete",
+      "DynamicLedgerTerminal": "true",
+      "ExactVsBackport": "exact_original_patch",
+      "Relation": "exact_commit_diff"
+    }
+  ],
+  "schema_version": "developer-comparator-case-matrix-v1",
+  "scope": "six strict developer-comparator candidate-by-case rows",
+  "semantic_classification_performed": false,
+  "terminal_ledger_statuses": [
+    "compile-failed",
+    "complete",
+    "patch-application-failed",
+    "runner-error"
+  ]
+}

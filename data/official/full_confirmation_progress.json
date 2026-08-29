@@ -1,0 +1,25 @@
+{
+  "cases": [],
+  "driver_sessions": [
+    {
+      "confirmation_runner_sha256": "8879cfddbdf5b20aeedc4a0cd6289631c67d17464c4e042997769885f3410b28",
+      "runner_sha256": "d492cb11ee9f980cec2b01e338a62205468cb46adb8116be896b4b41eca5b06f",
+      "started_at": "2026-08-27T02:52:58.961675+00:00"
+    },
+    {
+      "confirmation_runner_sha256": "8879cfddbdf5b20aeedc4a0cd6289631c67d17464c4e042997769885f3410b28",
+      "runner_sha256": "e63097595d7e630ef319d2197155097bea9080924172d901ea1d44dc76654e23",
+      "started_at": "2026-08-27T03:05:59.151014+00:00"
+    },
+    {
+      "confirmation_runner_sha256": "668678c332a6e6feca873a77b9318f55bf9c238fb039a1f7f3e83f3851383215",
+      "runner_sha256": "c01f789d69a08b71aac4731da75bc9a9cc0fd90731e84a2897819a70bc00a976",
+      "started_at": "2026-08-27T11:56:01.087232+00:00"
+    }
+  ],
+  "full_confirmation_case_count": 21,
+  "full_confirmation_cohort_sha256": "52234cb4456afbcf4843490324e402330d1e4602356c41efeb5f8e6db33856b2",
+  "schema_version": "full-confirmation-progress-v1",
+  "started_at": "2026-08-27T02:23:24.627262+00:00",
+  "status": "waiting_for_official_20"
+}

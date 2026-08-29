@@ -1,0 +1,958 @@
+{
+  "case_to_track_mapping": {
+    "bytes": 57285,
+    "field_count": 24,
+    "path": "results/developer_fix_search_expansion_v1/coverage_67_case_to_track.csv",
+    "row_count": 67,
+    "sha256": "ebb151f8d98678113056ad9a76ea6950104e7fbf48ecaead460b9b02462450e7"
+  },
+  "check_summary": {
+    "failed": 0,
+    "failed_names": [],
+    "passed": 11,
+    "total": 11
+  },
+  "checks": {
+    "all_candidate_case_references_in_corpus": {
+      "detail": {
+        "candidate_case_count": 61,
+        "outside_corpus": []
+      },
+      "status": "pass"
+    },
+    "all_candidate_case_references_in_declared_rosters": {
+      "detail": {
+        "late27": [],
+        "mid22": [],
+        "new4": [],
+        "original_b2": []
+      },
+      "status": "pass"
+    },
+    "candidate_case_pairs_unique_within_each_track": {
+      "detail": {
+        "late27": {
+          "association_rows": 193,
+          "unique_pairs": 193
+        },
+        "mid22": {
+          "association_rows": 88,
+          "unique_pairs": 88
+        },
+        "new4": {
+          "association_rows": 161,
+          "unique_pairs": 161
+        },
+        "original_b2": {
+          "association_rows": 415,
+          "unique_pairs": 415
+        }
+      },
+      "status": "pass"
+    },
+    "case_to_track_mapping_has_one_row_per_corpus_case": {
+      "detail": {
+        "corpus_rows": 67,
+        "mapping_rows": 67
+      },
+      "status": "pass"
+    },
+    "corpus_exactly_67_unique_case_ids": {
+      "detail": {
+        "row_count": 67,
+        "unique_count": 67
+      },
+      "status": "pass"
+    },
+    "declared_roster_counts": {
+      "detail": {
+        "late27": 27,
+        "mid22": 22,
+        "new4": 4,
+        "original_b2": 14
+      },
+      "status": "pass"
+    },
+    "declared_rosters_pairwise_disjoint": {
+      "detail": {
+        "late27__new4": [],
+        "mid22__late27": [],
+        "mid22__new4": [],
+        "original_b2__late27": [],
+        "original_b2__mid22": [],
+        "original_b2__new4": []
+      },
+      "status": "pass"
+    },
+    "declared_union_exactly_corpus": {
+      "detail": {
+        "extra_vs_corpus": [],
+        "missing_vs_corpus": [],
+        "union_count": 67
+      },
+      "status": "pass"
+    },
+    "mapping_hash_is_deterministic": {
+      "detail": {
+        "bytes": 57285,
+        "field_count": 24,
+        "path": "results/developer_fix_search_expansion_v1/coverage_67_case_to_track.csv",
+        "row_count": 67,
+        "sha256": "ebb151f8d98678113056ad9a76ea6950104e7fbf48ecaead460b9b02462450e7"
+      },
+      "status": "pass"
+    },
+    "per_track_validator_statuses_pass": {
+      "detail": {
+        "late27": true,
+        "mid22": true,
+        "new4": true,
+        "original_b2": true
+      },
+      "status": "pass"
+    },
+    "source_files_present_and_hash_bound": {
+      "detail": {
+        "missing": [],
+        "source_file_count": 29
+      },
+      "status": "pass"
+    }
+  },
+  "corpus": {
+    "case_ids": [
+      "FS001",
+      "FS002",
+      "FS003",
+      "FS004",
+      "FS005",
+      "FS006",
+      "FS007",
+      "FS008",
+      "FS009",
+      "FS010",
+      "FS011",
+      "FS012",
+      "FS013",
+      "FS014",
+      "FS015",
+      "FS016",
+      "FS017",
+      "FS018",
+      "FS019",
+      "FS020",
+      "FS021",
+      "FS022",
+      "FS023",
+      "FS024",
+      "FS025",
+      "FS026",
+      "FS027",
+      "FS028",
+      "FS029",
+      "FS030",
+      "FS031",
+      "FS032",
+      "FS033",
+      "FS034",
+      "FS035",
+      "FS036",
+      "FS037",
+      "FS038",
+      "FS039",
+      "FS040",
+      "FS041",
+      "FS042",
+      "FS043",
+      "FS044",
+      "FS045",
+      "FS046",
+      "FS047",
+      "FS048",
+      "FS049",
+      "FS050",
+      "FS051",
+      "FS052",
+      "FS053",
+      "FS054",
+      "FS055",
+      "FS056",
+      "FS057",
+      "FS058",
+      "FS059",
+      "FS060",
+      "FS061",
+      "FS062",
+      "FS063",
+      "FS064",
+      "FS065",
+      "FS066",
+      "FS067"
+    ],
+    "path": "corpus/paper_fixed_67.csv",
+    "row_count": 67,
+    "sha256": "4265a90703525b401c321adea24a17ef66de15edc8f78f716769043d001cd2f6",
+    "unique_case_count": 67
+  },
+  "coverage": {
+    "declared_track_case_count_sum": 67,
+    "declared_track_case_counts": {
+      "late27": 27,
+      "mid22": 22,
+      "new4": 4,
+      "original_b2": 14
+    },
+    "declared_union_case_count": 67,
+    "declared_union_case_ids": [
+      "FS001",
+      "FS002",
+      "FS003",
+      "FS004",
+      "FS005",
+      "FS006",
+      "FS007",
+      "FS008",
+      "FS009",
+      "FS010",
+      "FS011",
+      "FS012",
+      "FS013",
+      "FS014",
+      "FS015",
+      "FS016",
+      "FS017",
+      "FS018",
+      "FS019",
+      "FS020",
+      "FS021",
+      "FS022",
+      "FS023",
+      "FS024",
+      "FS025",
+      "FS026",
+      "FS027",
+      "FS028",
+      "FS029",
+      "FS030",
+      "FS031",
+      "FS032",
+      "FS033",
+      "FS034",
+      "FS035",
+      "FS036",
+      "FS037",
+      "FS038",
+      "FS039",
+      "FS040",
+      "FS041",
+      "FS042",
+      "FS043",
+      "FS044",
+      "FS045",
+      "FS046",
+      "FS047",
+      "FS048",
+      "FS049",
+      "FS050",
+      "FS051",
+      "FS052",
+      "FS053",
+      "FS054",
+      "FS055",
+      "FS056",
+      "FS057",
+      "FS058",
+      "FS059",
+      "FS060",
+      "FS061",
+      "FS062",
+      "FS063",
+      "FS064",
+      "FS065",
+      "FS066",
+      "FS067"
+    ],
+    "extra_vs_corpus": [],
+    "missing_vs_corpus": [],
+    "pairwise_intersections": {
+      "late27__new4": [],
+      "mid22__late27": [],
+      "mid22__new4": [],
+      "original_b2__late27": [],
+      "original_b2__mid22": [],
+      "original_b2__new4": []
+    }
+  },
+  "deterministic": true,
+  "errors": [],
+  "evidence_boundary": [
+    "candidate rows are surfaced search evidence only",
+    "no semantic valid-fix, same-behavior, independence, safety, or repair-count judgment is made",
+    "track rosters come from the declared source manifests/summaries, even when a candidate result has zero rows for a declared case"
+  ],
+  "maven_or_docker_used": false,
+  "network_used": false,
+  "schema_version": "developer_fix_search_expansion.coverage_67_audit.v1",
+  "scope": "mechanical declared CaseId roster coverage and artifact provenance only",
+  "source_files": {
+    "corpus/paper_fixed_67.csv": {
+      "bytes": 36721,
+      "exists": true,
+      "path": "corpus/paper_fixed_67.csv",
+      "roles": [
+        "coverage corpus"
+      ],
+      "sha256": "4265a90703525b401c321adea24a17ef66de15edc8f78f716769043d001cd2f6"
+    },
+    "results/developer_fix_search_expansion_v1/late_candidates.csv": {
+      "bytes": 1154285,
+      "exists": true,
+      "path": "results/developer_fix_search_expansion_v1/late_candidates.csv",
+      "roles": [
+        "late27 candidate CSV cross-check"
+      ],
+      "sha256": "bf31314d991527ee64087e04ac6e47c56a2921749bcefb62f64c2c3b15293567"
+    },
+    "results/developer_fix_search_expansion_v1/late_candidates.json": {
+      "bytes": 1378282,
+      "exists": true,
+      "path": "results/developer_fix_search_expansion_v1/late_candidates.json",
+      "roles": [
+        "late27 candidate rows"
+      ],
+      "sha256": "458a2082747ad7fdf82834b28b30378b25c9a19b701bf798225c29dcf3ac8e50"
+    },
+    "results/developer_fix_search_expansion_v1/mid_candidates.csv": {
+      "bytes": 1732928,
+      "exists": true,
+      "path": "results/developer_fix_search_expansion_v1/mid_candidates.csv",
+      "roles": [
+        "mid22 candidate CSV cross-check"
+      ],
+      "sha256": "9ee37d81c62e41be75fd7b457785b20df01507e3306423cff68ab1724a77a4cc"
+    },
+    "results/developer_fix_search_expansion_v1/mid_candidates.json": {
+      "bytes": 1837606,
+      "exists": true,
+      "path": "results/developer_fix_search_expansion_v1/mid_candidates.json",
+      "roles": [
+        "mid22 candidate rows"
+      ],
+      "sha256": "ae59acfc72d500e41166d2226071b83fc494eaabec24a6671ec3d7c1edb276fd"
+    },
+    "results/developer_fix_search_expansion_v1/new4_candidates.csv": {
+      "bytes": 1089730,
+      "exists": true,
+      "path": "results/developer_fix_search_expansion_v1/new4_candidates.csv",
+      "roles": [
+        "new4 candidate CSV cross-check"
+      ],
+      "sha256": "88c2587e0d975fd5d174bd7c69b75d3774a18984144570abdbd8d69a41affc87"
+    },
+    "results/developer_fix_search_expansion_v1/new4_candidates.json": {
+      "bytes": 2061581,
+      "exists": true,
+      "path": "results/developer_fix_search_expansion_v1/new4_candidates.json",
+      "roles": [
+        "new4 candidate rows"
+      ],
+      "sha256": "a5a1dacd837263a6e52eb6552f3be87de81456c45ac9042fe4f8b65d8b478a67"
+    },
+    "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_completeness_summary.json": {
+      "bytes": 7078,
+      "exists": true,
+      "path": "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_completeness_summary.json",
+      "roles": [
+        "b2 roster and completeness validator"
+      ],
+      "sha256": "518c3524f4c85cec7c46106d91444c28159b5b6bc5016146d8b64a005c5f1cfa"
+    },
+    "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_evidence.csv": {
+      "bytes": 2806401,
+      "exists": true,
+      "path": "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_evidence.csv",
+      "roles": [
+        "b2 case-association rows"
+      ],
+      "sha256": "524ecf07e85de1e1f3bfd9656ce10d92b9a6b1331c5f5e1a6fa6591b6305a63c"
+    },
+    "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_hash_ledger.json": {
+      "bytes": 111544,
+      "exists": true,
+      "path": "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_hash_ledger.json",
+      "roles": [
+        "b2 hash ledger"
+      ],
+      "sha256": "1bb69b748e25289476c3e993506aa68496f9d709c886b6e46390e944b97c1cdc"
+    },
+    "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_hash_ledger.sha256": {
+      "bytes": 159,
+      "exists": true,
+      "path": "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_hash_ledger.sha256",
+      "roles": [
+        "b2 hash-ledger sidecar"
+      ],
+      "sha256": "211f342a7ab0769519c720213d9765aa0cb25dfb325965f0308773b5d26b1d01"
+    },
+    "runs/developer_comparator_inventory/raw_developer_fix_search/raw_developer_fix_candidates.csv": {
+      "bytes": 162283,
+      "exists": true,
+      "path": "runs/developer_comparator_inventory/raw_developer_fix_search/raw_developer_fix_candidates.csv",
+      "roles": [
+        "b2 original candidate rows"
+      ],
+      "sha256": "5dd7b22cbcc3ecee035d4646d315c3484cc14b0e9c280c2a1d97a79feb0ac20b"
+    },
+    "runs/developer_fix_search_expansion_v1/late/case_query_ledger.json": {
+      "bytes": 25337,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/late/case_query_ledger.json",
+      "roles": [
+        "late27 case roster ledger"
+      ],
+      "sha256": "905bcb4c7ec636c92d50d22c1ecb7927741cf5e5c126a38e5623bf3cec92111e"
+    },
+    "runs/developer_fix_search_expansion_v1/late/input_hashes.json": {
+      "bytes": 870,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/late/input_hashes.json",
+      "roles": [
+        "late27 input hash manifest"
+      ],
+      "sha256": "2ba32b95ed7a6d74ebc269ba10f847f67576955910e4fda78c94bb35d75ce5ff"
+    },
+    "runs/developer_fix_search_expansion_v1/late/manifest.json": {
+      "bytes": 2504,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/late/manifest.json",
+      "roles": [
+        "late27 declared roster"
+      ],
+      "sha256": "cc2127a77d95ba94eeff5020564c81372b0a40404785037f749b48dbdd6c75de"
+    },
+    "runs/developer_fix_search_expansion_v1/late/validation.json": {
+      "bytes": 451,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/late/validation.json",
+      "roles": [
+        "late27 validator result"
+      ],
+      "sha256": "d905235beea743c55f38d2d36b823f45ee761ec91b77f2bbefb8ff81a839ae70"
+    },
+    "runs/developer_fix_search_expansion_v1/mid/case_query_ledger.json": {
+      "bytes": 20271,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/mid/case_query_ledger.json",
+      "roles": [
+        "mid22 case roster ledger"
+      ],
+      "sha256": "d3b02d1ff81f7b3ebb129780211a409b9f8057914dc2502b9ad9dda75906bef0"
+    },
+    "runs/developer_fix_search_expansion_v1/mid/input_hashes.json": {
+      "bytes": 805,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/mid/input_hashes.json",
+      "roles": [
+        "mid22 input hash manifest"
+      ],
+      "sha256": "95f955cdabb3233619ce45aa939682eefed3ab04d0cce525bcd5472c013cf345"
+    },
+    "runs/developer_fix_search_expansion_v1/mid/manifest.json": {
+      "bytes": 2312,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/mid/manifest.json",
+      "roles": [
+        "mid22 declared roster"
+      ],
+      "sha256": "f9a61da790cb624fca6fc36fd6a35153cf432595ae523fa59306252ab6eb9b82"
+    },
+    "runs/developer_fix_search_expansion_v1/mid/validate_expansion.py": {
+      "bytes": 7468,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/mid/validate_expansion.py",
+      "roles": [
+        "late27 validator implementation",
+        "mid22 validator implementation"
+      ],
+      "sha256": "7b1a6bc906cdcb0dbc4cf441e4bb22d1178607a08fc9f1c2eae25c0533f97c3b"
+    },
+    "runs/developer_fix_search_expansion_v1/mid/validation.json": {
+      "bytes": 448,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/mid/validation.json",
+      "roles": [
+        "mid22 validator result"
+      ],
+      "sha256": "0aca536fb411bd88ddc81532925442c1a553f32196ee0c19da29018332ac4bb8"
+    },
+    "runs/developer_fix_search_expansion_v1/new4/hash_ledger.json": {
+      "bytes": 121332,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/new4/hash_ledger.json",
+      "roles": [
+        "new4 hash ledger"
+      ],
+      "sha256": "e2976e4cd12be16725ca4c9e71a4a1e604fed74ee81cd7c16ad6784b2af4fb16"
+    },
+    "runs/developer_fix_search_expansion_v1/new4/hash_ledger.sha256": {
+      "bytes": 83,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/new4/hash_ledger.sha256",
+      "roles": [
+        "new4 hash-ledger sidecar"
+      ],
+      "sha256": "878f813b826d8c098cc25d70d6b4edc8bc6fa0cc1a8c16feffbf48421be3eaa8"
+    },
+    "runs/developer_fix_search_expansion_v1/new4/manifest.json": {
+      "bytes": 5680,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/new4/manifest.json",
+      "roles": [
+        "new4 declared roster"
+      ],
+      "sha256": "052b3087ef32fb2e47640b99afc0d18a3afd7548d4fb39d9f95011f7f8041238"
+    },
+    "runs/developer_fix_search_expansion_v1/new4/manifest.sha256": {
+      "bytes": 80,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/new4/manifest.sha256",
+      "roles": [
+        "new4 manifest sidecar"
+      ],
+      "sha256": "4fb02c76ce6db68ff37ec57d102ee0111768b79c4c593004337d8122764b848e"
+    },
+    "runs/developer_fix_search_expansion_v1/new4/offline_validation_audit.json": {
+      "bytes": 4719,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/new4/offline_validation_audit.json",
+      "roles": [
+        "new4 offline validator result"
+      ],
+      "sha256": "920d33aae89c7b1a4accff4e931f5efd5c8d45861804ecbe02246393404991b6"
+    },
+    "runs/developer_fix_search_expansion_v1/new4/query_ledger.json": {
+      "bytes": 701616,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/new4/query_ledger.json",
+      "roles": [
+        "new4 query ledger"
+      ],
+      "sha256": "398bbf07fc5cb2cc1e3595a7b87f6f06a9ce2718fedafe1f8a40e21567cf833f"
+    },
+    "runs/developer_fix_search_expansion_v1/new4/validate_new4.py": {
+      "bytes": 26636,
+      "exists": true,
+      "path": "runs/developer_fix_search_expansion_v1/new4/validate_new4.py",
+      "roles": [
+        "new4 validator implementation"
+      ],
+      "sha256": "291f5a6192db24c2a7b0d8a374f1dccae0c457b726e98513cf9c224ae5ae8e0f"
+    },
+    "scripts/join_developer_candidate_evidence.py": {
+      "bytes": 47489,
+      "exists": true,
+      "path": "scripts/join_developer_candidate_evidence.py",
+      "roles": [
+        "b2 generating script"
+      ],
+      "sha256": "7bc457f0a8139bc2f96f9f337d2e70f78a126f026c152de99ffe42e1237d8473"
+    }
+  },
+  "status": "pass",
+  "tracks": {
+    "late27": {
+      "candidate_row_count": 164,
+      "candidate_rows": {
+        "format": "csv_rows_with_case_ids_array",
+        "path": "results/developer_fix_search_expansion_v1/late_candidates.csv",
+        "physical_row_count": 164,
+        "sha256": "bf31314d991527ee64087e04ac6e47c56a2921749bcefb62f64c2c3b15293567",
+        "unique_candidate_id_count": 164
+      },
+      "candidate_source": {
+        "candidate_id_set_sha256": "e6e88541b78a89a2979b9c43d08ea2703ed342e9820b98448fcfdf7583503193",
+        "candidate_row_count": 164,
+        "case_association_row_count": 193,
+        "format": "json_rows_with_case_ids_array",
+        "original_or_crosscheck": {
+          "format": "csv_rows_with_case_ids_array",
+          "path": "results/developer_fix_search_expansion_v1/late_candidates.csv",
+          "physical_row_count": 164,
+          "sha256": "bf31314d991527ee64087e04ac6e47c56a2921749bcefb62f64c2c3b15293567",
+          "unique_candidate_id_count": 164
+        },
+        "path": "results/developer_fix_search_expansion_v1/late_candidates.json",
+        "physical_row_count": 164,
+        "sha256": "458a2082747ad7fdf82834b28b30378b25c9a19b701bf798225c29dcf3ac8e50",
+        "unique_candidate_case_pair_count": 193,
+        "unique_candidate_id_count": 164
+      },
+      "candidate_unique_id_count": 164,
+      "case_association_row_count": 193,
+      "declared_case_count": 27,
+      "declared_case_ids": [
+        "FS036",
+        "FS037",
+        "FS038",
+        "FS039",
+        "FS040",
+        "FS041",
+        "FS042",
+        "FS043",
+        "FS044",
+        "FS045",
+        "FS046",
+        "FS047",
+        "FS048",
+        "FS049",
+        "FS050",
+        "FS051",
+        "FS052",
+        "FS054",
+        "FS055",
+        "FS060",
+        "FS061",
+        "FS062",
+        "FS063",
+        "FS064",
+        "FS065",
+        "FS066",
+        "FS067"
+      ],
+      "errors": [],
+      "extra_observed_case_ids_vs_declared": [],
+      "hashes_verified": true,
+      "missing_declared_case_ids_in_candidate_rows": [
+        "FS063",
+        "FS064",
+        "FS065",
+        "FS066",
+        "FS067"
+      ],
+      "observed_candidate_case_count": 22,
+      "observed_candidate_case_ids": [
+        "FS036",
+        "FS037",
+        "FS038",
+        "FS039",
+        "FS040",
+        "FS041",
+        "FS042",
+        "FS043",
+        "FS044",
+        "FS045",
+        "FS046",
+        "FS047",
+        "FS048",
+        "FS049",
+        "FS050",
+        "FS051",
+        "FS052",
+        "FS054",
+        "FS055",
+        "FS060",
+        "FS061",
+        "FS062"
+      ],
+      "roster_source": {
+        "path": "runs/developer_fix_search_expansion_v1/late/manifest.json",
+        "sha256": "cc2127a77d95ba94eeff5020564c81372b0a40404785037f749b48dbdd6c75de"
+      },
+      "validator": {
+        "checks": {
+          "errors_empty": true,
+          "offline": true,
+          "parse": true,
+          "passed": true
+        },
+        "kind": "offline_validation_json",
+        "label": "late27",
+        "path": "runs/developer_fix_search_expansion_v1/late/validation.json",
+        "status": "pass"
+      }
+    },
+    "mid22": {
+      "candidate_row_count": 35,
+      "candidate_rows": {
+        "format": "csv_rows_with_case_ids_array",
+        "path": "results/developer_fix_search_expansion_v1/mid_candidates.csv",
+        "physical_row_count": 35,
+        "sha256": "9ee37d81c62e41be75fd7b457785b20df01507e3306423cff68ab1724a77a4cc",
+        "unique_candidate_id_count": 35
+      },
+      "candidate_source": {
+        "candidate_id_set_sha256": "811ad291c6ba6cdd1fddf722632b368ac5d5035613656d94164ec50a9f897243",
+        "candidate_row_count": 35,
+        "case_association_row_count": 88,
+        "format": "json_rows_with_case_ids_array",
+        "original_or_crosscheck": {
+          "format": "csv_rows_with_case_ids_array",
+          "path": "results/developer_fix_search_expansion_v1/mid_candidates.csv",
+          "physical_row_count": 35,
+          "sha256": "9ee37d81c62e41be75fd7b457785b20df01507e3306423cff68ab1724a77a4cc",
+          "unique_candidate_id_count": 35
+        },
+        "path": "results/developer_fix_search_expansion_v1/mid_candidates.json",
+        "physical_row_count": 35,
+        "sha256": "ae59acfc72d500e41166d2226071b83fc494eaabec24a6671ec3d7c1edb276fd",
+        "unique_candidate_case_pair_count": 88,
+        "unique_candidate_id_count": 35
+      },
+      "candidate_unique_id_count": 35,
+      "case_association_row_count": 88,
+      "declared_case_count": 22,
+      "declared_case_ids": [
+        "FS008",
+        "FS009",
+        "FS010",
+        "FS011",
+        "FS012",
+        "FS013",
+        "FS015",
+        "FS017",
+        "FS022",
+        "FS023",
+        "FS024",
+        "FS025",
+        "FS026",
+        "FS027",
+        "FS028",
+        "FS029",
+        "FS030",
+        "FS031",
+        "FS032",
+        "FS033",
+        "FS034",
+        "FS035"
+      ],
+      "errors": [],
+      "extra_observed_case_ids_vs_declared": [],
+      "hashes_verified": true,
+      "missing_declared_case_ids_in_candidate_rows": [
+        "FS023"
+      ],
+      "observed_candidate_case_count": 21,
+      "observed_candidate_case_ids": [
+        "FS008",
+        "FS009",
+        "FS010",
+        "FS011",
+        "FS012",
+        "FS013",
+        "FS015",
+        "FS017",
+        "FS022",
+        "FS024",
+        "FS025",
+        "FS026",
+        "FS027",
+        "FS028",
+        "FS029",
+        "FS030",
+        "FS031",
+        "FS032",
+        "FS033",
+        "FS034",
+        "FS035"
+      ],
+      "roster_source": {
+        "path": "runs/developer_fix_search_expansion_v1/mid/manifest.json",
+        "sha256": "f9a61da790cb624fca6fc36fd6a35153cf432595ae523fa59306252ab6eb9b82"
+      },
+      "validator": {
+        "checks": {
+          "errors_empty": true,
+          "offline": true,
+          "parse": true,
+          "passed": true
+        },
+        "kind": "offline_validation_json",
+        "label": "mid22",
+        "path": "runs/developer_fix_search_expansion_v1/mid/validation.json",
+        "status": "pass"
+      }
+    },
+    "new4": {
+      "candidate_row_count": 161,
+      "candidate_rows": {
+        "format": "csv_rows_with_scalar_case_id",
+        "path": "results/developer_fix_search_expansion_v1/new4_candidates.csv",
+        "physical_row_count": 161,
+        "sha256": "88c2587e0d975fd5d174bd7c69b75d3774a18984144570abdbd8d69a41affc87",
+        "unique_candidate_id_count": 83
+      },
+      "candidate_source": {
+        "candidate_id_set_sha256": "771168bfb94e27cfd589dae89a913f966b54dbc7edd0a63334674e15f986fa60",
+        "candidate_row_count": 161,
+        "case_association_row_count": 161,
+        "format": "json_rows_with_scalar_case_id",
+        "original_or_crosscheck": {
+          "format": "csv_rows_with_scalar_case_id",
+          "path": "results/developer_fix_search_expansion_v1/new4_candidates.csv",
+          "physical_row_count": 161,
+          "sha256": "88c2587e0d975fd5d174bd7c69b75d3774a18984144570abdbd8d69a41affc87",
+          "unique_candidate_id_count": 83
+        },
+        "path": "results/developer_fix_search_expansion_v1/new4_candidates.json",
+        "physical_row_count": 161,
+        "sha256": "a5a1dacd837263a6e52eb6552f3be87de81456c45ac9042fe4f8b65d8b478a67",
+        "unique_candidate_case_pair_count": 161,
+        "unique_candidate_id_count": 83
+      },
+      "candidate_unique_id_count": 83,
+      "case_association_row_count": 161,
+      "declared_case_count": 4,
+      "declared_case_ids": [
+        "FS018",
+        "FS019",
+        "FS058",
+        "FS059"
+      ],
+      "errors": [],
+      "extra_observed_case_ids_vs_declared": [],
+      "hashes_verified": true,
+      "missing_declared_case_ids_in_candidate_rows": [],
+      "observed_candidate_case_count": 4,
+      "observed_candidate_case_ids": [
+        "FS018",
+        "FS019",
+        "FS058",
+        "FS059"
+      ],
+      "roster_source": {
+        "path": "runs/developer_fix_search_expansion_v1/new4/manifest.json",
+        "sha256": "052b3087ef32fb2e47640b99afc0d18a3afd7548d4fb39d9f95011f7f8041238"
+      },
+      "validator": {
+        "checks": {
+          "errors_empty": true,
+          "parse": true,
+          "status_pass": true,
+          "subchecks_pass": true
+        },
+        "kind": "new4_offline_validation_audit",
+        "path": "runs/developer_fix_search_expansion_v1/new4/offline_validation_audit.json",
+        "status": "pass",
+        "subcheck_statuses": {
+          "candidate_case_ids": true,
+          "candidate_case_pair_uniqueness": true,
+          "candidate_ids": true,
+          "candidate_object_existence_and_hashes": true,
+          "candidate_query_ledger_references": true,
+          "case_roster_rows": true,
+          "csv_json_agreement": true,
+          "exact_case_roster": true,
+          "hash_ledger_entries": true,
+          "hash_ledger_sidecar": true,
+          "manifest_integrity": true,
+          "manifest_sidecar": true,
+          "per_case_candidate_projections": true,
+          "per_case_query_ledger_references": true,
+          "pinned_repository_identities": true,
+          "query_ledger_request_ids": true,
+          "query_request_objects": true,
+          "referenced_objects_in_hash_ledger": true,
+          "required_files": true,
+          "roster_pinned_fields": true,
+          "search_query_ledger_links": true,
+          "selected_input_roster": true
+        }
+      }
+    },
+    "original_b2": {
+      "candidate_row_count": 160,
+      "candidate_rows": {
+        "format": "csv_input_candidate_rows",
+        "path": "runs/developer_comparator_inventory/raw_developer_fix_search/raw_developer_fix_candidates.csv",
+        "physical_row_count": 160,
+        "sha256": "5dd7b22cbcc3ecee035d4646d315c3484cc14b0e9c280c2a1d97a79feb0ac20b",
+        "unique_candidate_id_count": 160
+      },
+      "candidate_source": {
+        "candidate_id_set_sha256": "073f9bed4d364747db81fb527952ba8816f999187f6a1ff62b19fb0eef601623",
+        "candidate_row_count": 415,
+        "case_association_row_count": 415,
+        "format": "csv_case_join_rows",
+        "original_or_crosscheck": {
+          "format": "csv_input_candidate_rows",
+          "path": "runs/developer_comparator_inventory/raw_developer_fix_search/raw_developer_fix_candidates.csv",
+          "physical_row_count": 160,
+          "sha256": "5dd7b22cbcc3ecee035d4646d315c3484cc14b0e9c280c2a1d97a79feb0ac20b",
+          "unique_candidate_id_count": 160
+        },
+        "path": "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_evidence.csv",
+        "physical_row_count": 415,
+        "sha256": "524ecf07e85de1e1f3bfd9656ce10d92b9a6b1331c5f5e1a6fa6591b6305a63c",
+        "unique_candidate_case_pair_count": 415,
+        "unique_candidate_id_count": 160
+      },
+      "candidate_unique_id_count": 160,
+      "case_association_row_count": 415,
+      "declared_case_count": 14,
+      "declared_case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS020",
+        "FS021",
+        "FS053",
+        "FS056",
+        "FS057"
+      ],
+      "errors": [],
+      "extra_observed_case_ids_vs_declared": [],
+      "hashes_verified": true,
+      "missing_declared_case_ids_in_candidate_rows": [],
+      "observed_candidate_case_count": 14,
+      "observed_candidate_case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS020",
+        "FS021",
+        "FS053",
+        "FS056",
+        "FS057"
+      ],
+      "roster_source": {
+        "path": "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_completeness_summary.json",
+        "sha256": "518c3524f4c85cec7c46106d91444c28159b5b6bc5016146d8b64a005c5f1cfa"
+      },
+      "validator": {
+        "checks": {
+          "cas_invalid_zero": true,
+          "completeness": true,
+          "deterministic": true,
+          "maven_or_docker_used_false": true,
+          "network_used_false": true,
+          "read_only_inputs": true
+        },
+        "completeness_checks": {
+          "all_candidate_case_rows_have_id": true,
+          "all_github_cas_references_valid": true,
+          "all_input_candidates_represented": true,
+          "candidate_case_ids_outside_b2": true,
+          "duplicate_chronology_keys": true,
+          "missing_candidate_ids": true,
+          "missing_case_roster_rows": true,
+          "missing_github_manifest_items": true
+        },
+        "kind": "candidate_case_completeness_summary",
+        "path": "runs/developer_comparator_inventory/raw_developer_fix_search/candidate_case_completeness_summary.json",
+        "status": "pass"
+      }
+    }
+  }
+}

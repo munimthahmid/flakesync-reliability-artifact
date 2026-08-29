@@ -1,0 +1,17 @@
+diff --git src/test/java/org/java_websocket/issues/Issue677Test.java src/test/java/org/java_websocket/issues/Issue677Test.java
+--- src/test/java/org/java_websocket/issues/Issue677Test.java
++++ src/test/java/org/java_websocket/issues/Issue677Test.java
+@@ -118,6 +118,13 @@
+ 		webSocket0.close();
+ 		assertTrue( "webSocket.isClosing()", webSocket0.isClosing() );
+ 		countDownLatch0.await();
++		// Add some delay is since the latch will be decreased in the onClose before the state is reset
++		for ( int i = 0; i < 5; i++ ) {
++			if ( webSocket0.isClosed() ) {
++				break;
++			}
++			Thread.sleep( 5 );
++		}
+ 		assertTrue( "webSocket.isClosed()", webSocket0.isClosed() );
+ 		webSocket1.connectBlocking();
+ 		assertTrue( "webSocket.isOpen()", webSocket1.isOpen() );

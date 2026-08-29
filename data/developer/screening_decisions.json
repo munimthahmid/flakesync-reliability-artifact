@@ -1,0 +1,78 @@
+{
+  "schema_version": "developer-fix-screening-decisions-v1",
+  "decision_owner": "primary-agent-methodological-review",
+  "claim_boundary": "These are semantic screening decisions over retained evidence. They do not add dynamically validated strict comparators unless a separate validation ledger is cited.",
+  "input_evidence": [
+    {
+      "path": "results/developer_fix_search_expansion_v1/new4_candidates.json",
+      "sha256": "a5a1dacd837263a6e52eb6552f3be87de81456c45ac9042fe4f8b65d8b478a67"
+    },
+    {
+      "path": "results/developer_fix_search_expansion_v1/late_candidates.json",
+      "sha256": "458a2082747ad7fdf82834b28b30378b25c9a19b701bf798225c29dcf3ac8e50"
+    },
+    {
+      "path": "results/developer_fix_search_expansion_v1/inspection_51_55/evidence.json",
+      "sha256": "41130a9ff130f030c46179fd64a3a41b1519b291e5f186e91b340242cecd1db2"
+    },
+    {
+      "path": "results/developer_fix_search_expansion_v1/inspection_60_61/evidence.json",
+      "sha256": "9606c653f727ecf6ed4a1228e2a2355d67ba9a204c1e364d714aa607a57c202a"
+    }
+  ],
+  "decisions": [
+    {
+      "case_id": "FS018",
+      "candidate_id": "NEW4-C0003",
+      "commit": "16f7a1efe95abed080081fbdbcf18bc9ec472b1b",
+      "title": "Close all servers/ports after tests finish (#2741)",
+      "classification": "independent-related-test-isolation-fix-not-exact-causal-repair",
+      "strict_comparator_admitted": false,
+      "reason": "The project-authored descendant commit is after the pinned source and touches testDemoProtocol, but its semantic change is an @AfterClass ProtocolUtils.closeAll teardown. It does not touch the within-test ExtensionLoader condition or encode the paper's injected-delay ordering. It is useful isolation-design evidence and a future backport candidate, not yet an exact repair comparator.",
+      "evidence": "runs/developer_fix_search_expansion_v1/new4/objects/sha256/3d/3d1e4dfc3eedf1485d71f694521499f82dfb7ed3f034ae74ab3fed94a958760c.diff"
+    },
+    {
+      "case_id": "FS051",
+      "candidate_id": "LATE-L0009",
+      "commit": "53cbc73edd06429450fef0cf3ff793120fc0b75d",
+      "title": "Fix ElasticJobExecutorServiceTest Flakiness (#2242)",
+      "classification": "flakesync-author-submission-not-independent-developer-fix",
+      "strict_comparator_admitted": false,
+      "reason": "The commit is authored by Alisha-0321 and implements the same process-wide flag plus Thread.yield repair style. It is a FlakeSync-author artifact and cannot serve as an independent developer comparator."
+    },
+    {
+      "case_id": "FS055",
+      "candidate_id": "LATE-G0085",
+      "commit": "e1212336e7762c1396b8ea25a6aeb8af79a0eef2",
+      "title": "Fix for issue #55: ThreadMonitor waits unnecessarily",
+      "classification": "preexisting-causal-fix-already-present-in-pinned-source",
+      "strict_comparator_admitted": false,
+      "reason": "The independent project fix adds check-before-wait in ThreadMonitor and a focused regression test, but it predates the paper's pinned source by seven months and the exact check is already present at pinned lines 85-88. Therefore it is good synchronization-design context, not a later repair of FS055's recorded failure."
+    },
+    {
+      "case_id": "FS060",
+      "candidate_id": "LATE-L0032",
+      "commit": "7a34573ad391b5116c522714c3a44ee8328816d9",
+      "title": "improve test reliability",
+      "classification": "independent-descendant-causal-observability-redesign",
+      "strict_comparator_admitted": false,
+      "reason": "The project maintainer's descendant change replaces a probabilistic loss-ratio helper with explicit recovery/failure callbacks and exact event-count invariants. This is strong developer-design evidence, but it occurs 1,025 ancestry-path commits after the pinned source and changes production APIs; no transparent backport or matched adverse validation exists yet.",
+      "contrast_to_flakesync": "The developer redesign observes domain recovery events and keeps bounded test completion; the generated repair uses a shared static counter and an unbounded yield wait."
+    },
+    {
+      "case_id": "FS061",
+      "candidate_id": "LATE-L0061",
+      "commit": "ce424f32fa1eacde71152663fa490e3276a45100",
+      "title": "Add more context to SpdyConnectionTest.receiveGoAwayHttp2 so that next flake is easier to identify.",
+      "classification": "diagnostic-strengthening-not-repair",
+      "strict_comparator_admitted": false,
+      "reason": "The descendant commit reaches the target only through its shared helper, retains the existing ping, and adds stream-state assertions to diagnose a future flake. It does not repair the recorded DeflaterSink ordering. Other synchronization candidates inspected for FS061 modify unrelated test methods."
+    }
+  ],
+  "strict_dynamic_comparator_count_unchanged": {
+    "case_instances": 6,
+    "designs": 3,
+    "case_ids": ["FS004", "FS005", "FS006", "FS007", "FS014", "FS020"],
+    "note": "All five decisions above are useful context or future validation candidates, but none currently satisfies the strict independent exact-behavior plus dynamic-validation rule."
+  }
+}

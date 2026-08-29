@@ -1,0 +1,52 @@
+diff --git httpcore/src/test/java/org/apache/http/pool/TestConnPool.java httpcore/src/test/java/org/apache/http/pool/TestConnPool.java
+index 73ad222ee3..c37e79f5dc 100644
+--- httpcore/src/test/java/org/apache/http/pool/TestConnPool.java
++++ httpcore/src/test/java/org/apache/http/pool/TestConnPool.java
+@@ -428,14 +428,16 @@ public void testStatefulConnectionRedistributionOnPerRouteMaxLimit() throws Exce
+         Future<LocalPoolEntry> future1 = pool.lease("somehost", null);
+         GetPoolEntryThread t1 = new GetPoolEntryThread(future1);
+         t1.start();
+-        Future<LocalPoolEntry> future2 = pool.lease("somehost", null);
+-        GetPoolEntryThread t2 = new GetPoolEntryThread(future2);
+-        t2.start();
+ 
+         t1.join(GRACE_PERIOD);
+         Assert.assertTrue(future1.isDone());
+         LocalPoolEntry entry1 = t1.getEntry();
+         Assert.assertNotNull(entry1);
++
++        Future<LocalPoolEntry> future2 = pool.lease("somehost", null);
++        GetPoolEntryThread t2 = new GetPoolEntryThread(future2);
++        t2.start();
++
+         t2.join(GRACE_PERIOD);
+         Assert.assertTrue(future2.isDone());
+         LocalPoolEntry entry2 = t2.getEntry();
+@@ -470,6 +472,7 @@ public void testStatefulConnectionRedistributionOnPerRouteMaxLimit() throws Exce
+         totals = pool.getTotalStats();
+         Assert.assertEquals(1, totals.getAvailable());
+         Assert.assertEquals(1, totals.getLeased());
++
+     }
+ 
+     @Test
+@@ -559,14 +562,16 @@ public void testLeaseTimeout() throws Exception {
+         Future<LocalPoolEntry> future1 = pool.lease("somehost", null);
+         GetPoolEntryThread t1 = new GetPoolEntryThread(future1);
+         t1.start();
+-        Future<LocalPoolEntry> future2 = pool.lease("somehost", null);
+-        GetPoolEntryThread t2 = new GetPoolEntryThread(future2, 50, TimeUnit.MICROSECONDS);
+-        t2.start();
+ 
+         t1.join(GRACE_PERIOD);
+         Assert.assertTrue(future1.isDone());
+         LocalPoolEntry entry1 = t1.getEntry();
+         Assert.assertNotNull(entry1);
++
++        Future<LocalPoolEntry> future2 = pool.lease("somehost", null);
++        GetPoolEntryThread t2 = new GetPoolEntryThread(future2, 50, TimeUnit.MICROSECONDS);
++        t2.start();
++
+         t2.join(GRACE_PERIOD);
+         Assert.assertTrue(t2.getException() instanceof TimeoutException);
+         Assert.assertFalse(future2.isDone());

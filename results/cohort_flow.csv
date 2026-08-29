@@ -1,0 +1,9 @@
+EvidenceLayer,Stage,Count,Denominator,Meaning
+paper,reported asynchronous tests,80,80,published population; not re-estimated here
+paper,reported repaired tests,67,80,published 67/80 result
+B2 patch-goal census,quota-consistent repaired identities attempted,67,67,archived locations; not end-to-end search reproduction
+B2 patch-goal census,usable patch pairs emitted,14,67,14 cases across nine projects
+local source-patch exposure cohort,locally emitted cases after root-reactor extension,18,67,two acquisition tracks; descriptive exposure count
+provenance-separated artifact cohort,local emissions plus author submissions evaluated,20,20,18 local plus two author-submitted repairs
+exact official runtime cohort,exact tuples confirmed 100/100,2,3,FS055 and FS057; FS014 failed on run 2
+strict developer comparison,case instances dynamically evaluated,6,6,three independent designs; five backports and one exact diff

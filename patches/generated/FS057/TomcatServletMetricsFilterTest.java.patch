@@ -1,0 +1,15 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS057/client/src/test/java/nl/nlighten/prometheus/tomcat/TomcatServletMetricsFilterTest.java.orig	2026-08-26 00:17:42.034920568 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS057/client/src/test/java/nl/nlighten/prometheus/tomcat/TomcatServletMetricsFilterTest.java	2026-08-26 00:17:42.039920564 +0000
+@@ -25,8 +25,12 @@
+ 
+     @Test
+     public void testServletRequestMetrics() throws Exception {
++        nl.nlighten.prometheus.tomcat.TomcatServletMetricsFilter.resetExecutions();
+         // servlet response times
+         assertThat(CollectorRegistry.defaultRegistry.getSampleValue("servlet_request_seconds_bucket", new String[]{"context", "method", "le"}, new String[]{CONTEXT_PATH, "GET", "0.01"}), is(notNullValue()));
++        while (nl.nlighten.prometheus.tomcat.TomcatServletMetricsFilter.getExecutedStatus() < 1) {
++            Thread.yield();
++        }
+         assertThat(CollectorRegistry.defaultRegistry.getSampleValue("servlet_request_seconds_bucket", new String[]{"context", "method", "le"}, new String[]{CONTEXT_PATH, "GET", "+Inf"}), is(greaterThan(0.0)));
+         assertThat(CollectorRegistry.defaultRegistry.getSampleValue("servlet_request_seconds_count", new String[]{"context", "method"}, new String[]{CONTEXT_PATH, "GET"}), is(greaterThan(0.0)));
+ 

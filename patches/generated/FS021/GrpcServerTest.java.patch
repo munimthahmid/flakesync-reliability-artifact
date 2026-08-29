@@ -1,0 +1,20 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS021/common/src/test/java/org/apache/uniffle/common/rpc/GrpcServerTest.java.orig	2026-08-26 00:14:53.080053032 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS021/common/src/test/java/org/apache/uniffle/common/rpc/GrpcServerTest.java	2026-08-26 00:14:53.093053021 +0000
+@@ -42,6 +42,7 @@
+ 
+   @Test
+   public void testGrpcExecutorPool() throws Exception {
++    org.apache.uniffle.common.rpc.GrpcServer.resetExecutions();
+     // Explicitly setting the synchronizing variable as false at the beginning of test run
+     GrpcServer.reset();
+     GRPCMetrics grpcMetrics = GRPCMetrics.getEmptyGRPCMetrics();
+@@ -69,6 +70,9 @@
+             LOGGER.info("Finished task: {}", index);
+             countDownLatch.countDown();
+           });
++    while (org.apache.uniffle.common.rpc.GrpcServer.getExecutedStatus() < 1) {
++        Thread.yield();
++    }
+     }
+ 
+     while (!GrpcServer.isPoolExecutorHasExecuted()) {

@@ -1,0 +1,61 @@
+{
+  "aggregated_at_source_time": "2026-08-29T03:45:29.871098+00:00",
+  "binding": {
+    "path": "evidence/fs059_worker_crossover_binding_v3.json",
+    "sha256": "d710a56e9de3fd71a3f7c7d263efd6606fa37da5e968247f0173e7825d9142e3"
+  },
+  "case_id": "FS059",
+  "claim_boundary": "A positive crossover rules out the simple explanation that the v2 association was caused only by workers 1 or 2. It remains finite evidence for one emitted FS059 patch and does not establish a FlakeSync population rate.",
+  "classification": "worker_crossover_confirmed",
+  "counts": {
+    "control_passes": 2,
+    "patched_neighbor_hangs": 1,
+    "patched_passes": 1
+  },
+  "executions": [
+    {
+      "category": "pass",
+      "duration_seconds": 15.389,
+      "execution_id": "control-01",
+      "log_segment_sha256": "50c64f9cae470ce0c790361c3cac6078858b0bd2fae3cf4579d53a228bbcf800",
+      "role": "control",
+      "worker": "flakesync-study-worker-1"
+    },
+    {
+      "category": "pass",
+      "duration_seconds": 15.261,
+      "execution_id": "control-02",
+      "log_segment_sha256": "994ae1481a8a08aba164b9080644e3209b3a9598fd984ee36740e9216b62549c",
+      "role": "control",
+      "worker": "flakesync-study-worker-2"
+    },
+    {
+      "category": "pass",
+      "duration_seconds": 7.178,
+      "execution_id": "patched-01",
+      "log_segment_sha256": "0d56f23214c23575eaf9f5ac3b7b3c9027b1269854cd6952302e359a2d14b564",
+      "role": "patched",
+      "worker": "flakesync-study-worker-3"
+    },
+    {
+      "category": "post_smtp_neighbor_hang",
+      "duration_seconds": 300.454,
+      "execution_id": "patched-02",
+      "log_segment_sha256": "71debcb061eff66cee3d2f093cdf1c5f4fad66e5ee5e409b43b2525e9e83dcf9",
+      "role": "patched",
+      "worker": "flakesync-study-worker-4"
+    }
+  ],
+  "frequency_estimate": null,
+  "protocol": {
+    "path": "evidence/fs059_worker_crossover_protocol_v3.json",
+    "sha256": "633046a9717a9aa98669cdae143f5ef00f7a684d72ca3ef2bf38a549d7eefa74"
+  },
+  "raw_result": {
+    "path": "runs/fs059_worker_crossover_v3-result.json",
+    "sha256": "061d7d9d3af59dda98390dcb9dc87f6d316c580025473694b1e7c648548071f7"
+  },
+  "schema_version": "fs059-worker-crossover-v3-result-v1",
+  "status": "complete",
+  "v1_batch_classification_used": false
+}

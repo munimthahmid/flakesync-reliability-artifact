@@ -1,0 +1,63 @@
+{
+  "aggregated_at_source_time": "2026-08-29T03:36:36.742744+00:00",
+  "binding": {
+    "path": "evidence/fs059_neighbor_frequency_binding_v2.json",
+    "sha256": "330ad3b1a76f2df5e40011f38c57e50c79d32789432aafdb0a8447c746472119"
+  },
+  "case_id": "FS059",
+  "claim_boundary": "A recurrence confirmation is a behavioral-scope/noninterference counterexample for FS059 while preserving its separate targeted recorded-delay success. It does not imply that every patched execution hangs and does not change the paper's repair-rate denominator.",
+  "classification": "recurrence_counterexample_confirmed",
+  "counts": {
+    "control_analogous_hangs": 0,
+    "control_passes": 10,
+    "fresh_pairs": 10,
+    "other_pairs": 0,
+    "patched_neighbor_hangs": 8,
+    "patched_passes": 2
+  },
+  "descriptive_frequency": {
+    "denominator": 10,
+    "numerator": 8,
+    "pilot_pooled": false,
+    "proportion": 0.8,
+    "wilson_95": {
+      "lower": 0.49016247153664183,
+      "upper": 0.9433178485456247,
+      "z": 1.959963984540054
+    }
+  },
+  "execution_runner": {
+    "path": "scripts/run_fs059_neighbor_regression_confirmation_v1.py",
+    "sha256": "61a31b82522933422a7d0c931a47aabd0236bdeddcfedd7b31066616efd3ba52"
+  },
+  "paired_table": "results/fs059_neighbor_frequency_v2.csv",
+  "protocol": {
+    "path": "evidence/fs059_neighbor_frequency_protocol_v2.json",
+    "sha256": "25b8f3483e76545bc33d18abff8538a5f9e181ef05f8c5f3f2f04a07bd85ea85"
+  },
+  "schema_version": "fs059-neighbor-frequency-v2-result-v1",
+  "source_batches": [
+    {
+      "path": "runs/fs059_neighbor_frequency_v2/batch-01-result.json",
+      "sha256": "466399ef08313e3ec41d9ddd4f7522fdcf2810939d3a156cdc7af04b0b8e656f"
+    },
+    {
+      "path": "runs/fs059_neighbor_frequency_v2/batch-02-result.json",
+      "sha256": "34c150d41d83662d430fecaad46b9c8ca9c28f7d82e8d350e384ab21a51490e7"
+    },
+    {
+      "path": "runs/fs059_neighbor_frequency_v2/batch-03-result.json",
+      "sha256": "fd7fedf15d731bea007dc35f7c7a684e9803d24329bf84c26194f00c9419e55d"
+    },
+    {
+      "path": "runs/fs059_neighbor_frequency_v2/batch-04-result.json",
+      "sha256": "3314627b5480c6ea9a180deb73eea4c5bb26254a99cde7a4939d448238cea46c"
+    },
+    {
+      "path": "runs/fs059_neighbor_frequency_v2/batch-05-result.json",
+      "sha256": "807c9b78c01ccc3fa7e31f6798feccb56ad367985e65c5b1850efebae45c540f"
+    }
+  ],
+  "status": "complete",
+  "worker_assignment_limitation": "Patched role is fixed to workers 1-2 and control role to workers 3-4 in v2; use the separately registered v3 crossover before ruling out worker identity as a simple confound."
+}

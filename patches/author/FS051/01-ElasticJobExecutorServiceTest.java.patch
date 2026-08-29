@@ -1,0 +1,31 @@
+diff --git a/elasticjob-infra/elasticjob-infra-common/src/test/java/org/apache/shardingsphere/elasticjob/infra/concurrent/ElasticJobExecutorServiceTest.java b/elasticjob-infra/elasticjob-infra-common/src/test/java/org/apache/shardingsphere/elasticjob/infra/concurrent/ElasticJobExecutorServiceTest.java
+index c7ffe38daf..e92c078fa9 100644
+--- a/elasticjob-infra/elasticjob-infra-common/src/test/java/org/apache/shardingsphere/elasticjob/infra/concurrent/ElasticJobExecutorServiceTest.java
++++ b/elasticjob-infra/elasticjob-infra-common/src/test/java/org/apache/shardingsphere/elasticjob/infra/concurrent/ElasticJobExecutorServiceTest.java
+@@ -28,6 +28,8 @@
+ 
+ public final class ElasticJobExecutorServiceTest {
+     
++    private static boolean hasExecuted;
++
+     @Test
+     public void assertCreateExecutorService() {
+         ElasticJobExecutorService executorServiceObject = new ElasticJobExecutorService("executor-service-test", 1);
+@@ -48,6 +50,7 @@ public void assertCreateExecutorService() {
+         executorService.shutdownNow();
+         assertThat(executorServiceObject.getWorkQueueSize(), is(0));
+         assertTrue(executorServiceObject.isShutdown());
++        hasExecuted = true;
+     }
+     
+     static class FooTask implements Runnable {
+@@ -55,6 +58,9 @@ static class FooTask implements Runnable {
+         @Override
+         public void run() {
+             BlockUtils.sleep(1000L);
++            while (!hasExecuted) {
++                Thread.yield();
++            }
+         }
+     }
+ }

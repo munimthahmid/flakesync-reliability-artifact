@@ -1,0 +1,22 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS006/src/main/java/tachyon/Worker.java.orig	2026-08-26 00:13:48.278108654 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS006/src/main/java/tachyon/Worker.java	2026-08-26 00:13:48.294108640 +0000
+@@ -20,6 +20,11 @@
+  * Entry point for a worker daemon.
+  */
+ public class Worker implements Runnable {
++
++  private static volatile int numExecutions;
++
++  public static void resetExecutions() { numExecutions = 0; }
++  public static int getExecutedStatus() { return numExecutions; }
+   private static final Logger LOG = Logger.getLogger(Constants.LOGGER_TYPE);
+ 
+   private final InetSocketAddress MasterAddress;
+@@ -80,6 +85,7 @@
+       if (diff < WorkerConf.get().TO_MASTER_HEARTBEAT_INTERVAL_MS) {
+         LOG.debug("Heartbeat process takes " + diff + " ms.");
+         CommonUtils.sleepMs(LOG, WorkerConf.get().TO_MASTER_HEARTBEAT_INTERVAL_MS - diff);
++      numExecutions++;
+       } else {
+         LOG.error("Heartbeat process takes " + diff + " ms.");
+       }

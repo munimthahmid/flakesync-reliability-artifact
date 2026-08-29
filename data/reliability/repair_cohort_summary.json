@@ -1,0 +1,637 @@
+{
+  "checks": {
+    "errors": [],
+    "failed": 0,
+    "passed": 58
+  },
+  "cohort": {
+    "case_ids": [
+      "FS001",
+      "FS002",
+      "FS003",
+      "FS004",
+      "FS005",
+      "FS006",
+      "FS007",
+      "FS014",
+      "FS016",
+      "FS018",
+      "FS019",
+      "FS020",
+      "FS021",
+      "FS053",
+      "FS056",
+      "FS057",
+      "FS058",
+      "FS059",
+      "FS051",
+      "FS054"
+    ]
+  },
+  "harmonized_static_patterns": {
+    "busy_yield_wait": {
+      "author_submitted": 2,
+      "count": 20,
+      "local_generated": 18
+    },
+    "missing_interruption_path": {
+      "author_submitted": 2,
+      "count": 20,
+      "local_generated": 18
+    },
+    "missing_robust_per_invocation_lifecycle": {
+      "author_no_per_invocation_reset": 2,
+      "count": 20,
+      "local_entry_reset_without_exit_cleanup": 18
+    },
+    "scope": "structural family mapping, not identical detector syntax",
+    "shared_static_state": {
+      "author_submitted": 2,
+      "count": 20,
+      "local_generated": 18
+    },
+    "unbounded_condition_wait": {
+      "author_submitted": 2,
+      "count": 20,
+      "local_generated": 18
+    }
+  },
+  "input_hashes": [
+    {
+      "bytes": 29404,
+      "path": "results/repair_artifact_cohort_20_v1/repair_artifact_case_findings.csv",
+      "role": "v1.case_table",
+      "sha256": "d11b5d2ba3aa32a5e2128ec782386582659bbaadcfcf3d94773bc5cc06969d5d"
+    },
+    {
+      "bytes": 1341,
+      "path": "results/repair_artifact_cohort_20_v1/author_repair_static_findings.csv",
+      "role": "v1.author_static",
+      "sha256": "218909a72788e2a02cb6ae6596a9917105c6eef121a8bd8def7d0b44fa09f39f"
+    },
+    {
+      "bytes": 21429,
+      "path": "results/repair_artifact_cohort_20_v1/summary.json",
+      "role": "v1.summary",
+      "sha256": "ba14932c320e4958c54c8a2f90561fc571fad51559930976882b6baddd88e6eb"
+    },
+    {
+      "bytes": 709,
+      "path": "results/repair_artifact_cohort_20_v1/artifact_hashes.json",
+      "role": "v1.hash_manifest",
+      "sha256": "5f1a198ab9d859c30e47f5b65da40171051017ae67fff8eb1e119ae71f5e382d"
+    },
+    {
+      "bytes": 1020,
+      "path": "runs/author-flag-counter-scenarios-v1/summary.json",
+      "role": "tailored.v1.summary",
+      "sha256": "d39b26e39b40c5bd2dd6abe1a17281fbe6878b15369e2a97879ac1dfcd33e092"
+    },
+    {
+      "bytes": 444174,
+      "path": "runs/author-flag-counter-scenarios-v1/validations/FS051/validation.json",
+      "role": "tailored.v1.FS051_ledger",
+      "sha256": "f1e2d17034cb9c4aa1c8902fed178db257a6a465f29e617453680ded8ddb6851"
+    },
+    {
+      "bytes": 5417,
+      "path": "evidence/author_flag_counter_scenarios_protocol_v1.json",
+      "role": "tailored.v1.protocol",
+      "sha256": "f22fdf7fc7169b1aa71576dd29be9f246b1462b2ab4c19d596f609bee8405490"
+    },
+    {
+      "bytes": 3204,
+      "path": "results/author_flag_counter_scenarios_diagnosis_v1/diagnosis.json",
+      "role": "tailored.v1.diagnosis",
+      "sha256": "110e051407f87a3123de2ef0daf3a28543fbc677ea00abe6769c0ee52487ad0d"
+    },
+    {
+      "bytes": 2846,
+      "path": "results/author_flag_counter_scenarios_diagnosis_v1/bytecode_evidence.txt",
+      "role": "tailored.v1.bytecode",
+      "sha256": "0881bab4dbf3c9c962526f6cf8beb71169e5b198486162ef6af571adaa6eecce"
+    },
+    {
+      "bytes": 1658,
+      "path": "runs/author-flag-counter-scenarios-v2/summary.json",
+      "role": "tailored.v2.summary",
+      "sha256": "e017eb752d68f9c9085496be4d6d44bb672da7b5ea72561452804d4e1102839d"
+    },
+    {
+      "bytes": 2159,
+      "path": "runs/author-flag-counter-scenarios-v2/environment.json",
+      "role": "tailored.v2.environment",
+      "sha256": "01f9ae5d8a6e5ad7247b377b74d58945c09686ab2c66eda5b63f7e4b877b4c49"
+    },
+    {
+      "bytes": 27948,
+      "path": "runs/author-flag-counter-scenarios-v2/validations/FS054/validation.json",
+      "role": "tailored.v2.FS054_ledger",
+      "sha256": "6e09c133a8155a8e12336f055c47a62424bcdfbb990c1b0310c48b2ce3227e05"
+    },
+    {
+      "bytes": 5392,
+      "path": "evidence/author_flag_counter_scenarios_protocol_v2.json",
+      "role": "tailored.v2.protocol",
+      "sha256": "765816016f5dc57a117bbe725d50004a0dcc7e19ab34eb89445b58f1ebec66f7"
+    },
+    {
+      "bytes": 767,
+      "path": "runs/author-flag-counter-scenarios-v2/validations/FS054/instrumentation/fs054-surefire-argline-bridge.json",
+      "role": "tailored.v2.pom_bridge",
+      "sha256": "29b9dde6b2397f8f258e2e1f0d27279159c94d7c35f93ea280b9681faa453cf9"
+    },
+    {
+      "bytes": 328,
+      "path": "runs/author-flag-counter-scenarios-v2/validations/FS054/instrumentation/fs054-surefire-argline-bridge.patch",
+      "role": "tailored.v2.pom_bridge_patch",
+      "sha256": "5703431e22217f11303ed7ac652ad7d291ec9aaf58341a2054433f8836763a85"
+    },
+    {
+      "bytes": 58690,
+      "path": "scripts/run_author_flag_counter_scenarios_v1.py",
+      "role": "tailored.runner_v1",
+      "sha256": "87be3e68ffdbb7b3f86d0a4254b11108bd958c3fbba75728a7a39cf26a749b00"
+    },
+    {
+      "bytes": 7933,
+      "path": "scripts/run_author_flag_counter_scenarios_v2.py",
+      "role": "tailored.runner_v2",
+      "sha256": "56b32a75611433bd49e7b8ff46575ff4622ecc086197963e304c31ad4ecc2b01"
+    },
+    {
+      "bytes": 142501,
+      "path": "detectors/field-signal-fault-agent/target/field-signal-fault-agent-1.0.jar",
+      "role": "tailored.field_agent",
+      "sha256": "6501e0a1ac926c349077fbb18c6ad2d7176a9a83b8f0c4d6a585a7dd914c965d"
+    },
+    {
+      "bytes": 26238,
+      "path": "scripts/build_repair_artifact_cohort_20_v2.py",
+      "role": "overlay.builder",
+      "sha256": "13a6cb70f82ddc70a13b746471303ae4e8bebf000e64af152262d11ab6397871"
+    },
+    {
+      "bytes": 4078,
+      "path": "tests/test_repair_artifact_cohort_20_v2.py",
+      "role": "overlay.builder_test",
+      "sha256": "7eef49a21b86da186a0e6757aee59f765b71b24e29e6e3bffe3217cd12145551"
+    }
+  ],
+  "input_manifest_sha256": "72fb0c54b9cd86082549afaaccf6f3e5a2784a132721ab908acd6071cf23b078",
+  "metrics": {
+    "author_submitted_pinned_repairs": {
+      "case_ids": [
+        "FS051",
+        "FS054"
+      ],
+      "count": 2,
+      "denominator": 20
+    },
+    "cancellation_probe_eligible": {
+      "case_ids": [
+        "FS002",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS020",
+        "FS054"
+      ],
+      "count": 7,
+      "denominator": 20
+    },
+    "causal_effective": {
+      "case_ids": [
+        "FS051",
+        "FS059"
+      ],
+      "count": 2,
+      "denominator": 12
+    },
+    "causal_ineffective": {
+      "case_ids": [
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS020",
+        "FS056",
+        "FS058"
+      ],
+      "count": 10,
+      "denominator": 12
+    },
+    "compiled": {
+      "case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS020",
+        "FS051",
+        "FS054",
+        "FS056",
+        "FS057",
+        "FS058",
+        "FS059"
+      ],
+      "count": 16,
+      "denominator": 20
+    },
+    "complete_operational_reliable": {
+      "case_ids": [],
+      "count": 0,
+      "denominator": 20
+    },
+    "confirmed_interruption_failures": {
+      "case_ids": [
+        "FS002",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS020",
+        "FS054"
+      ],
+      "count": 7,
+      "denominator": 7
+    },
+    "confirmed_operationally_unreliable": {
+      "case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS018",
+        "FS019",
+        "FS020",
+        "FS021",
+        "FS051",
+        "FS053",
+        "FS054",
+        "FS056",
+        "FS057",
+        "FS058",
+        "FS059"
+      ],
+      "count": 20,
+      "denominator": 20
+    },
+    "counted_neighbor_regressions": {
+      "case_ids": [
+        "FS059"
+      ],
+      "count": 1,
+      "denominator": 20
+    },
+    "fault_specific_signal_loss_hangs": {
+      "case_ids": [
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS058",
+        "FS059"
+      ],
+      "count": 5,
+      "denominator": 10
+    },
+    "locally_emitted_patch_cases": {
+      "case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS018",
+        "FS019",
+        "FS020",
+        "FS021",
+        "FS053",
+        "FS056",
+        "FS057",
+        "FS058",
+        "FS059"
+      ],
+      "count": 18,
+      "denominator": 20
+    },
+    "matched_recorded_delay_evaluable": {
+      "case_ids": [
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS020",
+        "FS051",
+        "FS056",
+        "FS058",
+        "FS059"
+      ],
+      "count": 12,
+      "denominator": 20
+    },
+    "ordinary_gate_passed": {
+      "case_ids": [
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS020",
+        "FS051",
+        "FS054",
+        "FS056",
+        "FS058",
+        "FS059"
+      ],
+      "count": 14,
+      "denominator": 20
+    },
+    "patch_applied": {
+      "case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS018",
+        "FS019",
+        "FS020",
+        "FS021",
+        "FS051",
+        "FS053",
+        "FS054",
+        "FS056",
+        "FS057",
+        "FS058",
+        "FS059"
+      ],
+      "count": 20,
+      "denominator": 20
+    },
+    "repair_artifact_cases": {
+      "case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS004",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS016",
+        "FS018",
+        "FS019",
+        "FS020",
+        "FS021",
+        "FS051",
+        "FS053",
+        "FS054",
+        "FS056",
+        "FS057",
+        "FS058",
+        "FS059"
+      ],
+      "count": 20,
+      "denominator": 20
+    },
+    "signal_loss_causally_eligible": {
+      "case_ids": [
+        "FS002",
+        "FS003",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS020",
+        "FS051",
+        "FS058",
+        "FS059"
+      ],
+      "count": 10,
+      "denominator": 20
+    },
+    "signal_loss_hangs": {
+      "case_ids": [
+        "FS001",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS054",
+        "FS057",
+        "FS058",
+        "FS059"
+      ],
+      "count": 8,
+      "denominator": 13
+    },
+    "signal_loss_probe_eligible": {
+      "case_ids": [
+        "FS001",
+        "FS002",
+        "FS003",
+        "FS005",
+        "FS006",
+        "FS007",
+        "FS014",
+        "FS020",
+        "FS051",
+        "FS054",
+        "FS057",
+        "FS058",
+        "FS059"
+      ],
+      "count": 13,
+      "denominator": 20
+    }
+  },
+  "output_artifacts": {
+    "author_static": "results/repair_artifact_cohort_20_v2/author_repair_static_findings.csv",
+    "case_table": "results/repair_artifact_cohort_20_v2/repair_artifact_case_findings.csv",
+    "hash_manifest": "results/repair_artifact_cohort_20_v2/artifact_hashes.json",
+    "summary": "results/repair_artifact_cohort_20_v2/summary.json"
+  },
+  "schema_version": "repair-artifact-cohort-20-v2-tailored-author-overlay",
+  "scope": {
+    "all_20_locally_emitted": false,
+    "author_submitted_pinned_repairs": 2,
+    "locally_emitted_patch_cases": 18,
+    "official_full_workflow_reproduction": false,
+    "paper_success_rate_confirmation": false,
+    "provenance_separated": true,
+    "repair_artifact_cases": 20,
+    "tailored_author_overlay": true
+  },
+  "static": {
+    "author_submitted_repair": {
+      "case_count": 2,
+      "case_detector_counts": {
+        "busy_spin_yield": 2,
+        "missing_interrupt_path": 2,
+        "non_atomic_compound_update": 0,
+        "plain_nonvolatile_shared_state": 1,
+        "production_code_test_hook": 0,
+        "reset_at_entry_without_exit_cleanup": 0,
+        "shared_state_without_per_invocation_reset": 2,
+        "shared_static_mutable_state": 2,
+        "unbounded_condition_wait": 2
+      },
+      "detector_source": "scripts/analyze_patches.py",
+      "detector_source_sha256": "1de2dedb22b967998204f6e4d65d86d65664966ea5704412b7f8909309f01e8f",
+      "detectors": {
+        "busy_spin_yield": "The submitted repair repeatedly yields instead of using blocking synchronization.",
+        "missing_interrupt_path": "The submitted condition wait has no interruption or cancellation path.",
+        "non_atomic_compound_update": "The submitted repair updates shared state with a non-atomic compound operation.",
+        "plain_nonvolatile_shared_state": "The added cross-thread static state is neither volatile nor an atomic type.",
+        "production_code_test_hook": "The submitted repair adds synchronization state to a main-source file.",
+        "reset_at_entry_without_exit_cleanup": "The submitted repair resets shared state at entry but adds no finally/teardown cleanup.",
+        "shared_state_without_per_invocation_reset": "The submitted repair adds static state without a visible per-invocation reset.",
+        "shared_static_mutable_state": "The submitted repair adds non-final static synchronization state shared across invocations.",
+        "unbounded_condition_wait": "The submitted repair adds a condition loop without a deadline or bounded await."
+      },
+      "patch_files": 2
+    },
+    "base_generated_template": {
+      "case_count": 18,
+      "case_detector_counts": {
+        "absolute_diff_header": 18,
+        "busy_spin_yield": 18,
+        "entry_reset_can_erase_early_signal": 18,
+        "entry_reset_without_exit_cleanup": 18,
+        "generic_helper_collision_surface": 18,
+        "missing_interrupt_path": 18,
+        "non_atomic_compound_increment": 18,
+        "production_code_test_hook": 18,
+        "shared_static_mutable_counter": 18,
+        "unbounded_condition_wait": 18,
+        "unbraced_control_flow_capture": 2
+      },
+      "detector_properties": {
+        "absolute_diff_header": [
+          "applicability",
+          "portability"
+        ],
+        "busy_spin_yield": [
+          "bounded progress",
+          "resource behavior"
+        ],
+        "entry_reset_can_erase_early_signal": [
+          "causal effectiveness",
+          "invocation isolation"
+        ],
+        "entry_reset_without_exit_cleanup": [
+          "invocation isolation",
+          "cleanup"
+        ],
+        "generic_helper_collision_surface": [
+          "applicability",
+          "behavioral scope"
+        ],
+        "missing_interrupt_path": [
+          "bounded progress",
+          "cancellation"
+        ],
+        "non_atomic_compound_increment": [
+          "concurrency safety"
+        ],
+        "production_code_test_hook": [
+          "behavioral scope"
+        ],
+        "shared_static_mutable_counter": [
+          "invocation isolation",
+          "concurrency safety"
+        ],
+        "unbounded_condition_wait": [
+          "bounded progress"
+        ],
+        "unbraced_control_flow_capture": [
+          "behavioral scope",
+          "causal effectiveness"
+        ]
+      },
+      "detectors": {
+        "absolute_diff_header": "The unified diff embeds an absolute source path, reducing direct patch portability.",
+        "busy_spin_yield": "The wait repeatedly calls Thread.yield instead of using a blocking synchronization primitive.",
+        "entry_reset_can_erase_early_signal": "The added entry reset can erase a signal delivered during setup or before the test body.",
+        "entry_reset_without_exit_cleanup": "State is reset at test entry but no added finally/teardown cleanup is visible.",
+        "generic_helper_collision_surface": "Generic helper names are injected into subject classes and may collide with existing members.",
+        "missing_interrupt_path": "The added wait has no recognizable interruption or cancellation check.",
+        "non_atomic_compound_increment": "A volatile counter is incremented with ++; the read-modify-write operation is not atomic.",
+        "production_code_test_hook": "The repair adds test-control synchronization code to a main-source file.",
+        "shared_static_mutable_counter": "Added synchronization state is static and mutable, so independent instances or tests share it.",
+        "unbounded_condition_wait": "The added condition loop contains no recognizable deadline or timeout.",
+        "unbraced_control_flow_capture": "An added executable statement is inserted after an unbraced if/for/while and before the original following statement, leaving that original statement outside the control flow."
+      },
+      "patch_detector_counts": {
+        "absolute_diff_header": 36,
+        "busy_spin_yield": 18,
+        "entry_reset_can_erase_early_signal": 18,
+        "entry_reset_without_exit_cleanup": 18,
+        "generic_helper_collision_surface": 36,
+        "missing_interrupt_path": 18,
+        "non_atomic_compound_increment": 18,
+        "production_code_test_hook": 18,
+        "shared_static_mutable_counter": 18,
+        "unbounded_condition_wait": 18,
+        "unbraced_control_flow_capture": 2
+      },
+      "patch_files": 36,
+      "source_case_table": {
+        "absolute_path": "<PRIVATE_STUDY_ROOT>/results/static-patch-cohort-v1/case_findings.csv",
+        "bytes": 17471,
+        "path": "results/static-patch-cohort-v1/case_findings.csv",
+        "role": "base.static_case_table",
+        "sha256": "8e9009e8e8fc0c9b64d49078b7ce31ba4a82da8335980b7932a0493f623f5a6f"
+      },
+      "source_summary": {
+        "absolute_path": "<PRIVATE_STUDY_ROOT>/results/static-patch-cohort-v1/summary.json",
+        "bytes": 8173,
+        "path": "results/static-patch-cohort-v1/summary.json",
+        "role": "base.static_summary",
+        "sha256": "9653dd1fb29b51897f3b1b996c1e126468cf4b5ba40618a3816fa75be2f73ef2"
+      }
+    },
+    "detector_families_separate": true
+  },
+  "tailored_author_results": {
+    "FS051": {
+      "cancellation": "inconclusive; waiter interrupt not witnessed",
+      "matched_recorded_delay": "causally effective",
+      "signal_loss": "suppression witnessed; target passed within bound"
+    },
+    "FS054": {
+      "cancellation": "suppression and interruption witnessed; 93-second timeout",
+      "matched_recorded_delay": "inconclusive because control injection was not confirmed",
+      "signal_loss": "suppression witnessed; 93-second timeout and yield-loop thread dump"
+    }
+  },
+  "verification_status": "pass"
+}

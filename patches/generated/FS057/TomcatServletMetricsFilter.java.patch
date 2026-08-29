@@ -1,0 +1,22 @@
+--- <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS057/client/src/main/java/nl/nlighten/prometheus/tomcat/TomcatServletMetricsFilter.java.orig	2026-08-26 00:17:42.017920581 +0000
++++ <PRIVATE_STUDY_ROOT>/runs/artifact_location_patch_generation_workspaces/FS057/client/src/main/java/nl/nlighten/prometheus/tomcat/TomcatServletMetricsFilter.java	2026-08-26 00:17:42.025920575 +0000
+@@ -49,6 +49,11 @@
+  *  </pre>
+  */
+ public class TomcatServletMetricsFilter implements Filter {
++
++    private static volatile int numExecutions;
++
++    public static void resetExecutions() { numExecutions = 0; }
++    public static int getExecutedStatus() { return numExecutions; }
+     private static final String BUCKET_CONFIG_PARAM = "buckets";
+     private static Histogram servletLatency;
+     private static Gauge servletConcurrentRequest;
+@@ -116,6 +121,7 @@
+                 filterChain.doFilter(servletRequest, servletResponse);
+             } finally {
+                 timer.observeDuration();
++                numExecutions++;
+                 servletConcurrentRequest.labels(context).dec();
+                 servletStatusCodes.labels(context, Integer.toString(getStatus((HttpServletResponse) servletResponse))).inc();
+             }

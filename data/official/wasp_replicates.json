@@ -1,0 +1,166 @@
+{
+  "all_replicates_reported": true,
+  "analyzer_sha256": "744af1d1b63dcb4af26e471c3a1fff7b91472e30cdc82fe902ded6f86a3bd523",
+  "classification_counts": {
+    "partial_reproduction_final_critical_point_diverged": 10
+  },
+  "completed_replicates": 10,
+  "declared_replicates": 10,
+  "exact_replicates": 0,
+  "individual_analysis_sources": {
+    "wasp-official-01": {
+      "bytes": 23383,
+      "path": "<PRIVATE_OFFICIAL_REPRODUCTION_ROOT>/results/wasp-official-01-analysis.json",
+      "sha256": "c2723041e4d816f63627ced05a2ab8512b8a181f8e4dca1126632357787ad156"
+    },
+    "wasp-official-02": {
+      "bytes": 23383,
+      "path": "<PRIVATE_OFFICIAL_REPRODUCTION_ROOT>/results/wasp-official-02-analysis.json",
+      "sha256": "8850ef87d2dd6f2d0087df9206fcc26e17cbf0899ed8a7f493167110dd6e5901"
+    },
+    "wasp-official-03": {
+      "bytes": 23383,
+      "path": "<PRIVATE_OFFICIAL_REPRODUCTION_ROOT>/results/wasp-official-03-analysis.json",
+      "sha256": "33a0653f50de52208ed85686cbde900f9ecdb83c850f25d694d312f2180dd316"
+    },
+    "wasp-official-04": {
+      "bytes": 23383,
+      "path": "<PRIVATE_OFFICIAL_REPRODUCTION_ROOT>/results/wasp-official-04-analysis.json",
+      "sha256": "f3c8097457ea157f29af23a56cdf07ac23d5019ef44116b570402747785eb71c"
+    },
+    "wasp-official-05": {
+      "bytes": 23383,
+      "path": "<PRIVATE_OFFICIAL_REPRODUCTION_ROOT>/results/wasp-official-05-analysis.json",
+      "sha256": "6c2a4ccbcedfd5bf3ab87a06dbf4417d1d396e545f6d4b38dd67969615a6bbff"
+    },
+    "wasp-official-06": {
+      "bytes": 23383,
+      "path": "<PRIVATE_OFFICIAL_REPRODUCTION_ROOT>/results/wasp-official-06-analysis.json",
+      "sha256": "19271e9e0a5aa1621900fd516c37f80b97d8df0287287b6c4c47e4efc27aba69"
+    },
+    "wasp-official-07": {
+      "bytes": 23383,
+      "path": "<PRIVATE_OFFICIAL_REPRODUCTION_ROOT>/results/wasp-official-07-analysis.json",
+      "sha256": "2417c8d7d1f86db7a68ce238d3fa64925fb3dc2441e638d1e725dc9944856e57"
+    },
+    "wasp-official-08": {
+      "bytes": 23383,
+      "path": "<PRIVATE_OFFICIAL_REPRODUCTION_ROOT>/results/wasp-official-08-analysis.json",
+      "sha256": "d84a63aee8f5cbad2e0258d65bf3c23a8db61451415202bdb9bbfdd1cef0e16a"
+    },
+    "wasp-official-09": {
+      "bytes": 23383,
+      "path": "<PRIVATE_OFFICIAL_REPRODUCTION_ROOT>/results/wasp-official-09-analysis.json",
+      "sha256": "4fe8581b82edc40d092593b6f361853c2af1ddb3c0d0db5b08cd36c5bf2c45c6"
+    },
+    "wasp-official-10": {
+      "bytes": 23383,
+      "path": "<PRIVATE_OFFICIAL_REPRODUCTION_ROOT>/results/wasp-official-10-analysis.json",
+      "sha256": "4bcce9fc4c5027c5b7231269c33c3e2714737a4eca998e39e08c022d2c34b3f4"
+    }
+  },
+  "protocol_sha256": "8808e6be6367a03f307986ca497e875510dc09c7b6d748330564564f83e9dfdb",
+  "records": [
+    {
+      "BarrierPoint": "com.alibaba.wasp.executor.TestExecutorService#82",
+      "BarrierRuntimeSeconds": "220.914059168",
+      "Classification": "partial_reproduction_final_critical_point_diverged",
+      "EvidenceValid": true,
+      "FinalCriticalPoint": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+      "Replicate": 1,
+      "RunName": "wasp-official-01",
+      "Threshold": "1"
+    },
+    {
+      "BarrierPoint": "com.alibaba.wasp.executor.TestExecutorService#82",
+      "BarrierRuntimeSeconds": "163.861739646",
+      "Classification": "partial_reproduction_final_critical_point_diverged",
+      "EvidenceValid": true,
+      "FinalCriticalPoint": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+      "Replicate": 2,
+      "RunName": "wasp-official-02",
+      "Threshold": "1"
+    },
+    {
+      "BarrierPoint": "com.alibaba.wasp.executor.TestExecutorService#82",
+      "BarrierRuntimeSeconds": "156.682145453",
+      "Classification": "partial_reproduction_final_critical_point_diverged",
+      "EvidenceValid": true,
+      "FinalCriticalPoint": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+      "Replicate": 3,
+      "RunName": "wasp-official-03",
+      "Threshold": "1"
+    },
+    {
+      "BarrierPoint": "com.alibaba.wasp.executor.TestExecutorService#82",
+      "BarrierRuntimeSeconds": "156.285807719",
+      "Classification": "partial_reproduction_final_critical_point_diverged",
+      "EvidenceValid": true,
+      "FinalCriticalPoint": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+      "Replicate": 4,
+      "RunName": "wasp-official-04",
+      "Threshold": "1"
+    },
+    {
+      "BarrierPoint": "com.alibaba.wasp.executor.TestExecutorService#82",
+      "BarrierRuntimeSeconds": "156.653484860",
+      "Classification": "partial_reproduction_final_critical_point_diverged",
+      "EvidenceValid": true,
+      "FinalCriticalPoint": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+      "Replicate": 5,
+      "RunName": "wasp-official-05",
+      "Threshold": "1"
+    },
+    {
+      "BarrierPoint": "com.alibaba.wasp.executor.TestExecutorService#82",
+      "BarrierRuntimeSeconds": "155.947609772",
+      "Classification": "partial_reproduction_final_critical_point_diverged",
+      "EvidenceValid": true,
+      "FinalCriticalPoint": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+      "Replicate": 6,
+      "RunName": "wasp-official-06",
+      "Threshold": "1"
+    },
+    {
+      "BarrierPoint": "com.alibaba.wasp.executor.TestExecutorService#82",
+      "BarrierRuntimeSeconds": "156.710517700",
+      "Classification": "partial_reproduction_final_critical_point_diverged",
+      "EvidenceValid": true,
+      "FinalCriticalPoint": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+      "Replicate": 7,
+      "RunName": "wasp-official-07",
+      "Threshold": "1"
+    },
+    {
+      "BarrierPoint": "com.alibaba.wasp.executor.TestExecutorService#82",
+      "BarrierRuntimeSeconds": "162.306020041",
+      "Classification": "partial_reproduction_final_critical_point_diverged",
+      "EvidenceValid": true,
+      "FinalCriticalPoint": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+      "Replicate": 8,
+      "RunName": "wasp-official-08",
+      "Threshold": "1"
+    },
+    {
+      "BarrierPoint": "com.alibaba.wasp.executor.TestExecutorService#82",
+      "BarrierRuntimeSeconds": "157.591963466",
+      "Classification": "partial_reproduction_final_critical_point_diverged",
+      "EvidenceValid": true,
+      "FinalCriticalPoint": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+      "Replicate": 9,
+      "RunName": "wasp-official-09",
+      "Threshold": "1"
+    },
+    {
+      "BarrierPoint": "com.alibaba.wasp.executor.TestExecutorService#82",
+      "BarrierRuntimeSeconds": "171.502403860",
+      "Classification": "partial_reproduction_final_critical_point_diverged",
+      "EvidenceValid": true,
+      "FinalCriticalPoint": "com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#308[100];com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310~com/alibaba/wasp/executor/ExecutorService$TrackingThreadPoolExecutor#310[100];",
+      "Replicate": 10,
+      "RunName": "wasp-official-10",
+      "Threshold": "1"
+    }
+  ],
+  "schema_version": "wasp-replicate-analysis-v2"
+}

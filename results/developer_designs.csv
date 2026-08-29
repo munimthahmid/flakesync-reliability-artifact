@@ -1,0 +1,4 @@
+DesignId,Project,CaseInstances,CaseIds,AllApplied,AllCompiled,AllOrdinary10Of10,CausalEffectiveCases,CausalIneffectiveCases,ExactOriginalInstances,Relations
+alluxio_4b9c806b_heartbeat_derived_bounded_sleep,Alluxio/alluxio,4,FS004;FS005;FS006;FS007,True,True,True,3,1,0,semantic_backport_of_exact_commit_diff
+httpcore_66d43a02_ordered_bounded_join,apache/httpcore,1,FS020,True,True,True,0,1,1,exact_commit_diff
+java_websocket_pr1450_bounded_state_poll,TooTallNate/Java-WebSocket,1,FS014,True,True,True,0,1,0,semantic_backport
