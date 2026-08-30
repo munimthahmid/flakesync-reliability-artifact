@@ -1,0 +1,89 @@
+{
+  "schema_version": "reliable-repair-release-validation-v1",
+  "case_id": "FS020",
+  "project": "apache/httpcore",
+  "source_revision": "49247d208bde47f652812493e1d3576e136b8eb8",
+  "target_test": "org.apache.http.pool.TestConnPool#testLeaseTimeout",
+  "selection_scope": "manual_candidate",
+  "candidate_status": "unsound_reordering_candidate_rejected_at_causal_gate",
+  "overall_verdict": "fail",
+  "blocker": "The recorded 12.8-second delay at AbstractConnPool#createConnection exceeds the test's existing 10-second GRACE_PERIOD before the first lease completion. Moving the second lease after the first join weakens the intended contention and still failed 5/5. Increasing the grace bound without an existing domain deadline would be an unjustified tolerance change.",
+  "patch": {
+    "path": "patches/reliable/FS020.patch",
+    "sha256": "57d00f19e2ad5483be5d25c551bccab104dbe00c152283b698cefe2e663b626f",
+    "published_as_success": false
+  },
+  "checks": {
+    "patch_apply": {
+      "verdict": "pass",
+      "runs": 1,
+      "passes": 1
+    },
+    "compile": {
+      "verdict": "pass",
+      "runs": 1,
+      "passes": 1,
+      "duration_seconds": 2.935
+    },
+    "ordinary": {
+      "verdict": "pass",
+      "executed": 1,
+      "passes": 1,
+      "planned": 1,
+      "final_100_gate_reached": false,
+      "excluded_evidence": "A later 100-run matrix used overlapping Maven invocations in one workspace and is not credited."
+    },
+    "unpatched_recorded_delay": {
+      "verdict": "pass",
+      "delay_milliseconds": 12800,
+      "executed": 5,
+      "confirmed_nonpasses": 5
+    },
+    "patched_recorded_delay": {
+      "verdict": "fail",
+      "delay_milliseconds": 12800,
+      "executed": 5,
+      "confirmed_passes": 0,
+      "confirmed_nonpasses": 5
+    },
+    "missing_completion": {
+      "verdict": "unknown",
+      "source_check": "missing_publication",
+      "reason": "Candidate rejected at the causal gate; no sound wait was available to probe."
+    },
+    "interruption": {
+      "verdict": "unknown",
+      "reason": "Candidate rejected at the causal gate; no new wait was admitted."
+    },
+    "multi_writer": {
+      "verdict": "not_applicable",
+      "reason": "The candidate adds no shared counter or writer publication."
+    },
+    "neighboring_tests": {
+      "verdict": "unknown",
+      "source_check": "neighbor",
+      "reason": "Candidate rejected before the neighboring-test gate."
+    },
+    "same_process": {
+      "verdict": "unknown",
+      "source_check": "reused_jvm",
+      "reason": "Candidate rejected before the reused-JVM gate."
+    },
+    "parallel": {
+      "verdict": "unknown",
+      "reason": "Actual parallel execution was not tested."
+    },
+    "state_leakage": {
+      "verdict": "unknown",
+      "reason": "No separate state-leakage check was reached."
+    }
+  },
+  "causal_conclusion": "The candidate failed all five matched repaired runs and was rejected at the causal-effectiveness gate.",
+  "claim_boundary": "One rejected manual candidate for FS020; later reliability gates remain unknown under the declared stopping rule.",
+  "source_ledger": {
+    "original_path": "<PRIVATE_STUDY_ROOT>/runs/reliable_repair_poc_v1/FS020/validation.json",
+    "original_bytes": 9825,
+    "original_sha256": "3f464ae0a2e501180ee4dceca53277830279cc0f93e7121731a36405a1b394fd",
+    "transformation": "Removed timestamps, commands, raw-log paths, per-run log references, and comparison detail; retained case identity, verdicts, bounds, counted outcomes, blocker, and causal witnesses."
+  }
+}

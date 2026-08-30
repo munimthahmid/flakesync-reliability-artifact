@@ -1,0 +1,94 @@
+--- a/src/test/java/com/github/kagkarlsson/scheduler/TestTasks.java
++++ b/src/test/java/com/github/kagkarlsson/scheduler/TestTasks.java
+@@ -83,7 +83,7 @@
+ 
+ 	public static class CountingHandler<T> implements ExecutionHandlerWithExternalCompletion<T> {
+ 		private final Duration wait;
+-		public int timesExecuted = 0;
++		public volatile int timesExecuted = 0;
+ 
+ 		public CountingHandler() {
+ 			wait = Duration.ofMillis(0);
+@@ -94,13 +94,17 @@
+ 
+ 		@Override
+ 		public void execute(TaskInstance<T> taskInstance, ExecutionContext executionContext) {
+-			this.timesExecuted++;
++			incrementExecutionCount();
+ 			try {
+ 				Thread.sleep(wait.toMillis());
+ 			} catch (InterruptedException e) {
+ 				LoggerFactory.getLogger(CountingHandler.class).info("Interrupted.");
+ 			}
+ 		}
++
++		private synchronized void incrementExecutionCount() {
++			this.timesExecuted++;
++		}
+ 	}
+ 
+ 	public static class WaitingHandler<T> implements ExecutionHandlerWithExternalCompletion<T> {
+--- a/src/test/java/com/github/kagkarlsson/scheduler/compatibility/CompatibilityTest.java
++++ b/src/test/java/com/github/kagkarlsson/scheduler/compatibility/CompatibilityTest.java
+@@ -20,6 +20,7 @@
+ import java.util.ArrayList;
+ import java.util.List;
+ import java.util.Optional;
++import java.util.concurrent.CountDownLatch;
+ import java.util.concurrent.TimeUnit;
+ 
+ import static com.github.kagkarlsson.scheduler.JdbcTaskRepository.DEFAULT_TABLE_NAME;
+@@ -39,6 +40,8 @@
+ 
+ 	private TestTasks.CountingHandler<String> delayingHandlerOneTime;
+ 	private TestTasks.CountingHandler<Void> delayingHandlerRecurring;
++	private CountDownLatch oneTimeCompleted;
++	private CountDownLatch recurringCompleted;
+ 	private OneTimeTask<String> oneTime;
+ 	private RecurringTask<Void> recurring;
+ 	private RecurringTask<Integer> recurringWithData;
+@@ -49,8 +52,22 @@
+ 
+ 	@Before
+ 	public void setUp() {
+-		delayingHandlerOneTime = new TestTasks.CountingHandler<>(Duration.ofMillis(200));
+-		delayingHandlerRecurring = new TestTasks.CountingHandler<>(Duration.ofMillis(200));
++		oneTimeCompleted = new CountDownLatch(1);
++		recurringCompleted = new CountDownLatch(11);
++		delayingHandlerOneTime = new TestTasks.CountingHandler<String>(Duration.ofMillis(200)) {
++			@Override
++			public void execute(TaskInstance<String> taskInstance, ExecutionContext executionContext) {
++				super.execute(taskInstance, executionContext);
++				oneTimeCompleted.countDown();
++			}
++		};
++		delayingHandlerRecurring = new TestTasks.CountingHandler<Void>(Duration.ofMillis(200)) {
++			@Override
++			public void execute(TaskInstance<Void> taskInstance, ExecutionContext executionContext) {
++				super.execute(taskInstance, executionContext);
++				recurringCompleted.countDown();
++			}
++		};
+ 
+ 		oneTime = TestTasks.oneTimeWithType("oneTime", String.class, delayingHandlerOneTime);
+ 		recurring = TestTasks.recurring("recurring", FixedDelay.of(Duration.ofMillis(10)), delayingHandlerRecurring);
+@@ -71,7 +88,7 @@
+ 	}
+ 
+ 	@Test
+-	public void test_compatibility() {
++	public void test_compatibility() throws InterruptedException {
+ 		scheduler.start();
+ 
+ 		scheduler.schedule(oneTime.instance("id1"), Instant.now());
+@@ -82,6 +99,10 @@
+ 		scheduler.schedule(recurring.instance("id4"), Instant.now());
+ 
+ 		sleep(Duration.ofSeconds(10));
++		assertThat("one-time execution did not complete within 7 seconds after the observation period",
++				oneTimeCompleted.await(7, TimeUnit.SECONDS), is(true));
++		assertThat("11 recurring executions did not complete within 7 seconds after the observation period",
++				recurringCompleted.await(7, TimeUnit.SECONDS), is(true));
+ 
+ 		scheduler.stop();
+ 		assertThat(statsRegistry.unexpectedErrors.get(), is(0));

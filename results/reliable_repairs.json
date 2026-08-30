@@ -1,0 +1,265 @@
+{
+  "boundaries": {
+    "rejected_candidates_stop_before_later_gates": true,
+    "selected_case_studies_not_population_estimate": true,
+    "successful_repair_does_not_mean_every_possible_schedule_was_tested": true,
+    "unknown_check_is_neither_pass_nor_fail": true
+  },
+  "cases": {
+    "FS005": {
+      "additional_gate_verdicts": {
+        "interruption": "pass",
+        "missing_completion": "pass",
+        "multi_writer": "not_applicable",
+        "neighboring_tests": "pass",
+        "parallel": "pass",
+        "same_process": "pass",
+        "state_leakage": "pass"
+      },
+      "blocker": null,
+      "candidate_status": "successful_reliable_repair_poc",
+      "causal_conclusion": "The same confirmed 800 ms trigger failed all five unpatched controls and passed all five repaired runs.",
+      "causal_replay": {
+        "repaired_executed": 5,
+        "repaired_nonpasses": 0,
+        "repaired_passes": 5,
+        "repaired_verdict": "pass",
+        "unpatched_executed": 5,
+        "unpatched_nonpasses": 5,
+        "unpatched_verdict": "pass"
+      },
+      "claim_boundary": "One manually designed repair for FS005; this does not estimate effectiveness on other cases.",
+      "ordinary": {
+        "executed": 100,
+        "passes": 100,
+        "verdict": "pass"
+      },
+      "overall_verdict": "pass",
+      "patch": {
+        "path": "patches/reliable/FS005.patch",
+        "published_as_success": true,
+        "sha256": "f29ee77e11982920360cf500b79cb91aa3cba06d0d65f0b33b5d4fcf6c8cb08d"
+      },
+      "project": "Alluxio/alluxio",
+      "source_revision": "78c063ae181279d81cbc0808a684864a8c8b311c",
+      "target_test": "tachyon.client.TachyonFSTest#lockBlockTest1",
+      "validation": {
+        "path": "data/reliable_repairs/validations/FS005.json",
+        "sha256": "c228a21403398731c38ce7e92860ddb42d66acf0eb4da7c2b62bf218494f1549",
+        "source_ledger_sha256": "49fb0e0a00c68fc4e65c80de8c4bcccd1485e4d6299cd02e04d15abcd35f094f"
+      }
+    },
+    "FS014": {
+      "additional_gate_verdicts": {
+        "interruption": "pass",
+        "missing_completion": "pass",
+        "multi_writer": "not_applicable",
+        "neighboring_tests": "pass",
+        "parallel": "pass",
+        "same_process": "pass",
+        "state_leakage": "unknown"
+      },
+      "blocker": null,
+      "candidate_status": "successful_additional_reliable_repair",
+      "causal_conclusion": "The same confirmed 100 ms trigger failed all five unpatched controls and passed all five repaired runs.",
+      "causal_replay": {
+        "repaired_executed": 5,
+        "repaired_nonpasses": 0,
+        "repaired_passes": 5,
+        "repaired_verdict": "pass",
+        "unpatched_executed": 5,
+        "unpatched_nonpasses": 5,
+        "unpatched_verdict": "pass"
+      },
+      "claim_boundary": "One manually designed repair for FS014; this does not estimate effectiveness on other cases.",
+      "ordinary": {
+        "executed": 100,
+        "passes": 100,
+        "verdict": "pass"
+      },
+      "overall_verdict": "pass",
+      "patch": {
+        "path": "patches/reliable/FS014.patch",
+        "published_as_success": true,
+        "sha256": "6fd3543b86f27fbab9edf38b177b2f785ed8c659dcb38b684600a46726729dc7",
+        "targets": [
+          "src/main/java/org/java_websocket/WebSocketImpl.java",
+          "src/test/java/org/java_websocket/issues/Issue677Test.java"
+        ]
+      },
+      "project": "TooTallNate/Java-WebSocket",
+      "source_revision": "fa3909c391195178ccf5a92d4ac342a30ae247c8",
+      "target_test": "org.java_websocket.issues.Issue677Test#testIssue",
+      "validation": {
+        "path": "data/reliable_repairs/validations/FS014.json",
+        "sha256": "274c5586abee095fb1fbb1cf3104605caa9a38dc6f2a71ce8d689b0b4790a584",
+        "source_ledger_sha256": "1491ce9d331da6a6877bb152f2d3263f8ac6a857470f205f65ce4c631b27d615"
+      }
+    },
+    "FS020": {
+      "additional_gate_verdicts": {
+        "interruption": "unknown",
+        "missing_completion": "unknown",
+        "multi_writer": "not_applicable",
+        "neighboring_tests": "unknown",
+        "parallel": "unknown",
+        "same_process": "unknown",
+        "state_leakage": "unknown"
+      },
+      "blocker": "The recorded 12.8-second delay at AbstractConnPool#createConnection exceeds the test's existing 10-second GRACE_PERIOD before the first lease completion. Moving the second lease after the first join weakens the intended contention and still failed 5/5. Increasing the grace bound without an existing domain deadline would be an unjustified tolerance change.",
+      "candidate_status": "unsound_reordering_candidate_rejected_at_causal_gate",
+      "causal_conclusion": "The candidate failed all five matched repaired runs and was rejected at the causal-effectiveness gate.",
+      "causal_replay": {
+        "repaired_executed": 5,
+        "repaired_nonpasses": 5,
+        "repaired_passes": 0,
+        "repaired_verdict": "fail",
+        "unpatched_executed": 5,
+        "unpatched_nonpasses": 5,
+        "unpatched_verdict": "pass"
+      },
+      "claim_boundary": "One rejected manual candidate for FS020; later reliability gates remain unknown under the declared stopping rule.",
+      "ordinary": {
+        "executed": 1,
+        "passes": 1,
+        "verdict": "pass"
+      },
+      "overall_verdict": "fail",
+      "patch": {
+        "path": "patches/reliable/FS020.patch",
+        "published_as_success": false,
+        "sha256": "57d00f19e2ad5483be5d25c551bccab104dbe00c152283b698cefe2e663b626f"
+      },
+      "project": "apache/httpcore",
+      "source_revision": "49247d208bde47f652812493e1d3576e136b8eb8",
+      "target_test": "org.apache.http.pool.TestConnPool#testLeaseTimeout",
+      "validation": {
+        "path": "data/reliable_repairs/validations/FS020.json",
+        "sha256": "fe92a94c619da289b86ec8c9330fab3081ecacb47da8a087fa13029dbcf39283",
+        "source_ledger_sha256": "3f464ae0a2e501180ee4dceca53277830279cc0f93e7121731a36405a1b394fd"
+      }
+    },
+    "FS056": {
+      "additional_gate_verdicts": {
+        "interruption": "pass",
+        "missing_completion": "pass",
+        "multi_writer": "pass",
+        "neighboring_tests": "unknown",
+        "parallel": "unknown",
+        "same_process": "unknown",
+        "state_leakage": "unknown"
+      },
+      "blocker": "The event-based repair cannot reach 11 actual recurring completions under the confirmed recorded-delay instrumentation before the unchanged 20-second JUnit timeout. Widening that timeout would weaken the frozen oracle; waiting on scheduler-loop counts is causally unsound.",
+      "candidate_status": "sound_candidate_rejected_at_causal_gate",
+      "causal_conclusion": "One confirmed repaired non-pass rejected the candidate at the causal-effectiveness gate under the declared stopping rule.",
+      "causal_replay": {
+        "repaired_executed": 1,
+        "repaired_nonpasses": 1,
+        "repaired_passes": 0,
+        "repaired_verdict": "fail",
+        "unpatched_executed": 5,
+        "unpatched_nonpasses": 5,
+        "unpatched_verdict": "pass"
+      },
+      "claim_boundary": "One rejected manual candidate for FS056; later reliability gates remain unknown under the declared stopping rule.",
+      "ordinary": {
+        "executed": 1,
+        "passes": 1,
+        "verdict": "pass"
+      },
+      "overall_verdict": "fail",
+      "patch": {
+        "path": "patches/reliable/FS056.patch",
+        "published_as_success": false,
+        "sha256": "62ad85cb81565e19cb0d1619c21df662e146a8c85a27d45a2cd8e06625f0210a"
+      },
+      "project": "kagkarlsson/db-scheduler",
+      "source_revision": "4a8a28e60640dcd03e8d3bf212f483d35b0b6310",
+      "target_test": "com.github.kagkarlsson.scheduler.compatibility.HsqlCompatibilityTest#test_compatibility",
+      "validation": {
+        "path": "data/reliable_repairs/validations/FS056.json",
+        "sha256": "fff06ed729265767e29f621d4d95beab0787321ab0f562c4f7c39ae8f9960ba7",
+        "source_ledger_sha256": "a6d287a79ec71ce9275ef4adcfa4d07138bf57e73d8dfb5c0f8ae2073017e0dc"
+      }
+    },
+    "FS059": {
+      "additional_gate_verdicts": {
+        "interruption": "pass",
+        "missing_completion": "pass",
+        "multi_writer": "not_applicable",
+        "neighboring_tests": "pass",
+        "parallel": "unknown",
+        "same_process": "pass",
+        "state_leakage": "unknown"
+      },
+      "blocker": null,
+      "candidate_status": "successful_reliable_repair_poc",
+      "causal_conclusion": "The same confirmed 1600 ms trigger failed all five unpatched controls and passed all five repaired runs.",
+      "causal_replay": {
+        "repaired_executed": 5,
+        "repaired_nonpasses": 0,
+        "repaired_passes": 5,
+        "repaired_verdict": "pass",
+        "unpatched_executed": 5,
+        "unpatched_nonpasses": 5,
+        "unpatched_verdict": "pass"
+      },
+      "claim_boundary": "One manually designed repair for FS059; parallel execution remains unknown and the result does not estimate effectiveness on other cases.",
+      "ordinary": {
+        "executed": 100,
+        "passes": 100,
+        "verdict": "pass"
+      },
+      "overall_verdict": "pass",
+      "patch": {
+        "path": "patches/reliable/FS059.patch",
+        "published_as_success": true,
+        "sha256": "88095839876ac6dc80b665ae0163466cf278a64c618dcadfc5f56209db0dc6dd"
+      },
+      "project": "qos-ch/logback",
+      "source_revision": "0f57531977287fd3d8c9046e9f68e281715f3b10",
+      "target_test": "ch.qos.logback.classic.net.SMTPAppender_GreenTest#testCustomEvaluator",
+      "validation": {
+        "path": "data/reliable_repairs/validations/FS059.json",
+        "sha256": "8fc1c5369468c3a788fef73ca8a1c9b2d6f96852d1dc4316d5e851b4acfd2f33",
+        "source_ledger_sha256": "5759eab4d4606ee19709d8137a1387838d9836d7517e044ff49b2e98471cf50f"
+      }
+    }
+  },
+  "claim_boundary": "The outcomes are case-specific proof-of-concept results and do not estimate effectiveness over the 67 generation attempts, the 18 generated-patch cases, or any wider population.",
+  "manual_candidates": {
+    "case_ids": [
+      "FS005",
+      "FS014",
+      "FS020",
+      "FS056",
+      "FS059"
+    ],
+    "count": 5
+  },
+  "rejected_candidates": {
+    "case_ids": [
+      "FS020",
+      "FS056"
+    ],
+    "count": 2
+  },
+  "schema_version": "reliable-repair-release-summary-v1",
+  "status": "pass",
+  "successful_reliable_repairs": {
+    "case_ids": [
+      "FS005",
+      "FS014",
+      "FS059"
+    ],
+    "count": 3
+  },
+  "unknown_overall": {
+    "case_ids": [],
+    "count": 0
+  },
+  "validation_protocol": {
+    "path": "contract/manual_repair_validation_protocol.json",
+    "sha256": "3f434dbde4cf3e3f4490a13ceeda1ad0ac4c2905b50b2c6af7f8add139e7fce2"
+  }
+}

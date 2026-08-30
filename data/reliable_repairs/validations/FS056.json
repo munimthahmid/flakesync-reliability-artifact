@@ -1,0 +1,99 @@
+{
+  "schema_version": "reliable-repair-release-validation-v1",
+  "case_id": "FS056",
+  "project": "kagkarlsson/db-scheduler",
+  "source_revision": "4a8a28e60640dcd03e8d3bf212f483d35b0b6310",
+  "target_test": "com.github.kagkarlsson.scheduler.compatibility.HsqlCompatibilityTest#test_compatibility",
+  "selection_scope": "manual_candidate",
+  "candidate_status": "sound_candidate_rejected_at_causal_gate",
+  "overall_verdict": "fail",
+  "blocker": "The event-based repair cannot reach 11 actual recurring completions under the confirmed recorded-delay instrumentation before the unchanged 20-second JUnit timeout. Widening that timeout would weaken the frozen oracle; waiting on scheduler-loop counts is causally unsound.",
+  "patch": {
+    "path": "patches/reliable/FS056.patch",
+    "sha256": "62ad85cb81565e19cb0d1619c21df662e146a8c85a27d45a2cd8e06625f0210a",
+    "published_as_success": false
+  },
+  "checks": {
+    "patch_apply": {
+      "verdict": "pass",
+      "runs": 1,
+      "passes": 1
+    },
+    "compile": {
+      "verdict": "pass",
+      "runs": 1,
+      "passes": 1,
+      "duration_seconds": 5.06
+    },
+    "ordinary": {
+      "verdict": "pass",
+      "executed": 1,
+      "passes": 1,
+      "planned": 1,
+      "final_100_gate_reached": false,
+      "excluded_evidence": "A superseded faster candidate passed 96/100; those runs are not credited to this final candidate."
+    },
+    "unpatched_recorded_delay": {
+      "verdict": "pass",
+      "executed": 5,
+      "confirmed_nonpasses": 5
+    },
+    "patched_recorded_delay": {
+      "verdict": "fail",
+      "executed": 1,
+      "passes": 0,
+      "confirmed_nonpasses": 1,
+      "injection_confirmed": true,
+      "diagnostic_confirmed": true,
+      "duration_milliseconds": 18769
+    },
+    "missing_completion": {
+      "verdict": "pass",
+      "source_check": "missing_publication",
+      "executed": 1,
+      "bounded_diagnostic": true,
+      "outer_timeout": false,
+      "duration_seconds": 18.08
+    },
+    "interruption": {
+      "verdict": "pass",
+      "executed": 1,
+      "interrupted_exception_propagated": true,
+      "outer_timeout": false,
+      "duration_seconds": 11.18
+    },
+    "multi_writer": {
+      "verdict": "pass",
+      "writers": 8,
+      "rounds": 1000,
+      "expected_updates": 8000,
+      "observed_updates": 8000
+    },
+    "neighboring_tests": {
+      "verdict": "unknown",
+      "source_check": "neighbor",
+      "reason": "Candidate rejected before the neighboring-test gate."
+    },
+    "same_process": {
+      "verdict": "unknown",
+      "source_check": "reused_jvm",
+      "reason": "Candidate rejected before the reused-JVM gate."
+    },
+    "parallel": {
+      "verdict": "unknown",
+      "reason": "Actual parallel execution was not tested."
+    },
+    "state_leakage": {
+      "verdict": "unknown",
+      "reason": "No separate state-leakage check was reached."
+    }
+  },
+  "causal_conclusion": "One confirmed repaired non-pass rejected the candidate at the causal-effectiveness gate under the declared stopping rule.",
+  "claim_boundary": "One rejected manual candidate for FS056; later reliability gates remain unknown under the declared stopping rule.",
+  "source_ledger": {
+    "original_path": "<PRIVATE_STUDY_ROOT>/runs/reliable_repair_poc_v1/FS056/validation.json",
+    "original_bytes": 9009,
+    "original_sha256": "a6d287a79ec71ce9275ef4adcfa4d07138bf57e73d8dfb5c0f8ae2073017e0dc",
+    "transformation": "Removed timestamps, commands, raw-log paths, per-run log references, and comparison detail; retained case identity, verdicts, bounds, counted outcomes, blocker, and causal witnesses."
+  }
+}

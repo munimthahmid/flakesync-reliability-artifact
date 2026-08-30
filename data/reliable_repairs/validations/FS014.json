@@ -1,0 +1,114 @@
+{
+  "schema_version": "reliable-repair-release-validation-v1",
+  "case_id": "FS014",
+  "project": "TooTallNate/Java-WebSocket",
+  "source_revision": "fa3909c391195178ccf5a92d4ac342a30ae247c8",
+  "target_test": "org.java_websocket.issues.Issue677Test#testIssue",
+  "selection_scope": "manual_candidate",
+  "candidate_status": "successful_additional_reliable_repair",
+  "overall_verdict": "pass",
+  "repair_design": {
+    "summary": "Use invocation-local latches and the existing per-client closed state, safely publish readyState with volatile semantics, and bound every asynchronous wait.",
+    "assertion_fidelity": "All original state assertions remain; connection and callback waits now have explicit bounds.",
+    "causal_race": "onClose/countDownLatch publication occurs before WebSocketImpl publishes ReadyState.CLOSED.",
+    "cleanup": "WebSocketServer.stop(5000) executes in finally.",
+    "invocation_scope": "Both latches and both WebSocketClient instances are local to one test invocation.",
+    "wait": "Monotonic-deadline polling with interruptible TimeUnit.sleep and a five-second bound."
+  },
+  "patch": {
+    "path": "patches/reliable/FS014.patch",
+    "sha256": "6fd3543b86f27fbab9edf38b177b2f785ed8c659dcb38b684600a46726729dc7",
+    "published_as_success": true,
+    "targets": [
+      "src/main/java/org/java_websocket/WebSocketImpl.java",
+      "src/test/java/org/java_websocket/issues/Issue677Test.java"
+    ]
+  },
+  "checks": {
+    "patch_apply": {
+      "verdict": "pass",
+      "runs": 1,
+      "passes": 1,
+      "reconstruction_matches_validated_workspace": true
+    },
+    "compile": {
+      "verdict": "pass",
+      "runs": 1,
+      "passes": 1,
+      "clean": true,
+      "duration_seconds": 3.29
+    },
+    "ordinary": {
+      "verdict": "pass",
+      "executed": 100,
+      "passes": 100,
+      "fresh_jvm_per_run": true,
+      "total_duration_milliseconds": 31923
+    },
+    "unpatched_recorded_delay": {
+      "verdict": "pass",
+      "location": "org/java_websocket/WebSocketImpl#513",
+      "delay_milliseconds": 100,
+      "executed": 5,
+      "confirmed_nonpasses": 5
+    },
+    "patched_recorded_delay": {
+      "verdict": "pass",
+      "location": "org/java_websocket/WebSocketImpl#513",
+      "delay_milliseconds": 100,
+      "executed": 5,
+      "confirmed_passes": 5
+    },
+    "missing_completion": {
+      "verdict": "pass",
+      "source_check": "missing_completion",
+      "declared_bound_milliseconds": 200,
+      "executed": 1,
+      "observed_elapsed_milliseconds": 204,
+      "outer_timeout": false
+    },
+    "interruption": {
+      "verdict": "pass",
+      "executed": 1,
+      "result": "InterruptedException propagated",
+      "outer_timeout": false
+    },
+    "multi_writer": {
+      "verdict": "not_applicable",
+      "reason": "The repair adds no counter or compound update; the existing readyState assignments are volatile writes."
+    },
+    "neighboring_tests": {
+      "verdict": "pass",
+      "source_check": "neighbor",
+      "executed": 5,
+      "passes": 5,
+      "peer": "FS008 org.java_websocket.issues.Issue580Test#runNoCloseBlockingTestScenario0",
+      "same_process_with_target": true
+    },
+    "same_process": {
+      "verdict": "pass",
+      "source_check": "reused_jvm",
+      "target_repetitions": 10,
+      "neighbor_rounds": 5
+    },
+    "parallel": {
+      "verdict": "pass",
+      "rounds": 5,
+      "invocations_per_round": 2,
+      "actual_overlap_confirmed": true,
+      "observed_max_active": 2
+    },
+    "state_leakage": {
+      "verdict": "unknown",
+      "reason": "No separate state-leakage check was recorded; invocation scope is covered by the repaired design and reused-JVM gate."
+    }
+  },
+  "causal_conclusion": "The same confirmed 100 ms trigger failed all five unpatched controls and passed all five repaired runs.",
+  "claim_boundary": "One manually designed repair for FS014; this does not estimate effectiveness on other cases.",
+  "source_ledger": {
+    "original_path": "<PRIVATE_STUDY_ROOT>/runs/reliable_repair_poc_v2/FS014/validation.json",
+    "original_bytes": 35843,
+    "original_sha256": "1491ce9d331da6a6877bb152f2d3263f8ac6a857470f205f65ce4c631b27d615",
+    "transformation": "Removed private absolute paths, timestamps, commands, raw-log paths, per-run log references, and comparison detail; retained case identity, verdicts, bounds, counted outcomes, and causal witnesses."
+  }
+}

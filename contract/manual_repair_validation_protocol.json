@@ -1,0 +1,49 @@
+{
+  "schema_version": "manual-repair-validation-protocol-v1",
+  "scope": {
+    "case_ids": [
+      "FS005",
+      "FS014",
+      "FS020",
+      "FS056",
+      "FS059"
+    ],
+    "selection": "Five manually selected case studies used to test whether a reliability-aware repair can be constructed and validated.",
+    "claim_boundary": "The outcomes are case-specific proof-of-concept results and do not estimate effectiveness over the 67 generation attempts, the 18 generated-patch cases, or any wider population."
+  },
+  "verdicts": {
+    "pass": "The cited case-specific gate produced the required positive evidence.",
+    "fail": "The cited gate produced a confirmed violation or rejected the candidate.",
+    "unknown": "The gate was not reached or lacked a valid witness; unknown is neither pass nor fail.",
+    "not_applicable": "The repair design does not contain the mechanism targeted by this gate."
+  },
+  "acceptance": {
+    "patch_apply": "The saved unified diff applies with zero fuzz to the frozen source revision.",
+    "compile": "The affected project or reactor compiles with the candidate applied.",
+    "ordinary": "A successful final candidate passes 100 independently started ordinary target executions.",
+    "causal_replay": "The matched unpatched control must non-pass under the witnessed recorded-delay trigger, and every credited repaired run must pass under the same trigger. One confirmed repaired non-pass is sufficient to reject causal effectiveness.",
+    "missing_completion": "When applicable, a witnessed missing producer or publication terminates through the repair's bounded diagnostic before the outer deadline.",
+    "interruption": "When applicable, a witnessed interrupt terminates the wait and propagates InterruptedException or preserves interrupt status.",
+    "multi_writer": "Counter-like repairs require a coordinated multi-writer probe with exact observed counts.",
+    "noninterference": "Applicable neighboring-test and reused-JVM checks must pass. Parallel execution is pass only with a durable overlap witness and otherwise remains unknown."
+  },
+  "overall_verdict": {
+    "pass": "The candidate passes patch application, compilation, 100 ordinary runs, matched causal replay, and the additional case-specific gates that were applicable and executed.",
+    "fail": "The candidate is rejected at a required gate. Later gates may remain unknown after the stopping rule fires.",
+    "stopping_rule": "Do not widen a frozen test oracle merely to make a candidate pass; preserve the blocker or failed causal witness instead."
+  },
+  "normalized_check_names": {
+    "missing_completion": [
+      "missing_completion",
+      "missing_publication"
+    ],
+    "neighboring_tests": [
+      "neighboring_tests",
+      "neighbor"
+    ],
+    "same_process": [
+      "same_process",
+      "reused_jvm"
+    ]
+  }
+}

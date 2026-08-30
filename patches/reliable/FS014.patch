@@ -1,0 +1,82 @@
+--- a/src/main/java/org/java_websocket/WebSocketImpl.java
++++ b/src/main/java/org/java_websocket/WebSocketImpl.java
+@@ -103,7 +103,7 @@
+ 	/**
+ 	 * The current state of the connection
+ 	 */
+-	private ReadyState readyState = ReadyState.NOT_YET_CONNECTED;
++	private volatile ReadyState readyState = ReadyState.NOT_YET_CONNECTED;
+ 
+ 	/**
+ 	 * A list of drafts available for this websocket
+--- a/src/test/java/org/java_websocket/issues/Issue677Test.java
++++ b/src/test/java/org/java_websocket/issues/Issue677Test.java
+@@ -37,16 +37,28 @@
+ import java.net.InetSocketAddress;
+ import java.net.URI;
+ import java.util.concurrent.CountDownLatch;
++import java.util.concurrent.TimeUnit;
+ 
+ import static org.junit.Assert.assertTrue;
+ 
+ public class Issue677Test {
+ 
+-	CountDownLatch countDownLatch0 = new CountDownLatch( 1 );
+-	CountDownLatch countServerDownLatch = new CountDownLatch( 1 );
++	private static final long ASYNC_TIMEOUT_SECONDS = 5;
++
++	static void awaitClosed( WebSocketClient webSocket, long timeout, TimeUnit timeUnit )
++			throws InterruptedException {
++		long remaining = timeUnit.toNanos( timeout );
++		final long deadline = System.nanoTime() + remaining;
++		while( !webSocket.isClosed() && remaining > 0 ) {
++			TimeUnit.NANOSECONDS.sleep( Math.min( remaining, TimeUnit.MILLISECONDS.toNanos( 10 ) ) );
++			remaining = deadline - System.nanoTime();
++		}
++	}
+ 
+ 	@Test
+ 	public void testIssue() throws Exception {
++		final CountDownLatch countDownLatch0 = new CountDownLatch( 1 );
++		final CountDownLatch countServerDownLatch = new CountDownLatch( 1 );
+ 		int port = SocketUtil.getAvailablePort();
+ 		WebSocketClient webSocket0 = new WebSocketClient( new URI( "ws://localhost:" + port ) ) {
+ 			@Override
+@@ -112,17 +124,25 @@
+ 			}
+ 		};
+ 		server.start();
+-		countServerDownLatch.await();
+-		webSocket0.connectBlocking();
+-		assertTrue( "webSocket.isOpen()", webSocket0.isOpen() );
+-		webSocket0.close();
+-		assertTrue( "webSocket.isClosing()", webSocket0.isClosing() );
+-		countDownLatch0.await();
+-		assertTrue( "webSocket.isClosed()", webSocket0.isClosed() );
+-		webSocket1.connectBlocking();
+-		assertTrue( "webSocket.isOpen()", webSocket1.isOpen() );
+-		webSocket1.closeConnection(CloseFrame.ABNORMAL_CLOSE, "Abnormal close!");
+-		assertTrue( "webSocket.isClosed()", webSocket1.isClosed() );
+-		server.stop();
++		try {
++			assertTrue( "server did not start within the completion bound",
++					countServerDownLatch.await( ASYNC_TIMEOUT_SECONDS, TimeUnit.SECONDS ) );
++			assertTrue( "webSocket0 did not connect within the completion bound",
++					webSocket0.connectBlocking( ASYNC_TIMEOUT_SECONDS, TimeUnit.SECONDS ) );
++			assertTrue( "webSocket.isOpen()", webSocket0.isOpen() );
++			webSocket0.close();
++			assertTrue( "webSocket.isClosing()", webSocket0.isClosing() );
++			assertTrue( "close callback did not arrive within the completion bound",
++					countDownLatch0.await( ASYNC_TIMEOUT_SECONDS, TimeUnit.SECONDS ) );
++			awaitClosed( webSocket0, ASYNC_TIMEOUT_SECONDS, TimeUnit.SECONDS );
++			assertTrue( "webSocket.isClosed()", webSocket0.isClosed() );
++			assertTrue( "webSocket1 did not connect within the completion bound",
++					webSocket1.connectBlocking( ASYNC_TIMEOUT_SECONDS, TimeUnit.SECONDS ) );
++			assertTrue( "webSocket.isOpen()", webSocket1.isOpen() );
++			webSocket1.closeConnection(CloseFrame.ABNORMAL_CLOSE, "Abnormal close!");
++			assertTrue( "webSocket.isClosed()", webSocket1.isClosed() );
++		} finally {
++			server.stop( (int) TimeUnit.SECONDS.toMillis( ASYNC_TIMEOUT_SECONDS ) );
++		}
+ 	}
+ }

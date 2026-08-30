@@ -1,0 +1,12 @@
+--- a/logback-classic/src/test/java/ch/qos/logback/classic/net/SMTPAppender_GreenTest.java
++++ b/logback-classic/src/test/java/ch/qos/logback/classic/net/SMTPAppender_GreenTest.java
+@@ -140,7 +140,8 @@
+ 
+   void waitUntilEmailIsSent() throws InterruptedException {
+     loggerContext.getExecutorService().shutdown();
+-    loggerContext.getExecutorService().awaitTermination(1000, TimeUnit.MILLISECONDS);
++    assertTrue("SMTP sender did not finish within 20 seconds",
++            loggerContext.getExecutorService().awaitTermination(20, TimeUnit.SECONDS));
+   }
+ 
+   @Test

@@ -1,0 +1,116 @@
+{
+  "schema_version": "reliable-repair-release-validation-v1",
+  "case_id": "FS005",
+  "project": "Alluxio/alluxio",
+  "source_revision": "78c063ae181279d81cbc0808a684864a8c8b311c",
+  "target_test": "tachyon.client.TachyonFSTest#lockBlockTest1",
+  "selection_scope": "manual_candidate",
+  "candidate_status": "successful_reliable_repair_poc",
+  "overall_verdict": "pass",
+  "repair_design": {
+    "summary": "Replace the fixed 8 ms sleep before the eviction assertion with an interruptible wait on the same file's real isInMemory state.",
+    "production_code_changed": false,
+    "assertions_removed_or_weakened": false,
+    "failure_trigger_changed": false,
+    "shared_mutable_state_added": false,
+    "state_scope": "The awaited TachyonFile is local to one invocation; the only static additions are immutable timeout constants and a stateless helper.",
+    "wait_bound_milliseconds": 5000,
+    "wait_bound_rationale": "The bound is 6.25 times the confirmed 800 ms delay and preserves the test's 3 ms heartbeat configuration."
+  },
+  "patch": {
+    "path": "patches/reliable/FS005.patch",
+    "sha256": "f29ee77e11982920360cf500b79cb91aa3cba06d0d65f0b33b5d4fcf6c8cb08d",
+    "published_as_success": true
+  },
+  "checks": {
+    "patch_apply": {
+      "verdict": "pass",
+      "runs": 1,
+      "passes": 1,
+      "fuzz": 0
+    },
+    "compile": {
+      "verdict": "pass",
+      "runs": 1,
+      "passes": 1
+    },
+    "ordinary": {
+      "verdict": "pass",
+      "executed": 100,
+      "passes": 100,
+      "process_model": "100 independently launched Java 8 processes; one JUnit target method per process"
+    },
+    "unpatched_recorded_delay": {
+      "verdict": "pass",
+      "location": "tachyon/thrift/Command#421",
+      "delay_milliseconds": 800,
+      "executed": 5,
+      "confirmed_injections": 5,
+      "nonpasses": 5
+    },
+    "patched_recorded_delay": {
+      "verdict": "pass",
+      "location": "tachyon/thrift/Command#421",
+      "delay_milliseconds": 800,
+      "executed": 5,
+      "confirmed_injections": 5,
+      "passes": 5
+    },
+    "missing_completion": {
+      "verdict": "pass",
+      "source_check": "missing_completion",
+      "injection_confirmed": true,
+      "outer_timeout_seconds": 20,
+      "outer_timeout_reached": false,
+      "test_elapsed_seconds": 6.43,
+      "candidate_diagnostic": "file was not evicted within the bounded wait",
+      "direct_bound_probe_elapsed_milliseconds": 5118
+    },
+    "interruption": {
+      "verdict": "pass",
+      "injection_confirmed": true,
+      "injected_thread": "main",
+      "propagated": "java.lang.InterruptedException: sleep interrupted",
+      "outer_timeout_seconds": 20,
+      "outer_timeout_reached": false
+    },
+    "multi_writer": {
+      "verdict": "not_applicable",
+      "reason": "The repair adds no counter, signal publication, or shared mutable state for writers to update."
+    },
+    "neighboring_tests": {
+      "verdict": "pass",
+      "source_check": "neighboring_tests",
+      "selection": "all 24 methods in tachyon.client.TachyonFSTest",
+      "executed": 24,
+      "passes": 24
+    },
+    "same_process": {
+      "verdict": "pass",
+      "source_check": "same_process",
+      "target_executions": 10,
+      "neighbor": "tachyon.PairTest#constructorTest",
+      "neighbor_executions": 1,
+      "same_jvm": true
+    },
+    "parallel": {
+      "verdict": "pass",
+      "actual_overlap_confirmed": true,
+      "maximum_active_tests": 2,
+      "same_jvm": true,
+      "peer": "tachyon.PairTest#constructorTest"
+    },
+    "state_leakage": {
+      "verdict": "pass",
+      "evidence": "No mutable static repair state exists; ten target invocations and a peer passed in one JVM, and the full 24-method target class passed."
+    }
+  },
+  "causal_conclusion": "The same confirmed 800 ms trigger failed all five unpatched controls and passed all five repaired runs.",
+  "claim_boundary": "One manually designed repair for FS005; this does not estimate effectiveness on other cases.",
+  "source_ledger": {
+    "original_path": "<PRIVATE_STUDY_ROOT>/runs/reliable_repair_additional_a_v1/FS005/validation.json",
+    "original_bytes": 6153,
+    "original_sha256": "49fb0e0a00c68fc4e65c80de8c4bcccd1485e4d6299cd02e04d15abcd35f094f",
+    "transformation": "Removed timestamps, commands, raw-log paths, and witness-file paths; retained case identity, verdicts, bounds, counted outcomes, and causal witnesses."
+  }
+}

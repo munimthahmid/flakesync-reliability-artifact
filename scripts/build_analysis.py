@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the public quantitative analysis for the FlakeSync reliability study.
+"""Build the release quantitative analysis for the FlakeSync reliability study.
 
 This is an offline, fail-closed synthesis.  It does not execute Maven, Docker,
 or network requests.  It keeps official runtime confirmation, locally emitted

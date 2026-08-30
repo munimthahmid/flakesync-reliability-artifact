@@ -26,11 +26,17 @@ class ReleaseIntegrityTest(unittest.TestCase):
     def test_patch_manifests(self):
         self.verifier.verify_patch_manifests()
 
+    def test_reliable_repair_release(self):
+        self.verifier.verify_reliable_repairs()
+
     def test_scientific_counts(self):
         self.verifier.verify_scientific_counts()
 
     def test_release_contains_no_private_paths_or_secret_shapes(self):
         self.verifier.verify_file_policy()
+
+    def test_readme_links_resolve(self):
+        self.verifier.verify_readme_links()
 
     def test_results_are_deterministic(self):
         self.verifier.verify_deterministic_results()

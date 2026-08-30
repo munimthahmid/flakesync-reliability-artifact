@@ -1,0 +1,22 @@
+--- a/httpcore/src/test/java/org/apache/http/pool/TestConnPool.java
++++ b/httpcore/src/test/java/org/apache/http/pool/TestConnPool.java
+@@ -570,14 +570,16 @@
+         Future<LocalPoolEntry> future1 = pool.lease("somehost", null);
+         GetPoolEntryThread t1 = new GetPoolEntryThread(future1);
+         t1.start();
+-        Future<LocalPoolEntry> future2 = pool.lease("somehost", null);
+-        GetPoolEntryThread t2 = new GetPoolEntryThread(future2, 50, TimeUnit.MICROSECONDS);
+-        t2.start();
+ 
+         t1.join(GRACE_PERIOD);
+         Assert.assertTrue(future1.isDone());
+         LocalPoolEntry entry1 = t1.getEntry();
+         Assert.assertNotNull(entry1);
++
++        Future<LocalPoolEntry> future2 = pool.lease("somehost", null);
++        GetPoolEntryThread t2 = new GetPoolEntryThread(future2, 50, TimeUnit.MICROSECONDS);
++        t2.start();
++
+         t2.join(GRACE_PERIOD);
+         Assert.assertTrue(t2.getException() instanceof TimeoutException);
+         Assert.assertFalse(future2.isDone());

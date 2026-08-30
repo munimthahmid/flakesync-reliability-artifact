@@ -1,0 +1,97 @@
+{
+  "schema_version": "reliable-repair-release-validation-v1",
+  "case_id": "FS059",
+  "project": "qos-ch/logback",
+  "source_revision": "0f57531977287fd3d8c9046e9f68e281715f3b10",
+  "target_test": "ch.qos.logback.classic.net.SMTPAppender_GreenTest#testCustomEvaluator",
+  "selection_scope": "manual_candidate",
+  "candidate_status": "successful_reliable_repair_poc",
+  "overall_verdict": "pass",
+  "repair_design": {
+    "summary": "Use the existing invocation-local LoggerContext executor termination event and require a checked, interruption-propagating bounded wait.",
+    "production_code_changed": false,
+    "shared_mutable_state_added": false,
+    "wait_bound_milliseconds": 20000
+  },
+  "patch": {
+    "path": "patches/reliable/FS059.patch",
+    "sha256": "88095839876ac6dc80b665ae0163466cf278a64c618dcadfc5f56209db0dc6dd",
+    "published_as_success": true
+  },
+  "checks": {
+    "patch_apply": {
+      "verdict": "pass",
+      "runs": 1,
+      "passes": 1
+    },
+    "compile": {
+      "verdict": "pass",
+      "runs": 1,
+      "passes": 1,
+      "duration_seconds": 10.05
+    },
+    "ordinary": {
+      "verdict": "pass",
+      "executed": 100,
+      "passes": 100
+    },
+    "unpatched_recorded_delay": {
+      "verdict": "pass",
+      "delay_milliseconds": 1600,
+      "executed": 5,
+      "confirmed_nonpasses": 5
+    },
+    "patched_recorded_delay": {
+      "verdict": "pass",
+      "delay_milliseconds": 1600,
+      "executed": 5,
+      "confirmed_passes": 5
+    },
+    "missing_completion": {
+      "verdict": "pass",
+      "source_check": "missing_publication",
+      "executed": 1,
+      "declared_bound_milliseconds": 20000,
+      "outer_probe_bound_milliseconds": 23000,
+      "outer_timeout": false
+    },
+    "interruption": {
+      "verdict": "pass",
+      "executed": 1,
+      "propagation": "InterruptedException"
+    },
+    "multi_writer": {
+      "verdict": "not_applicable",
+      "reason": "The repair has no shared counter or publication update; ExecutorService termination covers all submitted workers."
+    },
+    "neighboring_tests": {
+      "verdict": "pass",
+      "source_check": "neighbor",
+      "executed": 5,
+      "passes": 5,
+      "tests_per_execution": 9
+    },
+    "same_process": {
+      "verdict": "pass",
+      "source_check": "reused_jvm",
+      "executed": 10,
+      "passes": 10
+    },
+    "parallel": {
+      "verdict": "unknown",
+      "reason": "Actual same-JVM overlap was not instrumented and therefore is not labeled pass."
+    },
+    "state_leakage": {
+      "verdict": "unknown",
+      "reason": "No separate state-leakage check was recorded."
+    }
+  },
+  "causal_conclusion": "The same confirmed 1600 ms trigger failed all five unpatched controls and passed all five repaired runs.",
+  "claim_boundary": "One manually designed repair for FS059; parallel execution remains unknown and the result does not estimate effectiveness on other cases.",
+  "source_ledger": {
+    "original_path": "<PRIVATE_STUDY_ROOT>/runs/reliable_repair_poc_v1/FS059/validation.json",
+    "original_bytes": 29110,
+    "original_sha256": "5759eab4d4606ee19709d8137a1387838d9836d7517e044ff49b2e98471cf50f",
+    "transformation": "Removed timestamps, commands, raw-log paths, per-run log references, and comparison detail; retained case identity, verdicts, bounds, counted outcomes, and causal witnesses."
+  }
+}

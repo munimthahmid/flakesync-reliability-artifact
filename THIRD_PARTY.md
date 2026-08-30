@@ -1,6 +1,6 @@
 # Third-party material
 
-The files under `patches/` are research evidence. They contain small source excerpts from the upstream projects below at the revisions recorded in `data/subjects.csv` and the patch manifests. The excerpts remain governed by the corresponding upstream terms.
+The files under `patches/` are research evidence. They contain small source excerpts from the upstream projects below at the revisions recorded in `data/subjects.csv`, the generated and comparator manifests, and the hash-bound reliable-repair validation ledgers. The `patches/reliable/` directory intentionally includes all five manual candidates, including the two rejected candidates. The excerpts remain governed by the corresponding upstream terms.
 
 | Project | License/notice retained here |
 |---|---|
